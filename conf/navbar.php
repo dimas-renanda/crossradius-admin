@@ -1,9 +1,10 @@
 <?php require_once'../conf/conn.php';    ob_start();
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<a class="navbar-brand" href=""> </a>
+<a class="navbar-brand" href="">
+  &nbsp;
       <img class="navbar-brand" src="http://localhost/crossradius/assets/img/xnet.png" alt="XNET Logo" height="40">
-      <a class="navbar-brand" href="">MikroX Radius</a>
+      MikroX Radius</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
