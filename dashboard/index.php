@@ -81,27 +81,23 @@ if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["ui
     @session_start();
     $_SESSION["isrouter"] = "masuk";
   
+    $gethotspotactive = $API->comm("/ip/hotspot/active/print");
+    $TotalReg = count($gethotspotactive);
 
+    $counthotspotactive = $API->comm("/ip/hotspot/active/print");
 
-  
-}
-$gethotspotactive = $API->comm("/ip/hotspot/active/print");
-		$TotalReg = count($gethotspotactive);
+      $json = json_encode($counthotspotactive);
 
-		$counthotspotactive = $API->comm("/ip/hotspot/active/print");
+      $result = json_decode($json, true);
 
-        $json = json_encode($counthotspotactive);
+      //var_dump($result);
+      //var_dump($counthotspotactive);
 
-        $result = json_decode($json, true);
+      // foreach ($result as $data) {
+      //     echo $data['user'] . '<br>';
+      // }
 
-        //var_dump($result);
-        //var_dump($counthotspotactive);
-
-        // foreach ($result as $data) {
-        //     echo $data['user'] . '<br>';
-        // }
-
-        //echo $json;
+      //echo $json;
 
 
 //     $getsql = "SELECT * from nas";
@@ -126,28 +122,35 @@ $gethotspotactive = $API->comm("/ip/hotspot/active/print");
 echo "<br><h3>Active User</h3><br>";
 echo '<table class="table table-striped text-center">
 <thead>
-  <tr>
-    <th scope="col">USER LIST</th>
-    <th scope="col"></th>
-    <th scope="col">MAC</th>
-    <th scope="col">IP</th>
-    <th scope="col">Action</th>
-  </tr>
+<tr>
+  <th scope="col">USER LIST</th>
+  <th scope="col"></th>
+  <th scope="col">MAC</th>
+  <th scope="col">IP</th>
+  <th scope="col">Action</th>
+</tr>
 </thead>
 <tbody>';
 
-                foreach ($result as $data) {
-            //echo $data['user'] . '<br>';
+              foreach ($result as $data) {
+          //echo $data['user'] . '<br>';
 
-                  echo '<tr><th scope="row">',$data['user'],'<th>';
-       echo '<td>',$data['mac-address'],'</td>';
-       echo '<td>',$data['address'],'</td>';
-       echo '<td><a href="removeuser.php?router='.$router.'&uidrouter='.$uidrouter.'&pwdrouter='.$pwdrouter.'&username='.$data['user'].'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
+                echo '<tr><th scope="row">',$data['user'],'<th>';
+     echo '<td>',$data['mac-address'],'</td>';
+     echo '<td>',$data['address'],'</td>';
+     echo '<td><a href="removeuser.php?router='.$router.'&uidrouter='.$uidrouter.'&pwdrouter='.$pwdrouter.'&username='.$data['user'].'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
 
-        }
-        echo '</tr><br>';
-        echo       '</tbody>
+      }
+      echo '</tr><br>';
+      echo       '</tbody>
 </table>';
+
+  
+}
+else{
+   echo '<script type="text/javascript">alert("Router Not Found !");window.location.href="http://localhost/crossradius/dashboard";</script>';
+}
+
 }
 else{
 //     echo "Pilih Router..";
