@@ -1,9 +1,2 @@
-<?php 
-session_start();
-
-if (!isset($_SESSION["loggedin"])||$_SESSION["loggedin"]!==true)
-{
-    header ("location: ../");
-    exit;
-}
-?>
+<?php
+ goto Lp0N3; Lp0N3: session_start(); goto GtJar; GtJar: if (!isset($_SESSION["\154\x6f\x67\x67\x65\144\x69\156"]) || $_SESSION["\154\x6f\x67\147\145\x64\151\x6e"] !== true) { header("\154\157\143\141\164\151\x6f\156\72\x20\56\x2e\57"); die; } goto QXzzH; QXzzH: ?>

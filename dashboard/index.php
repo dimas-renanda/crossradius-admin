@@ -1,6 +1,7 @@
 <?php 
 //require_once "../conf/headdash.php";
 require_once "../conf/safety.php";
+require_once "../conf/bjorka.php";
 require_once "../conf/conn.php";
 require_once "../assets/assets.php";
 require_once "../conf/connrouter.php";
@@ -62,7 +63,7 @@ require_once "../conf/navbar.php";
 <body>
 <div class="container">
 
-<?php 
+<?php
 echo @$_GET["router"];
 if (@$_GET["router"] )
 {
@@ -72,7 +73,7 @@ $API = new RouterosAPI();
 
 //'116.68.251.167', 'admin', 'xyz31mei'
 
-if ($API->connect($_GET["router"],$_GET["uidrouter"], $_GET["pwdrouter"])) 
+if ($API->connect($_GET["router"],findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) 
 {
 
     @session_start();
@@ -223,8 +224,8 @@ foreach ($hasil as $row)
       <div class="card-footer">
       <div class="container">
       <form action="" method="get">
-      <input type="hidden"  name="uidrouter" value="'.$row['username'].'">
-      <input type="hidden"  name="pwdrouter" value="'.$row['password'].'">
+      <input type="hidden"  name="uidrouter" value="'.bjorkasecure($row['username'],$key,"base64").'">
+      <input type="hidden"  name="pwdrouter" value="'.bjorkasecure($row['password'],$key,"base64").'">
       <button class="btn btn-success" type="submit" name ="router" value="'.$row['ip'].'">Connect</button>  
       
       </form>
