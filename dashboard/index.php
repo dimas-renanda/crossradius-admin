@@ -67,12 +67,14 @@ require_once "../conf/navbar.php";
 echo @$_GET["router"];
 if (@$_GET["router"] )
 {
+   header("Refresh:5");
 echo "Hotspot Active On : ",@$_GET["router"],"<br>";
 echo "<a href='../'><button>Logout router</button></a><br>";
 $API = new RouterosAPI();
 
 //'116.68.251.167', 'admin', 'xyz31mei'
-
+//set timeout dari suatu exec
+//set_time_limit(5);
 if ($API->connect($_GET["router"],findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) 
 {
 
