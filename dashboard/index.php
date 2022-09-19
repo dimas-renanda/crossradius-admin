@@ -64,18 +64,18 @@ require_once "../conf/navbar.php";
 <div class="container">
 
 <?php
-echo @$_GET["router"];
+//echo @$_GET["router"];
 if (@$_GET["router"] )
 {
    header("Refresh:5");
-echo "Hotspot Active On : ",@$_GET["router"],"<br>";
+echo "Hotspot Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
 echo "<a href='../'><button>Logout router</button></a><br>";
 $API = new RouterosAPI();
 
 //'116.68.251.167', 'admin', 'xyz31mei'
 //set timeout dari suatu exec
 //set_time_limit(5);
-if ($API->connect($_GET["router"],findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) 
+if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) 
 {
 
     @session_start();
@@ -228,7 +228,7 @@ foreach ($hasil as $row)
       <form action="" method="get">
       <input type="hidden"  name="uidrouter" value="'.bjorkasecure($row['username'],$key,"base64").'">
       <input type="hidden"  name="pwdrouter" value="'.bjorkasecure($row['password'],$key,"base64").'">
-      <button class="btn btn-success" type="submit" name ="router" value="'.$row['ip'].'">Connect</button>  
+      <button class="btn btn-success" type="submit" name ="router" value="'.bjorkasecure($row['ip'],$key,"base64").'">Connect</button>  
       
       </form>
       <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'">Delete</button>
@@ -379,7 +379,7 @@ echo '
       <input type="text" id="inputrtype" name="rtype"class="form-control validate" placeholder='Router Type' required>
    </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Edit</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Add</button>
                </div>
             </form>
               </div>

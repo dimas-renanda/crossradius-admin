@@ -35,10 +35,10 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     </div> -->
     <div class="card-body">
       <div class="text-center pd-5">
-        <img src="assets/img/crosstab.png" alt="MIKHMON Logo">
+        <img src="assets/img/xnet.png" height="60" alt="XNET Logo">
       </div>
       <div  class="text-center">
-      <span style="font-size: 25px; margin: 10px;">MikroX</span>
+      <b><span style="font-size: 25px; margin: 10px;">MikroX</span></b>
       </div>
       <center>
         <?php //require_once "signin.php"; ?>
