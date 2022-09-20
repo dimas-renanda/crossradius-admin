@@ -1,5 +1,5 @@
 <?php 
-
+$domainnya = $_SERVER['HTTP_HOST'];
 $linkcnm = mysqli_connect("phoenix.crossnet.co.id","user","xyz13juli","cnm");
 
 //check connection

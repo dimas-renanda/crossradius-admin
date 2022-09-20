@@ -1,4 +1,5 @@
 <?php
+$domainnya = $_SERVER['HTTP_HOST'];
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 @$_POST["username"];
@@ -37,13 +38,13 @@ if ($jsonArrayResponse["Message"] == "Login Success")
     session_start();
     $_SESSION["loggedin"] = true;
     $_SESSION["email"] = $emailnya;
-    echo '<script type="text/javascript">alert("Login Berhasil !");window.location.href="http://localhost/crossradius/dashboard";</script>';
+    echo '<script type="text/javascript">alert("Login Berhasil !");window.location.href="http://'.$domainnya.'/xradius/crossradius-admin/dashboard";</script>';
     //header("location: index.php");
 }
 else
 {
     //echo "Login Gagal";
-    echo '<script type="text/javascript">alert("Login Gagal !");window.location.href="http://localhost/crossradius/";</script>';
+    echo '<script type="text/javascript">alert("'.$domainnya.'Login Gagal !");window.location.href="http://'.$domainnya.'/xradius/crossradius-admin";</script>';
 }
 
 
