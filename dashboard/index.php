@@ -138,7 +138,7 @@ echo '<table class="table table-striped text-center">
                 echo '<tr><th scope="row">',$data['user'],'<th>';
      echo '<td>',$data['mac-address'],'</td>';
      echo '<td>',$data['address'],'</td>';
-     echo '<td><a href="removeuser.php?router='.$router.'&uidrouter='.$uidrouter.'&pwdrouter='.$pwdrouter.'&username='.$data['user'].'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
+     echo '<td><a href="removeuser.php?router='.$router.'&uidrouter='.$uidrouter.'&pwdrouter='.$pwdrouter.'&username='.bjorkasecure($data['user'],$key,"base64").'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
 
       }
       echo '</tr><br>';

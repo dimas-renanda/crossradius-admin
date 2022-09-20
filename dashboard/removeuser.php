@@ -1,14 +1,18 @@
 <?php 
-require('../conf/connrouter.php'); $API = new RouterosAPI(); //$API->debug = true;
+require('../conf/connrouter.php');
+require_once "../conf/bjorka.php";
+ $API = new RouterosAPI(); //$API->debug = true;
 
 @$_GET["router"];
 @$_GET["username"];
 @$_GET["uidrouter"];
 @$_GET["pwdrouter"];
 
-if ($API->connect($_GET["router"],$_GET["uidrouter"], $_GET["pwdrouter"])) {
+echo findbjorka($_GET["router"],$key,"base64");
 
-	$username =@$_GET["username"];
+if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) {
+
+	$username =findbjorka($_GET["username"],$key,"base64");
 	$id_active = false;
 	$id_cookie = false;
    
