@@ -3,7 +3,7 @@
 require_once "../conf/safety.php";
 require_once "../conf/bjorka.php";
 require_once "../conf/conn.php";
-require_once "../assets/assets.php";
+require_once "http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/assets.php";
 require_once "../conf/connrouter.php";
 @session_start();
 @$_GET["router"];
