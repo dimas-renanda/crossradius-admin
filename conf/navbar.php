@@ -13,7 +13,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
            
-            <a class="nav-link" href="../"> Dashboard<span class="sr-only"></span></a>
+            <a class="nav-link" href="../dashboard/cobadash.php"> Dashboard<span class="sr-only"></span></a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>

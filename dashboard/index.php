@@ -26,7 +26,7 @@ $pwdrouter = @$_GET["pwdrouter"];
 <link rel="icon" href="assets/img/crosstab.png" />
     <!-- <link href="http://localhost/crossradius/assets/css/bootstrap.css" rel="stylesheet">
 <script src="http://localhost/crossradius/assets/js/bootstrap.bundle.min.js"></script> -->
-
+<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.min.css" />
 <style>
 
 .custom-column {  
@@ -138,7 +138,7 @@ echo '<table class="table table-striped text-center">
                 echo '<tr><th scope="row">',$data['user'],'<th>';
      echo '<td>',$data['mac-address'],'</td>';
      echo '<td>',$data['address'],'</td>';
-     echo '<td><a href="removeuser.php?router='.$router.'&uidrouter='.$uidrouter.'&pwdrouter='.$pwdrouter.'&username='.bjorkasecure($data['user'],$key,"base64").'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
+     echo '<td><a href="removeuser.php?router='.findbjorka($_GET['router'],$key,"base64").'&uidrouter='.findbjorka($_GET['uidrouter'],$key,"base64").'&pwdrouter='.findbjorka($_GET['pwdrouter'],$key,"base64").'&username='.$data['user'].'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
 
       }
       echo '</tr><br>';
@@ -185,7 +185,7 @@ else{
 //     echo       '</tbody>
 // </table>';
 
-echo "<br><h3>Router List</h3>";
+echo "<br>  <h3><i class='fa fa-server'></i> Router List</h3>";
 
 
 // echo '<table class="table table-striped text-center">
@@ -198,7 +198,7 @@ echo "<br><h3>Router List</h3>";
 //   </tr>
 // </thead>
 // <tbody>';
-echo'<button class="btn btn-primary  text-white align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#myModalAddRouter">Add Router</button>';
+echo'<button class="btn btn-primary  text-white align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#myModalAddRouter"><i class="fa fa-plus"></i> Add Router</button>';
 
 echo '<div class="container ">
 
@@ -224,18 +224,19 @@ foreach ($hasil as $row)
 
   <div class="column">
     <div class="card">
-      <div class="card-header"><i class="fa fa-check"></i><h3>'.$row['session_name'].'</h3></div>
+      <div class="card-header"><h3>'.$row['session_name'].'</h3></div>
       <div class="card-body"><p>'.$row['type'].'</p><br><p>'.$row['ip'].'</p></div>
       <div class="card-footer">
       <div class="container">
       <form action="" method="get">
       <input type="hidden"  name="uidrouter" value="'.bjorkasecure($row['username'],$key,"base64").'">
       <input type="hidden"  name="pwdrouter" value="'.bjorkasecure($row['password'],$key,"base64").'">
-      <button class="btn btn-success" type="submit" name ="router" value="'.bjorkasecure($row['ip'],$key,"base64").'">Connect</button>  
+      <button class="btn btn-success" type="submit" name ="router" value="'.bjorkasecure($row['ip'],$key,"base64").'"><i class="fa fa-check"></i> Connect</button>  
       
       </form>
-      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'">Delete</button>
-      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'">Edit</button></div>
+      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'"><i class="fa fa-edit"></i> Edit</button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-trash"></i> Delete</button>
+     </div>
       
       </div>
     </div>

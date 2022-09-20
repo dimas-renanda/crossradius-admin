@@ -3,16 +3,29 @@ require('../conf/connrouter.php');
 require_once "../conf/bjorka.php";
  $API = new RouterosAPI(); //$API->debug = true;
 
-@$_GET["router"];
-@$_GET["username"];
-@$_GET["uidrouter"];
-@$_GET["pwdrouter"];
+$_GET["router"];
+$_GET["uidrouter"];
+$_GET["pwdrouter"];
+$_GET["username"];
 
-echo findbjorka($_GET["router"],$key,"base64");
 
-if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) {
 
-	$username =findbjorka($_GET["username"],$key,"base64");
+
+
+
+// echo findbjorka($_GET["router"],$key,"base64");
+// echo "<br>";
+// echo findbjorka($_GET["username"],$key,"base64");
+// echo "<br>";
+// echo findbjorka($_GET["uidrouter"],$key,"base64");
+// echo "<br>";
+// echo findbjorka($_GET["pwdrouter"],$key,"base64");
+// echo "<br>";
+
+
+if ($API->connect($_GET["router"],$_GET["uidrouter"], $_GET["pwdrouter"])) {
+
+	$username =@$_GET["username"];
 	$id_active = false;
 	$id_cookie = false;
    
@@ -37,7 +50,8 @@ if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["ui
 	
 	
 
-    //header('../');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+exit;
 }
 
 ?>
