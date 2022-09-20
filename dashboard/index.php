@@ -148,7 +148,7 @@ echo '<table class="table table-striped text-center">
   
 }
 else{
-   echo '<script type="text/javascript">alert("Router Not Found !");window.location.href="http://'.$domainnya.'/crossradius/dashboard";</script>';
+   echo '<script type="text/javascript">alert("Router Not Found !");window.location.href="http://'.$domainnya.'/xradius/crossradius-admin/dashboard";</script>';
 }
 
 }
