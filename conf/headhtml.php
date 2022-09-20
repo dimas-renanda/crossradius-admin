@@ -22,6 +22,8 @@ require_once "./assets/assets.php"
 		<link rel="stylesheet" href="assets/css/mikhmon-ui.light.min.css">
 		<!-- favicon -->
 		<link rel="icon" href="http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/img/crosstab.png" />
+
+		<link rel="icon" href="http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/img/crosstab.png">
 		<!-- jQuery -->
 		<script src="assets/js/jquery.min.js"></script>
 		<!-- pace -->
