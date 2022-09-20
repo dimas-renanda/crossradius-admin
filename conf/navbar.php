@@ -63,33 +63,19 @@
 
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Conf
+              Radius
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <!-- <li>
                         <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
                       </li> -->
                       <li>
-                        <a class="dropdown-item" href="best_hotel.php">Best Hotel by Booked</a>
+                        <a class="dropdown-item" href="best_hotel.php">Restart</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="best_guest.php">Count Best Customer and country</a>
+                        <a class="dropdown-item" href="best_guest.php">Shutdown</a>
                       </li>
-                      <li>
-                        <a class="dropdown-item" href="hotel_type.php">Hotel type</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="hotel_country.php">Hotel in country region</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="roomavg.php">Hotel price rate</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="leadbook.php">Lead Time</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="datediff.php">Lead Time Cancelled Booking</a>
-                      </li>
+
               </ul>
           </li>
 
