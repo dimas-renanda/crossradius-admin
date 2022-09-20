@@ -14,11 +14,11 @@
         $stmt = $linkadmincnm->prepare($sql);
         $stmt->execute([$rid]);
         
-        // if ($stmt)
-        // {
-        //     header('Location: ' . $_SERVER['HTTP_REFERER']);
-        //     exit;
-        // }
+        if ($stmt)
+        {
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
+        }
         
        
     }
