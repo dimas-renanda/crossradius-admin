@@ -286,7 +286,7 @@ $alluser = count($datanya["Data"]);
               <div class="card-body">
   
                                     
-                  <script type="text/javascript"> 
+                  <!-- <script type="text/javascript"> 
                     var chart;
                     var sessiondata = "crossradius";
                     var interface = "Hotspot";
@@ -390,7 +390,7 @@ $alluser = count($datanya["Data"]);
                         },
                       });
                     });
-                  </script>
+                  </script> -->
                   <div id="trafficMonitor"></div>
                 </div> 
               </div>
