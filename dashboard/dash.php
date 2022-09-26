@@ -380,7 +380,7 @@ $(document).ready(function(){
                 <h3><a onclick="cancelPage()" href="./?hotspot=log&session=Soda2a-ip150" title="Open Hotspot Log" ><i class="fa fa-align-justify"></i> Hotspot Log</a></h3></div>
                   <div class="card-body">
                     <div style="padding: 5px; height: 457px ;" class="mr-t-10 overflow">
-                      <table class="table table-sm table-bordered table-hover" style="font-size: 12px; td.padding:2px;">
+                      <table class="table table-sm table-bordered table-hover" style="font-size: 12px; padding:2px;">
                         <thead>
                           <tr>
                             <th>Time</th>

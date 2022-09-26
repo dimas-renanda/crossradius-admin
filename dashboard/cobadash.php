@@ -1,8 +1,19 @@
 
 <!DOCTYPE html>
+<?php 
+require_once "../conf/connrouter.php";
+require_once "../conf/bjorka.php";
+session_start();
+
+?>
 <html>
 	<head>
-		<title>MikroX</title>
+    <?php 
+    echo "<title>MikroX ".findbjorka($_SESSION['iprouter'],$key,'base64')."</title>";
+
+
+    ?>
+
 		<meta charset="utf-8">
 		<meta http-equiv="cache-control" content="private" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +45,7 @@
 
 <div id="navbar" class="navbar">
   <div class="navbar-left">
-  <a> <?php echo '<img class="brand" src="http://localhost/xradius/crossradius-admin/assets/img/xnet.png" alt="XNET Logo" height="30">'; ?>
+  <a> <?php echo '<img class="brand" src="http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/img/xnet.png" alt="XNET Logo" height="30">'; ?>
      <a>Crossnet</a>
 
 <a id="openNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
@@ -48,7 +59,7 @@
 </div>
 
 <div id="sidenav" class="sidenav">
-  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3>MikroX</h3></div>
+  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3>MikroX</h3><p><?php echo findbjorka($_SESSION['iprouter'],$key,'base64'); ?></p></div>
   <a href="" class="menu active"><i class="fa fa-dashboard"></i> Dashboard</a>
   <!--hotspot-->
   <div class="dropdown-btn "><i class="fa fa-wifi"></i> Hotspot
@@ -143,10 +154,43 @@ $(document).ready(function(){
         <div class="box bmh-75 box-bordered">
           <div class="box-group">
             <div class="box-group-icon"><i class="fa fa-calendar"></i></div>
+            <?php 
+                $API = new RouterosAPI();
+                $API->debug = false;
+                if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_SESSION["usernamerouter"],$key,"base64"), findbjorka($_SESSION["pwdrouter"],$key,"base64")))
+                {
+            
+                // get MikroTik system clock
+                    $getclock = $API->comm("/system/clock/print");
+                    $clock = $getclock[0];
+                    $timezone = $getclock[0]['time-zone-name'];
+                    date_default_timezone_set($timezone);
+                
+                // get system resource MikroTik
+                    $getresource = $API->comm("/system/resource/print");
+                    $resource = $getresource[0];
+                
+                // get routeboard info
+                    $getrouterboard = $API->comm("/system/routerboard/print");
+                    $routerboard = $getrouterboard[0];
+
+                    //hotspotactive
+                    $counthotspotactive = $API->comm("/ip/hotspot/active/print");
+                    //temp json
+                    $json = json_encode($counthotspotactive);
+                    //rest json
+                    $resultcounthotspot = json_decode($json, true);
+                }
+
+                $json = file_get_contents('http://10.10.10.196:38700/GetAllUsers');
+
+$datanya = json_decode($json,true);
+$alluser = count($datanya["Data"]);
+            ?>
               <div class="box-group-area">
                 <span >System date & time<br>
-                    Sep/20/2022 18:41:13<br>
-                    Uptime : 9w 2d  12:13:09                </span>
+                    <?php echo date('l, d F Y', strtotime('now')); ?><br>
+                                    </span>
               </div>
             </div>
           </div>
@@ -188,8 +232,8 @@ $(document).ready(function(){
                   <div class="row">
                     <div class="col-3 col-box-6">
                       <div class="box bg-blue bmh-75">
-                        <a onclick="cancelPage()" href="./?hotspot=active&session=Soda2a-ip150">
-                          <h1>99                              <span style="font-size: 15px;">items</span>
+                        <a onclick="cancelPagesasd()" href="">
+                          <h1><?php echo count($resultcounthotspot); ?>                             <span style="font-size: 15px;">items</span>
                             </h1>
                           <div>
                             <i class="fa fa-laptop"></i> Hotspot Active                          </div>
@@ -199,7 +243,7 @@ $(document).ready(function(){
                     <div class="col-3 col-box-6">
                     <div class="box bg-green bmh-75">
                       <a onclick="cancelPage()" href="./?hotspot=users&profile=all&session=Soda2a-ip150">
-                            <h1>46                              <span style="font-size: 15px;">items</span>
+                            <h1><?= $alluser; ?>                              <span style="font-size: 15px;">items</span>
                             </h1>
                       <div>
                             <i class="fa fa-users"></i> Hotspot User                          </div>
@@ -249,7 +293,7 @@ $(document).ready(function(){
                     var n = 3000;
                     function requestDatta(session,iface) {
                       $.ajax({
-                        url: './traffic/traffic.php?session='+session+'&iface='+iface,
+                        url: 'traffic.php',
                         datatype: "json",
                         success: function(data) {
                           var midata = JSON.parse(data);
@@ -372,7 +416,7 @@ $(document).ready(function(){
                 <h3><a onclick="cancelPage()" href="./?hotspot=log&session=Soda2a-ip150" title="Open Hotspot Log" ><i class="fa fa-align-justify"></i> Hotspot Log</a></h3></div>
                   <div class="card-body">
                     <div style="padding: 5px; height: 457px ;" class="mr-t-10 overflow">
-                      <table class="table table-sm table-bordered table-hover" style="font-size: 12px; td.padding:2px;">
+                      <table class="table table-sm table-bordered table-hover" style="font-size: 12px; padding:2px;">
                         <thead>
                           <tr>
                             <th>Time</th>

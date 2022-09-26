@@ -79,7 +79,12 @@ if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["ui
 {
 
     @session_start();
+
     $_SESSION["isrouter"] = "masuk";
+    $_SESSION["iprouter"] = $_GET["router"];
+    $_SESSION["usernamerouter"] = $_GET["uidrouter"];
+    $_SESSION["pwdrouter"] = $_GET["pwdrouter"];
+    
   
     $gethotspotactive = $API->comm("/ip/hotspot/active/print");
     $TotalReg = count($gethotspotactive);
@@ -259,27 +264,27 @@ echo '      <!-- Edit Router -->
                <div class="md-form mb-4">
                   <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Router Name </label>
                   <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$row['id'].' >
-                  <input type="text" id="inputrname" name="rname" class="form-control validate" placeholder='.$row['session_name'].' required>
+                  <input type="text" id="inputrname" name="rname" class="form-control validate" value='.$row['session_name'].' required>
                </div>
                <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrusername"> Ruser </label>
-                  <input type="text" id="inputrusername" name="rusername"class="form-control validate" placeholder='.$row['username'].' required>
+                  <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrusername"> Router Username </label>
+                  <input type="text" id="inputrusername" name="rusername"class="form-control validate" value='.$row['username'].' required>
                </div>
                <div class="md-form mb-4">
-               <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Ruser </label>
-               <input type="password" id="inputrpwd" name="rwpd" class="form-control validate" placeholder='.$row['password'].' required>
+               <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Password </label>
+               <input type="password" id="inputrpwd" name="rwpd" class="form-control validate" value='.$row['password'].' required>
             </div>
             <div class="md-form mb-4">
-            <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Ruser </label>
-            <input type="text" id="inputrip" name="rip"class="form-control validate" placeholder='.$row['ip'].' required>
+            <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Router IP </label>
+            <input type="text" id="inputrip" name="rip"class="form-control validate" value='.$row['ip'].' required>
          </div>
          <div class="md-form mb-4">
-         <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrports"> Ruser </label>
-         <input type="text" id="inputrports" name="rports"class="form-control validate" placeholder='.$row['ports'].' required>
+         <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrports"> Router Ports </label>
+         <input type="text" id="inputrports" name="rports"class="form-control validate" value='.$row['ports'].' required>
       </div>
       <div class="md-form mb-4">
-      <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrtype"> Ruser </label>
-      <input type="text" id="inputrtype" name="rtype"class="form-control validate" placeholder='.$row['type'].' required>
+      <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrtype"> Router Type </label>
+      <input type="text" id="inputrtype" name="rtype"class="form-control validate" value='.$row['type'].' required>
    </div>
                <div class="modal-footer d-flex justify-content-center">
                   <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Edit</button>
