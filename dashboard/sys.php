@@ -72,26 +72,65 @@ if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_
 
 var_dump ($routerboard);
 
-
-foreach($routerboard as $data)
-{
-    echo $data;
-    echo "<br>";
-}
-
-echo "===================================";
-echo "<br>";
-
-foreach($resource as $data)
-{
-    echo $data;
-    echo "<br>";
-}
-
-echo "<br>";
+echo "<br> ==================================================== <br>";
 
 
-echo $routerboard["model"];
+// foreach($routerboard as $data)
+// {
+//     echo $data;
+//     echo "<br>";
+// }
+
+// echo "===================================";
+// echo "<br>";
+
+// foreach($resource as $data)
+// {
+//     echo $data;
+//     echo "<br>";
+// }
+
+// echo "<br>";
+
+echo "<br> ==================================================== <br>";
+
+var_dump ($resource);
+
+echo "<br> ==================================================== <br>";
+
+echo "<h3>R Date</h3>";
+echo "<br> ==================================================== <br>";
+echo 'System date & time ';
+echo "<br> ==================================================== <br>";
+echo $resource["build-time"];
+echo "<br> ==================================================== <br>";
+echo 'Uptime : ',$resource["uptime"];
+
+
+
+echo "<br> ==================================================== <br>";
+
+echo "<h3>R INFO</h3>";
+echo "<br> ==================================================== <br>";
+echo 'Board Arch : ',$resource["architecture-name"];
+echo "<br> ==================================================== <br>";
+echo 'Model : ',$resource["board-name"];
+echo "<br> ==================================================== <br>";
+echo 'Router OS : ',$resource["version"];
+
+
+echo "<br> ==================================================== <br>";
+echo "<h3>R USAGE</h3>";
+echo "<br> ==================================================== <br>";
+echo 'CPU Load : ',$resource["cpu-load"],'%';
+echo "<br> ==================================================== <br>";
+echo 'Free Memory : ',bcdiv($resource["free-memory"], 1048576, 2),' MiB';
+echo "<br> ==================================================== <br>";
+echo 'Free HDD : ',bcdiv($resource["free-hdd-space"], 1048576, 2),' MiB';
+echo "<br> ==================================================== <br>";
+
+
+
 
 
 
