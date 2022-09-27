@@ -163,10 +163,10 @@ $(document).ready(function(){
                 {
             
                 // get MikroTik system clock
-                    $getclock = $API->comm("/system/clock/print");
-                    $clock = $getclock[0];
-                    $timezone = $getclock[0]['time-zone-name'];
-                    date_default_timezone_set($timezone);
+                    // $getclock = $API->comm("/system/clock/print");
+                    // $clock = $getclock[0];
+                    // $timezone = $getclock[0]['time-zone-name'];
+                    // date_default_timezone_set($timezone);
                 
                 // get system resource MikroTik
                     $getresource = $API->comm("/system/resource/print");
