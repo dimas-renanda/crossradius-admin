@@ -31,11 +31,10 @@ if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_
 
       $resultac = json_decode($jsonac, true);
 
-      // get hotspot log
+            // get hotspot log
   $getlog = $API->comm("/log/print", array("?topics" => "hotspot,info,debug", ));
   $log = array_reverse($getlog);
   $THotspotLog = count($getlog);
-      
 
 }
 
@@ -142,6 +141,47 @@ if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_
 
 
 // echo count($result);
+
+ //var_dump($response);
+
+ //var_dump($log);
+//  var_dump( $log);
+//  echo "<br>";
+//  var_dump( $log[0]);
+//  echo "<br>";
+
+//  $logvar = $log[0];
+// echo  $logvar['time'];
+// echo "<br>";
+// echo  $logvar['message'];
+// echo "<br>";
+echo '<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+  <th scope="col">Time</th>
+  
+  <th scope="col">IP</th>
+  <th scope="col">Messages</th>
+</tr>
+</thead>
+<tbody>';
+foreach ($log as $llog)
+{
+    foreach ($llog as $vlog)
+    {
+
+        echo '<tr>';
+        echo '<th scope="row">'.$llog['time'].'</th>';
+        echo '<td>'.strtok($llog['message'],':').'</td>
+        <td>'.substr($llog['message'], strpos($llog['message'], ":") + 1).'</td>';
+      echo'</tr>';
+    }
+   
+}
+
+
+echo       '</tbody>
+</table>';
 
 
 ?>

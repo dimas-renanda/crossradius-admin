@@ -3,7 +3,9 @@
 <?php 
 require_once "../conf/connrouter.php";
 require_once "../conf/bjorka.php";
-session_start();
+require_once "sys.php";
+//session_start();
+header("Refresh:5");
 
 ?>
 <html>
@@ -26,7 +28,7 @@ session_start();
 		<!-- Mikhmon UI -->
 		<link rel="stylesheet" href="../assets/css/mikhmon-ui.light.min.css">
 		<!-- favicon -->
-		<link rel="icon" href="./img/favicon.png" />
+    <link rel="icon" href="../assets/img/crosstab.png" />
 		<!-- jQuery -->
 		<script src="../assets/js/jquery.min.js"></script>
 		<!-- pace -->
@@ -180,16 +182,19 @@ $(document).ready(function(){
                     $json = json_encode($counthotspotactive);
                     //rest json
                     $resultcounthotspot = json_decode($json, true);
+                    
                 }
 
-                //$json = file_get_contents('http://10.10.10.196:38700/GetAllUsers');
+                $json = file_get_contents('http://10.10.10.196:38700/GetAllUsers');
 
-//$datanya = json_decode($json,true);
-//$alluser = count($datanya["Data"]);
+$datanya = json_decode($json,true);
+$alluser = count($datanya["Data"]);
             ?>
               <div class="box-group-area">
                 <span >System date & time<br>
                     <?php echo date('l, d F Y', strtotime('now')); ?><br>
+                                   
+                    <?php echo 'Uptime : ',$resource["uptime"]; ?><br>
                                     </span>
               </div>
             </div>
@@ -201,9 +206,9 @@ $(document).ready(function(){
           <div class="box-group-icon"><i class="fa fa-info-circle"></i></div>
               <div class="box-group-area">
                 <span >
-                    Board Name : hAP<br/>
-                    Model : RB951Ui-2nD<br/>
-                    Router OS : 6.49.2 (stable)                </span>
+                    Board Arch : <?php echo $resource["architecture-name"]; ?><br/>
+                    Model : <?php echo $resource["board-name"]; ?><br/>
+                    Router OS : <?php echo $resource["version"]; ?>               </span>
               </div>
             </div>
           </div>
@@ -214,9 +219,9 @@ $(document).ready(function(){
           <div class="box-group-icon"><i class="fa fa-server"></i></div>
               <div class="box-group-area">
                 <span >
-                    CPU Load : 12%<br/>
-                    Free Memory : 30.2 MiB<br/>
-                    Free HDD : 1.95 MiB                </span>
+                    CPU Load : <?php echo $resource["cpu-load"],'%'; ?><br/>
+                    Free Memory : <?php echo bcdiv($resource["free-memory"], 1048576, 2),' MiB'; ?><br/>
+                    Free HDD : <?php echo bcdiv($resource["free-hdd-space"], 1048576, 2),' MiB'; ?>               </span>
                 </div>
               </div>
             </div>
@@ -233,7 +238,7 @@ $(document).ready(function(){
                     <div class="col-3 col-box-6">
                       <div class="box bg-blue bmh-75">
                         <a onclick="cancelPagesasd()" href="">
-                          <h1><?php //echo count($resultcounthotspot); ?>                             <span style="font-size: 15px;">items</span>
+                          <h1><?php echo count($resultcounthotspot); ?>                             <span style="font-size: 15px;">items</span>
                             </h1>
                           <div>
                             <i class="fa fa-laptop"></i> Hotspot Active                          </div>
@@ -282,9 +287,37 @@ $(document).ready(function(){
           </div>
             <div class="card">
               <div class="card-header"><h3><i class="fa fa-user"></i> Active User </h3></div>
-
               <div class="card-body">
+  <?php 
+  echo '<table class="table table-bordered table-striped text-center">
+  <thead>
+  <tr>
+    <th scope="col">User List</th>
+    
+    <th scope="col">Mac Address</th>
+    <th scope="col">IP</th>
+  </tr>
+  </thead>
+  <tbody>';
   
+                foreach ($resultac as $data) {
+            //echo $data['user'] . '<br>';
+
+            echo '<tr>';
+            echo '<th scope="row">'.$data['user'].'</th>';
+            echo '<td>'.$data['mac-address'].'</td>
+            <td>'.$data['address'].'</td>';
+          echo'</tr>';
+  
+      //             echo '<tr><th scope="row">',$data['user'],'<th>';
+      //  echo '<td>',$data['mac-address'],'</td>';
+      //  echo '<td>',$data['address'],'</td></tr>';
+  
+  
+        }
+        echo       '</tbody>
+  </table>';
+  ?>
                                     
                   <!-- <script type="text/javascript"> 
                     var chart;
@@ -425,11 +458,26 @@ $(document).ready(function(){
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                          <!-- <tr>
                             <td colspan="3" class="text-center">
                             <div id="loader" ><i><i class='fa fa-circle-o-notch fa-spin'></i> Processing... </i></div>
                             </td>
-                          </tr>
+                          </tr> -->
+                          <?php 
+                          foreach ($log as $llog)
+                          {
+                              foreach ($llog as $vlog)
+                              {
+                          
+                                  echo '<tr>';
+                                  echo '<th scope="row">'.$llog['time'].'</th>';
+                                  echo '<td>'.strtok($llog['message'],':').'</td>
+                                  <td>'.substr($llog['message'], strpos($llog['message'], ":") + 1).'</td>';
+                                echo'</tr>';
+                              }
+                             
+                          }
+                          ?>
                       </tbody>
                     </table>
                   </div>

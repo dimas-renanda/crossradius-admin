@@ -69,7 +69,7 @@ if (@$_GET["router"] )
 {
    header("Refresh:5");
 echo "Hotspot Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
-echo "<a href='../'><button>Logout router</button></a><br>";
+echo "<a href='../'><button class='btn btn-secondary'>Logout Router</button></a><br>";
 $API = new RouterosAPI();
 
 //'116.68.251.167', 'admin', 'xyz31mei'
@@ -143,7 +143,7 @@ echo '<table class="table table-striped text-center">
                 echo '<tr><th scope="row">',$data['user'],'<th>';
      echo '<td>',$data['mac-address'],'</td>';
      echo '<td>',$data['address'],'</td>';
-     echo '<td><a href="removeuser.php?router='.findbjorka($_GET['router'],$key,"base64").'&uidrouter='.findbjorka($_GET['uidrouter'],$key,"base64").'&pwdrouter='.findbjorka($_GET['pwdrouter'],$key,"base64").'&username='.$data['user'].'"><button class ="btn btn-warning">Kick User</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
+     echo '<td><a href="removeuser.php?router='.findbjorka($_GET['router'],$key,"base64").'&uidrouter='.findbjorka($_GET['uidrouter'],$key,"base64").'&pwdrouter='.findbjorka($_GET['pwdrouter'],$key,"base64").'&username='.$data['user'].'"><button class ="btn btn-warning">Timeout</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
 
       }
       echo '</tr><br>';
