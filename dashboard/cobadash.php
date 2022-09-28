@@ -1,8 +1,6 @@
 
 <!DOCTYPE html>
 <?php 
-require_once "../conf/connrouter.php";
-require_once "../conf/bjorka.php";
 require_once "sys.php";
 //session_start();
 header("Refresh:10");
@@ -468,7 +466,7 @@ $alluser = count($datanya["Data"]);
 <script src="../assets/js/highcharts/highcharts.js"></script>
 <script src="../assets/js/highcharts/themes/hc.light.js"></script>
 <script src="../assets/js/mikhmon-ui.light.min.js"></script>
-<script src="../assets/js/mikhmon.js?t=2022-09-20_18:42:19"></script>
+<!-- <script src="../assets/js/mikhmon.js"></script> -->
 
 <!-- <script>
     $("#r_3").load("./dashboard/aload.php?session=Soda2a-ip150&load=logs #r_3");  
