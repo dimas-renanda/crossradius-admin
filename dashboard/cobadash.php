@@ -209,7 +209,7 @@ $alluser = count($datanya["Data"]);
                   <div class="row">
                     <div class="col-3 col-box-6">
                       <div class="box bg-blue bmh-75">
-                        <a onclick="cancelPagesasd()" href="">
+                        <!-- <a onclick="cancelPagesasd()" href=""> -->
                           <h1><?php echo count($resultcounthotspot); ?>                             <span style="font-size: 15px;">items</span>
                             </h1>
                           <div>
@@ -219,7 +219,7 @@ $alluser = count($datanya["Data"]);
                     </div>
                     <div class="col-3 col-box-6">
                     <div class="box bg-green bmh-75">
-                      <a onclick="cancelPage()" href="">
+                      <!-- <a onclick="cancelPage()" href=""> -->
                             <h1><?= $alluser; ?>                              <span style="font-size: 15px;">items</span>
                             </h1>
                       <div>
@@ -229,7 +229,7 @@ $alluser = count($datanya["Data"]);
                   </div>
                   <div class="col-3 col-box-6">
                     <div class="box bg-yellow bmh-75">
-                      <a onclick="cancelPage()" href="./?hotspot-user=add&session=Soda2a-ip150">
+                      <!-- <a onclick="cancelPage()" href="./?hotspot-user=add&session=Soda2a-ip150"> -->
                         <div>
                           <h1><i class="fa fa-dollar"></i>
                               <span style="font-size: 15px;">Today's</span>
@@ -242,7 +242,7 @@ $alluser = count($datanya["Data"]);
                   </div>
                   <div class="col-3 col-box-6">
                     <div class="box bg-red bmh-75">
-                      <a onclick="cancelPage()" href="./?hotspot-user=generate&session=Soda2a-ip150">
+                      <!-- <a onclick="cancelPage()" href="./?hotspot-user=generate&session=Soda2a-ip150"> -->
                         <div>
                           <h1><i class="fa fa-area-chart"></i>
                               <span style="font-size: 15px;">Report</span>
@@ -463,8 +463,8 @@ $alluser = count($datanya["Data"]);
 </div>
 </div>
 </div>
-<script src="../assets/js/highcharts/highcharts.js"></script>
-<script src="../assets/js/highcharts/themes/hc.light.js"></script>
+<!-- <script src="../assets/js/highcharts/highcharts.js"></script>
+<script src="../assets/js/highcharts/themes/hc.light.js"></script> -->
 <script src="../assets/js/mikhmon-ui.light.min.js"></script>
 <!-- <script src="../assets/js/mikhmon.js"></script> -->
 
