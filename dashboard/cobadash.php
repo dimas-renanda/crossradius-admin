@@ -5,7 +5,7 @@ require_once "../conf/connrouter.php";
 require_once "../conf/bjorka.php";
 require_once "sys.php";
 //session_start();
-header("Refresh:5");
+header("Refresh:10");
 
 ?>
 <html>
@@ -72,65 +72,65 @@ header("Refresh:5");
   <div class="dropdown-btn "><i class="fa fa-users"></i> Users    <i class="fa fa-caret-down"></i>
   </div>
   <div class="dropdown-container ">
-    <a href="./?hotspot=users&profile=all&session=Soda2a-ip150" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> User List </a>
-    <a href="./?hotspot-user=add&session=Soda2a-ip150" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus "></i> Add User </a>
-    <a href="./?hotspot-user=generate&session=Soda2a-ip150" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i> Generate </a>        
+    <a href="" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> User List </a>
+    <a href="" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus "></i> Add User </a>
+    <a href="" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i> Generate </a>        
   </div>
   <!--profile-->
   <div class="dropdown-btn "><i class=" fa fa-pie-chart"></i>  User Profile    <i class="fa fa-caret-down"></i>
   </div>
   <div class="dropdown-container ">
-    <a href="./?hotspot=user-profiles&session=Soda2a-ip150" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> Profile List </a>
-    <a href="./?user-profile=add&session=Soda2a-ip150" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-plus-square "></i> Add Profile </a>
+    <a href="" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> Profile List </a>
+    <a href="" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-plus-square "></i> Add Profile </a>
 
   </div>
   <!--active-->
-  <a href="./?hotspot=active&session=Soda2a-ip150" class="menu "><i class=" fa fa-wifi"></i> Hotspot Active</a>
+  <a href="" class="menu "><i class=" fa fa-wifi"></i> Hotspot Active</a>
   <!--hosts-->
-  <a href="./?hotspot=hosts&session=Soda2a-ip150" class="menu "><i class=" fa fa-laptop"></i> Hosts</a>
+  <a href="" class="menu "><i class=" fa fa-laptop"></i> Hosts</a>
   <!--ip bindings-->
-  <a href="./?hotspot=ipbinding&session=Soda2a-ip150" class="menu "><i class=" fa fa-address-book"></i> IP Bindings</a>
+  <a href="" class="menu "><i class=" fa fa-address-book"></i> IP Bindings</a>
   <!--cookies-->
-   <a href="./?hotspot=cookies&session=Soda2a-ip150" class="menu "><i class=" fa fa-hourglass"></i> Cookies</a>
+   <a href="" class="menu "><i class=" fa fa-hourglass"></i> Cookies</a>
   </div>
 
      <!--PPOE-->
      <div class="dropdown-btn "><i class=" fa fa-home"></i> PPOE    <i class="fa fa-caret-down"></i>
     </div>
   <div class= "dropdown-container ">
-    <a href="./?hotspot=log&session=Soda2a-ip150" class=""> <i class="fa fa-wifi "></i> PPOE User </a>
-    <a href="./?report=userlog&idbl=sep2022&session=Soda2a-ip150" class=" "> <i class="fa fa-users "></i> PPOE Add </a>
+    <a href="" class=""> <i class="fa fa-wifi "></i> PPOE User </a>
+    <a href="" class=" "> <i class="fa fa-users "></i> PPOE Add </a>
   </div>
 
    <!--log-->
   <div class="dropdown-btn "><i class=" fa fa-align-justify"></i> Log    <i class="fa fa-caret-down"></i>
   </div>
   <div class="dropdown-container ">
-    <a href="./?hotspot=log&session=Soda2a-ip150" class=""> <i class="fa fa-wifi "></i> Hotspot Log </a>
-    <a href="./?report=userlog&idbl=sep2022&session=Soda2a-ip150" class=" "> <i class="fa fa-users "></i> User Log </a>
+    <a href="" class=""> <i class="fa fa-wifi "></i> Hotspot Log </a>
+    <a href="" class=" "> <i class="fa fa-users "></i> User Log </a>
   </div>
   <!--system-->
   <div class="dropdown-btn "><i class=" fa fa-gear"></i> System    <i class="fa fa-caret-down"></i> &nbsp;
   </div>
   <div class="dropdown-container ">
-    <a href="./admin.php?id=reboot&session=Soda2a-ip150" class=""> <i class="fa fa-power-off "></i> Reboot </a>            
-    <a href="./admin.php?id=shutdown&session=Soda2a-ip150" class=""> <i class="fa fa-power-off "></i> Shutdown </a> 
+    <a href="" class=""> <i class="fa fa-power-off "></i> Reboot </a>            
+    <a href="" class=""> <i class="fa fa-power-off "></i> Shutdown </a> 
   </div>
 
   <!--traffic monitor-->
-  <a href="./?interface=traffic-monitor&session=Soda2a-ip150" class="menu "><i class=" fa fa-area-chart"></i> Traffic Monitor</a>
+  <a href="" class="menu "><i class=" fa fa-area-chart"></i> Traffic Monitor</a>
   <!--report-->
  
   <div class="dropdown-container ">
-  <a href="./admin.php?id=settings&session=Soda2a-ip150" class="menu "> <i class="fa fa-gear "></i> Session Settings </a>
-  <a href="./admin.php?id=sessions" class="menu "> <i class="fa fa-gear "></i> Admin Settings </a>
-  <a href="./?hotspot=uplogo&session=Soda2a-ip150" class="menu "> <i class="fa fa-upload "></i> Upload Logo </a>
-  <a href="./?hotspot=template-editor&template=default&session=Soda2a-ip150" class="menu "> <i class="fa fa-edit "></i> Template Editor </a>          
+  <a href="" class="menu "> <i class="fa fa-gear "></i> Session Settings </a>
+  <a href="" class="menu "> <i class="fa fa-gear "></i> Admin Settings </a>
+  <a href="" class="menu "> <i class="fa fa-upload "></i> Upload Logo </a>
+  <a href="" class="menu "> <i class="fa fa-edit "></i> Template Editor </a>          
   </div>
 
 
 </div>
-<script>
+<!-- <script>
 $(document).ready(function(){
   $(".connect").change(function(){
     notify("Connecting");
@@ -141,7 +141,7 @@ $(document).ready(function(){
     stheme(this.value)
   });
 });
-</script>
+</script> -->
 <div id="notify"><div class="message"></div></div>
 <div id="temp"></div>
 
@@ -157,33 +157,7 @@ $(document).ready(function(){
           <div class="box-group">
             <div class="box-group-icon"><i class="fa fa-calendar"></i></div>
             <?php 
-                $API = new RouterosAPI();
-                $API->debug = false;
-                if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_SESSION["usernamerouter"],$key,"base64"), findbjorka($_SESSION["pwdrouter"],$key,"base64")))
-                {
-            
-                // get MikroTik system clock
-                    // $getclock = $API->comm("/system/clock/print");
-                    // $clock = $getclock[0];
-                    // $timezone = $getclock[0]['time-zone-name'];
-                    // date_default_timezone_set($timezone);
-                
-                // get system resource MikroTik
-                    $getresource = $API->comm("/system/resource/print");
-                    $resource = $getresource[0];
-                
-                // get routeboard info
-                    $getrouterboard = $API->comm("/system/routerboard/print");
-                    $routerboard = $getrouterboard[0];
 
-                    //hotspotactive
-                    $counthotspotactive = $API->comm("/ip/hotspot/active/print");
-                    //temp json
-                    $json = json_encode($counthotspotactive);
-                    //rest json
-                    $resultcounthotspot = json_decode($json, true);
-                    
-                }
 
                 $json = file_get_contents('http://10.10.10.196:38700/GetAllUsers');
 
@@ -247,7 +221,7 @@ $alluser = count($datanya["Data"]);
                     </div>
                     <div class="col-3 col-box-6">
                     <div class="box bg-green bmh-75">
-                      <a onclick="cancelPage()" href="./?hotspot=users&profile=all&session=Soda2a-ip150">
+                      <a onclick="cancelPage()" href="">
                             <h1><?= $alluser; ?>                              <span style="font-size: 15px;">items</span>
                             </h1>
                       <div>
