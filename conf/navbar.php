@@ -11,9 +11,30 @@
 
       <div class="collapse navbar-collapse" id="navbarsExample05">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
            
             <a class="nav-link" href="../dashboard/cobadash.php"> Dashboard<span class="sr-only"></span></a>
+          </li> -->
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <!-- <li>
+                        <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
+                      </li> -->
+                      <li>
+                      <a class="dropdown-item" href="../news"> News<span class="sr-only"></span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="../CS/">Customer Services</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="">Ticketing</a>
+                      </li>
+
+              </ul>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
@@ -70,11 +91,17 @@
                         <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
                       </li> -->
                       <li>
+                      <a class="dropdown-item" href="../dashboard/cobadash.php"> Dashboard<span class="sr-only"></span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="system">System</a>
+                      </li>
+                      <!-- <li>
                         <a class="dropdown-item" href="best_hotel.php">Restart</a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="best_guest.php">Shutdown</a>
-                      </li>
+                      </li> -->
 
               </ul>
           </li>
