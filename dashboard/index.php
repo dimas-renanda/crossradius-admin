@@ -236,7 +236,7 @@ foreach ($hasil as $row)
       <form action="" method="get">
       <input type="hidden"  name="uidrouter" value="'.bjorkasecure($row['username'],$key,"base64").'">
       <input type="hidden"  name="pwdrouter" value="'.bjorkasecure($row['password'],$key,"base64").'">
-      <button class="btn btn-success" type="submit" name ="router" value="'.bjorkasecure($row['ip'],$key,"base64").'"><i class="fa fa-check"></i> Connect</button>  
+      <button class="btn btn-success" type="submit" name ="router" value="'.bjorkasecure($row['ip'],$key,"base64").'"><i class="fa fa-check"></i> Open</button>  
       
       </form>
       <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'"><i class="fa fa-edit"></i> Edit</button>
