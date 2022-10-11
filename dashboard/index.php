@@ -240,7 +240,7 @@ foreach ($hasil as $row)
       
       </form>
       <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'"><i class="fa fa-edit"></i> Edit</button>
-      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-trash"></i> Delete</button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-trash"></i> Disable</button>
      </div>
       
       </div>
