@@ -75,7 +75,7 @@ $no=1;
           echo '<td>'.$data['description'].'</td>';
           echo '<td>'.$data['img'].'</td>';
           echo '<td>'.$data['url'].'</td>';
-          echo '<td style="float: right">      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$data['id'].'"><i class="fa fa-edit"></i></button>
+          echo '<td >      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$data['id'].'"><i class="fa fa-edit"></i></button>
           <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$data['id'].'"><i class="fa fa-trash"></i></button></td>';
 
 
