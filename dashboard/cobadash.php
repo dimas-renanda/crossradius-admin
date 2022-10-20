@@ -468,7 +468,7 @@ else
              <div id="r_3" class="row">
              <div class="card">
                <div class="card-header">
-                 <!-- <h3><a onclick="cancelPage()" href="./?hotspot=log&session=Soda2a-ip150" title="Open Hotspot Log" ><i class="fa fa-align-justify"></i> Site Log</a></h3></div> -->
+                 <!-- <h3><a onclick="cancelPage()" href=" " title="Open Hotspot Log" ><i class="fa fa-align-justify"></i> Site Log</a></h3></div> -->
                    <div class="card-body">
                      <div style="padding: 5px; height: 457px ;" class="mr-t-10 overflow">
                        <table class="table table-sm table-bordered table-hover" style="font-size: 12px; padding:2px;">

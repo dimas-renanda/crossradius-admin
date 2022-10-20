@@ -43,12 +43,7 @@
  <div class="navbar-right">
   <a id="logout" href="./?hotspot=logout&session=Soda2a-ip150" ><i class="fa fa-sign-out mr-1"></i> Logout</a>
   <select class="stheme ses text-right mr-t-10 pd-5">
-    <option> Theme</option>
-    <option value="/old/drs/mikhmon/?session=Soda2a-ip150&set-theme=dark">Dark</option><option value="/old/drs/mikhmon/?session=Soda2a-ip150&set-theme=light">Light</option><option value="/old/drs/mikhmon/?session=Soda2a-ip150&set-theme=blue">Blue</option><option value="/old/drs/mikhmon/?session=Soda2a-ip150&set-theme=green">Green</option><option value="/old/drs/mikhmon/?session=Soda2a-ip150&set-theme=pink">Pink</option>  </select>
-  <select class="connect optfa ses text-right mr-t-10 pd-5">
-    <option id="MikhmonSession" value="Soda2a-ip150">SODA2A</option>
-      <option value="Soda2a-ip10">Soda2a-ip10</option><option value="Soda2a-ip150">Soda2a-ip150 &#x2666;</option><option value="new-1401">new-1401</option>    
-  </select>
+
   <a title="Idle Timeout" style="display:none;"><span style="width:70px;" class="pd-5 radius-3"><i class="fa fa-clock-o mr-1"></i>  <span class="mr-1" id="timer"></span></span></a>
 </div>
 </div>
@@ -94,7 +89,7 @@
   <div class="dropdown-btn "><i class=" fa fa-align-justify"></i> Log    <i class="fa fa-caret-down"></i>
   </div>
   <div class="dropdown-container ">
-    <a href="./?hotspot=log&session=Soda2a-ip150" class=""> <i class="fa fa-wifi "></i> Hotspot Log </a>
+    <a href=" " class=""> <i class="fa fa-wifi "></i> Hotspot Log </a>
     <a href="./?report=userlog&idbl=sep2022&session=Soda2a-ip150" class=" "> <i class="fa fa-users "></i> User Log </a>
   </div>
   <!--system-->
@@ -377,7 +372,7 @@ $(document).ready(function(){
             <div id="r_3" class="row">
             <div class="card">
               <div class="card-header">
-                <h3><a onclick="cancelPage()" href="./?hotspot=log&session=Soda2a-ip150" title="Open Hotspot Log" ><i class="fa fa-align-justify"></i> Hotspot Log</a></h3></div>
+                <h3><a onclick="cancelPage()" href=" " title="Open Hotspot Log" ><i class="fa fa-align-justify"></i> Hotspot Log</a></h3></div>
                   <div class="card-body">
                     <div style="padding: 5px; height: 457px ;" class="mr-t-10 overflow">
                       <table class="table table-sm table-bordered table-hover" style="font-size: 12px; padding:2px;">
