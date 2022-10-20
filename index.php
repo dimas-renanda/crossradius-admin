@@ -75,16 +75,5 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   </div>
 </div>
 
-<!-- <div class="container">
-  <div class="card">
-    <div class="card-header">
-    <h1>Hello World</h1>
-    </div>
-    <div class="card-body">
-      <p>halo ges ini card</p>
-    </div>
-  </div>
-</div> -->
-
 </body>
 </html>
