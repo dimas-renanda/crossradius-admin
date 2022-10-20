@@ -72,7 +72,7 @@ echo "Hotspot Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
 echo "<a href='../'><button class='btn btn-secondary'>Logout Router</button></a><br>";
 $API = new RouterosAPI();
 
-//'116.68.251.167', 'admin', 'xyz31mei'
+
 //set timeout dari suatu exec
 //set_time_limit(5);
 if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["uidrouter"],$key,"base64"), findbjorka($_GET["pwdrouter"],$key,"base64"))) 
