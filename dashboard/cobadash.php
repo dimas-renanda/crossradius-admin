@@ -1,14 +1,26 @@
-
-<!DOCTYPE html>
 <?php 
-require_once "sys.php";
-//session_start();
+    if (!!isset($_SESSION['iprouter']))
+    {
+      echo '<script language="javascript">';
+echo 'alert("Please open connection to the router first !")';
+echo "location.href = '....'";
+echo '</script>';
+//header("location: ./");
+    }
+ 
+      require_once "sys.php";
+      //session_start();
+    
+
 
 
 ?>
+<!DOCTYPE html>
+
 <html>
 	<head>
     <?php 
+
     echo "<title>MikroX ".findbjorka($_SESSION['iprouter'],$key,'base64')."</title>";
 
 
@@ -53,8 +65,8 @@ require_once "sys.php";
 
 <div id="navbar" class="navbar">
   <div class="navbar-left">
-  <a> <?php echo '<img class="brand" src="http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/img/xnet.png" alt="XNET Logo" height="30">'; ?>
-     <a>Crossnet</a>
+  <a> <?php echo '<img class="brand" src="https://www.kominfo.go.id/images/logo.png" alt="XNET Logo" height="30">'; ?>
+     <!-- <a>XNET</a> -->
 
 <a id="openNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 <a id="closeNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
@@ -80,7 +92,7 @@ require_once "sys.php";
   <div class="dropdown-container ">
     <a href="?listuser=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> User List </a>
     <a href="?createuserhotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus "></i> Add User </a>
-    <a href="?generatehotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i> Generate </a>        
+    <!-- <a href="?generatehotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i> Generate </a>         -->
   </div>
   <!--profile-->
   <div class="dropdown-btn "><i class=" fa fa-pie-chart"></i>  User Profile    <i class="fa fa-caret-down"></i>
@@ -94,24 +106,9 @@ require_once "sys.php";
   <a href="?ahotspot=a" class="menu "><i class=" fa fa-wifi"></i> Site user Active</a>
   <!--hosts-->
   <a href="?hosts=a" class="menu "><i class=" fa fa-laptop"></i> Hosts</a>
-  <!--cookies-->
-   <a href="?cookies=a" class="menu "><i class=" fa fa-hourglass"></i> Cookies</a>
   </div>
 
-     <!--PPOE-->
-     <div class="dropdown-btn "><i class=" fa fa-home"></i> PPOE    <i class="fa fa-caret-down"></i>
-    </div>
-  <div class= "dropdown-container ">
-    <a href="?ppoeu=a" class=""> <i class="fa fa-wifi "></i> PPOE User </a>
-    <a href="?ppoea=a" class=" "> <i class="fa fa-users "></i> PPOE Add </a>
-  </div>
 
-   <!--log-->
-  <div class="dropdown-btn "><i class=" fa fa-align-justify"></i> Log    <i class="fa fa-caret-down"></i>
-  </div>
-  <div class="dropdown-container ">
-    <a href="?slog=a" class=""> <i class="fa fa-wifi "></i> Site Log </a>
-  </div>
   <!--system-->
   <div class="dropdown-btn "><i class=" fa fa-gear"></i> System    <i class="fa fa-caret-down"></i> &nbsp;
   </div>
@@ -193,7 +190,7 @@ elseif(@$_GET["createprofile"])
 }
 elseif(@$_GET["listprofile"])
 {
-  echo "listprofile";
+require_once 'userprofile.php';
 }
 elseif(@$_GET["hosts"])
 {
@@ -305,33 +302,8 @@ else
                        </a>
                      </div>
                    </div>
-                   <div class="col-3 col-box-6">
-                     <div class="box bg-yellow bmh-75">
-                       <!-- <a onclick="cancelPage()" href="./?hotspot-user=add&session=Soda2a-ip150"> -->
-                         <div>
-                           <h1><i class="">Rp. </i>
-                           
-                               <span style="font-size: 15px;">'.rupiah($resulttotalmoney).' </span>
-                           </h1>
-                         </div>
-                         <div>
-                             <i class="fa fa-user-plus"></i> Income                       </div>
-                       </a>
-                     </div>
-                   </div>
-                   <div class="col-3 col-box-6">
-                     <div class="box bg-red bmh-75">
-                       <!-- <a onclick="cancelPage()" href="./?hotspot-user=generate&session=Soda2a-ip150"> -->
-                         <div>
-                           <h1><i class="fa fa-area-chart"></i>
-                               <span style="font-size: 15px;">Report</span>
-                           </h1>
-                         </div>
-                         <div>
-                             <i class="fa fa-user-plus"></i> Income                        </div>
-                     </a>
-                   </div>
-                 </div>
+
+
                </div>
              </div>
            </div>

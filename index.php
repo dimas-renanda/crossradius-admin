@@ -37,10 +37,12 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     </div> -->
     <div class="card-body">
       <div class="text-center pd-5">
-        <img src="assets/img/xnet.png" height="60" alt="XNET Logo">
+        <img src="assets/img/kominfo.png" height="60" alt="Kominfo Logo">
       </div>
       <div  class="text-center">
-      <b><span style="font-size: 25px; margin: 10px;">MikroX</span></b>
+      <b><span style="font-size: 25px; margin: 10px;">(KNM)</span></b>
+      <br>
+      <b><span style="font-size: 25px; margin: 10px;">Probolinggo</span></b>
       </div>
       <center>
         <?php //require_once "signin.php"; ?>

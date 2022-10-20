@@ -50,28 +50,18 @@ require_once "sys.php";
   <h3><i class="fa fa-user-plus"></i> Add User <small id="loader" style="display: none;"><i><i class="fa fa-circle-o-notch fa-spin"></i> Processing... </i></small></h3> 
   </div>
   <div class="card-body">
-<form autocomplete="off" method="post" action="">  
+<form autocomplete="off" method="post" action="http://10.10.10.148:38700/CreateNewUser">  
   <div>
       <a class="btn bg-warning" href="./?hotspot=users&amp;profile=all&amp;session=Soda2a-ip150"> <i class="fa fa-close"></i> Close</a>    <button type="submit" onclick="loader()" class="btn bg-primary" name="save"><i class="fa fa-save"></i> Save</button>
   </div>
 
 <table class="table">
-  <tbody><tr>
-    <td class="align-middle">Server</td>
-    <td>
-			<select class="form-control" name="server" required="1">
-				<option>all</option>
-				<option>hotspot1</option>			</select>
-		</td>
-	</tr>
+  <tbody>
   <tr>
-    <td class="align-middle">Name</td><td><input class="form-control" type="text" autocomplete="off" name="name" value="" required="1" autofocus=""></td>
-  </tr>
-  <tr>
-    <td class="align-middle">Password</td><td>
+    <td class="align-middle" required="1" autofocus="">Sites Username</td><td>
         <div class="input-group">
           <div class="input-group-11 col-box-10">
-            <input class="group-item group-item-l" id="passUser" type="password" name="pass" autocomplete="new-password" value="" required="1" aria-autocomplete="list">
+            <input class="group-item group-item-l" id="username" type="password" name="username" autocomplete="new-password" value="" required="1" aria-autocomplete="list">
           </div>
             <div class="input-group-1 col-box-2">
               <div class="group-item group-item-r pd-2p5 text-center">
@@ -83,31 +73,29 @@ require_once "sys.php";
   </tr>
   <tr>
     <td class="align-middle">Profile</td><td>
-			<select class="form-control" onchange="GetVP();" id="uprof" name="profile" required="1">
-				<option>default</option><option>3mbps</option><option>5mbps</option><option>10mbps</option><option>1M</option><option>20M</option><option>2mb</option><option>15_Mbps</option><option>Disabled_user</option><option>guestornotimportant</option>			</select>
+			<select class="form-control" id="uprof" name="profileName" required="1">
+				<?php 
+        $profile = file_get_contents('http://10.10.10.232:38700/GetProfileHotspot');
+        $profile = json_decode($profile,true);
+        foreach($profile as $listprofile)
+        {
+          foreach ($listprofile as $profilenya)
+            echo '<option>',$profilenya['ProfileName'],'</option>';
+        }
+         ?>
+    </select>
 		</td>
 	</tr>
+  <tr>
+    <td class="align-middle">Max Devices</td><td><input class="form-control" type="number" autocomplete="off" name="packet_max" value=""></td>
+  </tr>
 	<tr>
-    <td class="align-middle">Time Limit</td><td><input class="form-control" type="text" autocomplete="off" name="timelimit" value=""></td>
+    <td class="align-middle">Expirate Date (Days)</td><td><input class="form-control" type="number" autocomplete="off" name="expiredDate" value=""></td>
   </tr>
-  <tr>
-    <td class="align-middle">Data Limit</td><td>
-      <div class="input-group">
-        <div class="input-group-10 col-box-9">
-          <input class="group-item group-item-l" type="number" min="0" max="9999" name="datalimit" value="">
-        </div>
-          <div class="input-group-2 col-box-3">
-              <select style="padding:4.2px;" class="group-item group-item-r" name="mbgb" required="1">
-				        <option value="1048576">MB</option>
-				        <option value="1073741824">GB</option>
-			        </select>
-          </div>
-      </div>
-    </td>
+	<tr>
+    <td class="align-middle">Order Taker</td><td><input class="form-control" type="text" autocomplete="off" name="expiredDate" value=""></td>
   </tr>
-  <tr>
-    <td class="align-middle">Comment</td><td><input class="form-control" type="text" title="No special characters" id="comment" autocomplete="off" name="comment" value=""></td>
-  </tr>
+
   <tr>
     <td colspan="4" class="align-middle" id="GetValidPrice"></td>
   </tr>
