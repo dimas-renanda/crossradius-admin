@@ -94,6 +94,6 @@
         }
         ?>
     </div>
- <i>"Gunakan internet dengan dengan bijak"</i>
+ <i>"Gunakan internet dengan bijak"</i>
 </body>
 </html>
