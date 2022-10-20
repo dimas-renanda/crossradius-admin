@@ -9,11 +9,9 @@ $_POST["password"];
     $ch = curl_init();
     $emailnya = @$_POST["username"];
     $passnya = @$_POST["password"];
-    //echo $emailnya;
-    //echo $passnya;
+
     $hashed = hash("sha512", $passnya);
-    //$emailnya ="damson";
-    //$passnya ="d7cc71ade304eadc9dbb42421cf1a389418e71ec7b33b5b75c13f610caa476eea0564723d6455efb58eb7a16c7003cb99e42d4735a82a6d6b0834998362bddb3";
+
     $url  = "http://116.68.252.198:38600/login?email=$emailnya&password=$hashed";
 
 
