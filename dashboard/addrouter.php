@@ -1,5 +1,5 @@
 <?php
-    header('Content-type: application/json');
+     header('Content-type: application/json');
     require_once "../conf/conn.php";
     require_once "../conf/connrouter.php";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

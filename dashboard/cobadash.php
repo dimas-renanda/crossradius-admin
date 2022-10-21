@@ -1,11 +1,11 @@
 <?php 
     if (!!isset($_SESSION['iprouter']))
     {
-      echo '<script language="javascript">';
-echo 'alert("Please open connection to the router first !")';
-echo "location.href = '....'";
-echo '</script>';
-//header("location: ./");
+//       echo '<script language="javascript">';
+// echo 'alert("Please open connection to the router first !")';
+// echo "location.href = '....'";
+// echo '</script>';
+header("location: ./");
     }
  
       require_once "sys.php";
@@ -47,8 +47,8 @@ echo '</script>';
     
 <!-- Datatables -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script>
     $(document).ready(function(){
         $('#tabel-data').DataTable();
@@ -275,13 +275,13 @@ else
            </div> 
        </div>';
  
-        echo ' <div class="row">
+        echo ' <div class="row ">
            <div  class="col-8">
-             <div id="r_2"class="row">
+             <div id="r_2"class="row ">
              <div class="card">
                <div class="card-header"><h3><i class="fa fa-wifi"></i> Site</h3></div>
                  <div class="card-body">
-                   <div class="row">
+                   <div class="row ">
                      <div class="col-3 col-box-6">
                        <div class="box bg-blue bmh-75">
                           <a onclick="cancelPagesasd()" href="?ahotspot=a"> 

@@ -27,6 +27,18 @@ $pwdrouter = @$_GET["pwdrouter"];
     <!-- <link href="http://localhost/crossradius/assets/css/bootstrap.css" rel="stylesheet">
 <script src="http://localhost/crossradius/assets/js/bootstrap.bundle.min.js"></script> -->
 <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  <script>
+        $(document).ready(function () {
+    $('#example').DataTable(
+        {
+            responsive: true
+        }
+    );
+});
+    </script>
 <style>
 
 .custom-column {  
@@ -69,7 +81,7 @@ if (@$_GET["router"] )
 {
    header("Refresh:5");
 echo "Hotspot Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
-echo "<a href='../'><button class='btn btn-secondary'>Logout Router</button></a><br>";
+echo "<a href='../'><button class='btn pull-right btn-secondary'>Logout Router</button></a><br>";
 $API = new RouterosAPI();
 
 
@@ -124,8 +136,8 @@ if ($API->connect(findbjorka($_GET["router"],$key,"base64"),findbjorka($_GET["ui
 //     echo       '</tbody>
 // </table>';
 
-echo "<br><h3>Active User</h3><br>";
-echo '<table class="table table-striped text-center">
+echo "<br><h3>Active User</h3>";
+echo '<table id = "example"class="table table-striped text-center">
 <thead>
 <tr>
   <th scope="col">USER LIST</th>
@@ -203,8 +215,8 @@ echo "<br>  <h3><i class='fa fa-server'></i> Router List</h3>";
 //   </tr>
 // </thead>
 // <tbody>';
-echo'<button class="btn btn-primary  text-white align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#myModalAddRouter"><i class="fa fa-plus"></i> Add Router</button>';
-
+echo'<button class="btn btn-primary pull-right text-white align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#myModalAddRouter"><i class="fa fa-plus"></i>  Add Router</button>';
+echo '<p style="padding-bottom: 50px;"></p>';
 echo '<div class="container ">
 
 ';
@@ -240,7 +252,7 @@ foreach ($hasil as $row)
       
       </form>
       <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'"><i class="fa fa-edit"></i> Edit</button>
-      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-trash"></i> Disable</button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-trash"></i> Remove</button>
      </div>
       
       </div>

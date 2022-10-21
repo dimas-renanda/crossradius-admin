@@ -1,15 +1,7 @@
 <?php 
 $domainnya = $_SERVER['HTTP_HOST'];
-$linkcnm = mysqli_connect("localhost","user","xyz13juli","cnm");
 
-//check connection
-if ($linkcnm === false)
-{
-    die("ERROR : Could not connect. ".mysqli_connect_error());
-    
-}
-
-$linkadmincnm = mysqli_connect("localhost","user","xyz13juli","admin_cnm");
+$linkadmincnm = mysqli_connect("phoenix.crossnet.co.id","user","xyz13juli","knm");
 
 //check connection
 if ($linkadmincnm === false)
