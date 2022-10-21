@@ -147,12 +147,12 @@ $(document).ready(function(){
 <div id="temp"></div>
 
 <?php 
-                 $json = file_get_contents('http://10.10.10.232:38700/GetAllUsers');
+                 $json = file_get_contents('http://10.10.10.148:38900/GetAllUsers');
  
                  $datanya = json_decode($json,true);
                  $alluser = count($datanya["Data"]);
 
-                 $jsonmoney = file_get_contents('http://10.10.10.232:38700/GetPayments');
+                 //$jsonmoney = file_get_contents('http://10.10.10.232:38700/GetPayments');
 
 $totmoney = json_decode($jsonmoney,true);
 
