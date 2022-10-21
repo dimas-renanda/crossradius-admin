@@ -188,6 +188,7 @@ echo "generateuserhotspot";
 elseif(@$_GET["createprofile"])
 {
   echo "createuserprofile";
+  require_once 'createprofile.php';
 }
 elseif(@$_GET["listprofile"])
 {
