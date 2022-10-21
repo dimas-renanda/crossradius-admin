@@ -155,7 +155,7 @@ echo '<table id = "example"class="table table-striped text-center">
                 echo '<tr><th scope="row">',$data['user'],'<th>';
      echo '<td>',$data['mac-address'],'</td>';
      echo '<td>',$data['address'],'</td>';
-     echo '<td><a href="removeuser.php?router='.findbjorka($_GET['router'],$key,"base64").'&uidrouter='.findbjorka($_GET['uidrouter'],$key,"base64").'&pwdrouter='.findbjorka($_GET['pwdrouter'],$key,"base64").'&username='.$data['user'].'"><button class ="btn btn-warning">Timeout</button></a>&nbsp<button class="btn btn-danger">Delete</button></td>';
+     echo '<td><a href="removeuser.php?router='.findbjorka($_GET['router'],$key,"base64").'&uidrouter='.findbjorka($_GET['uidrouter'],$key,"base64").'&pwdrouter='.findbjorka($_GET['pwdrouter'],$key,"base64").'&username='.$data['user'].'"><button class ="btn btn-warning">Timeout</button></a>&nbsp<a href="deleteuser.php?router='.findbjorka($_GET['router'],$key,"base64").'&uidrouter='.findbjorka($_GET['uidrouter'],$key,"base64").'&pwdrouter='.findbjorka($_GET['pwdrouter'],$key,"base64").'&username='.$data['user'].'"><button class="btn btn-danger">Delete</button></a></td>';
 
       }
       echo '</tr><br>';

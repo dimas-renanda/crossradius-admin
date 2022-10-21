@@ -58,10 +58,10 @@ echo '<table id ="example" class="table table-bordered table-striped text-center
 
               foreach ($juser["Data"] as $data) {
           //echo $data['user'] . '<br>';
-
+$lusernya = $data['Username'];
           echo '<tr>';
           echo '<th scope="row">'.$data['Username'].'</th>';
-          echo '<td><button class ="btn btn-info"><i class="fa fa-edit mr-1"></i> Edit</button>&nbsp<button class="btn btn-danger"><i class="fa fa-trash mr-1"></i> Delete</button></td>';
+          echo '<td><a href="executedeleteuser.php?username='.$lusernya.'"><button class="btn btn-danger"><i class="fa fa-trash mr-1"></i> Delete</button></a></td>';
           
         echo'</tr>';
 

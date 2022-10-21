@@ -50,18 +50,18 @@ require_once "sys.php";
   <h3><i class="fa fa-user-plus"></i> Add User <small id="loader" style="display: none;"><i><i class="fa fa-circle-o-notch fa-spin"></i> Processing... </i></small></h3> 
   </div>
   <div class="card-body">
-<form autocomplete="off" method="post" action="http://10.10.10.148:38700/CreateNewUser">  
+<form autocomplete="off" method="post" action="executecreateuser.php">  
   <div>
-      <a class="btn bg-warning" href="./?hotspot=users&amp;profile=all&amp;session=Soda2a-ip150"> <i class="fa fa-close"></i> Close</a>    <button type="submit" onclick="loader()" class="btn bg-primary" name="save"><i class="fa fa-save"></i> Save</button>
+      <a class="btn bg-warning" href=""> <i class="fa fa-close"></i> Close</a>    <button type="submit" onclick="loader()" class="btn bg-primary" name="save"><i class="fa fa-save"></i> Save</button>
   </div>
 
 <table class="table">
   <tbody>
   <tr>
-    <td class="align-middle" required="1" autofocus="">Sites Username</td><td>
+    <td class="align-middle" required="1" autofocus="">Mac Address</td><td>
         <div class="input-group">
           <div class="input-group-11 col-box-10">
-            <input class="group-item group-item-l" id="username" type="password" name="username" autocomplete="new-password" value="" required="1" aria-autocomplete="list">
+            <input class="group-item group-item-l" id="userCredentials" type="text" name="userCredentials" autocomplete="new-password" value="" required="0" aria-autocomplete="list">
           </div>
             <div class="input-group-1 col-box-2">
               <div class="group-item group-item-r pd-2p5 text-center">
@@ -73,10 +73,11 @@ require_once "sys.php";
   </tr>
   <tr>
     <td class="align-middle">Profile</td><td>
-			<select class="form-control" id="uprof" name="profileName" required="1">
+			<select class="form-control" id="profileName" name="profileName" >
 				<?php 
         $profile = file_get_contents('http://10.10.10.232:38700/GetProfileHotspot');
         $profile = json_decode($profile,true);
+        echo '<option value = ""> Default </option>';
         foreach($profile as $listprofile)
         {
           foreach ($listprofile as $profilenya)
@@ -87,13 +88,19 @@ require_once "sys.php";
 		</td>
 	</tr>
   <tr>
-    <td class="align-middle">Max Devices</td><td><input class="form-control" type="number" autocomplete="off" name="packet_max" value=""></td>
+    <td class="align-middle">Session Timeout</td><td><input class="form-control" type="number" autocomplete="off" name="sessionTimeout" value=""></td>
+  </tr>
+  <tr>
+    <td class="align-middle">Idle Timeout</td><td><input class="form-control" type="number" autocomplete="off" name="idleTimeout" value=""></td>
   </tr>
 	<tr>
     <td class="align-middle">Expirate Date (Days)</td><td><input class="form-control" type="number" autocomplete="off" name="expiredDate" value=""></td>
   </tr>
 	<tr>
-    <td class="align-middle">Order Taker</td><td><input class="form-control" type="text" autocomplete="off" name="expiredDate" value=""></td>
+    <td class="align-middle">Nama Pengguna</td><td><input class="form-control" type="text" autocomplete="off" name="deviceOwner" value=""></td>
+  </tr>
+  <tr>
+    <td class="align-middle">Device Pengguna</td><td><input class="form-control" type="text" autocomplete="off" name="deviceInfo" value=""></td>
   </tr>
 
   <tr>

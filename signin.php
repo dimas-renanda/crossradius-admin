@@ -6,13 +6,14 @@ $_POST["username"];
 $_POST["password"];
  
 
-    $ch = curl_init();
-    $emailnya = @$_POST["username"];
-    $passnya = @$_POST["password"];
+//Method GET
+    // $ch = curl_init();
+     $emailnya = @$_POST["username"];
+     $passnya = @$_POST["password"];
 
-    $hashed = hash("sha512", $passnya);
+     $hashed = hash("sha512", $passnya);
 
-    $url  = "http://116.68.252.198:38600/login?email=$emailnya&password=$hashed";
+    $url  = "http://10.10.10.148:38900/AdminLogin?email=$emailnya&password=$hashed";
 
 
     $homepage = file_get_contents($url);
@@ -22,6 +23,37 @@ $_POST["password"];
 
 
 //echo $jsonArrayResponse["Message"];
+
+// //Method POST
+// // API URL
+// $url = 'http://10.10.10.148:38900/AdminLogin';
+
+// // Create a new cURL resource
+// $ch = curl_init($url);
+
+// // Setup request to send json via POST
+// $data = array(
+//     'email' => $emailnya,
+//     'password' => $hashed
+// );
+// $payload = json_encode(array("data" => $data));
+
+// // Attach encoded JSON string to the POST fields
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+// // Set the content type to application/json
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+
+// // Return response instead of outputting
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// // Execute the POST request
+// $result = curl_exec($ch);
+
+// // Close cURL resource
+// curl_close($ch);
+
+// var_dump($result);
 
 
 if ($jsonArrayResponse["Message"] == "Login Success")
@@ -36,7 +68,7 @@ if ($jsonArrayResponse["Message"] == "Login Success")
 else
 {
     //echo "Login Gagal";
-    echo '<script type="text/javascript">alert("'.$domainnya.'Login Gagal !");window.location.href="http://'.$domainnya.'/xradius/crossradius-admin";</script>';
+   // echo '<script type="text/javascript">alert("'.$domainnya.'Login Gagal !");window.location.href="http://'.$domainnya.'/xradius/crossradius-admin";</script>';
 }
 
 

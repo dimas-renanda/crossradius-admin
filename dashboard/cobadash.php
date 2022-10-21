@@ -21,7 +21,7 @@ header("location: ./");
 	<head>
     <?php 
 
-    echo "<title>MikroX ".findbjorka($_SESSION['iprouter'],$key,'base64')."</title>";
+    echo "<title>KNM Probolinggo ".findbjorka($_SESSION['iprouter'],$key,'base64')."</title>";
 
 
     ?>
@@ -79,7 +79,7 @@ header("location: ./");
 </div>
 
 <div id="sidenav" class="sidenav">
-  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3>MikroX</h3><p><?php echo findbjorka($_SESSION['iprouter'],$key,'base64'); ?></p></div>
+  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3>(KNM) <br> Probolinggo</h3><p><?php echo findbjorka($_SESSION['iprouter'],$key,'base64'); ?></p></div>
   <a href="cobadash.php" class="menu"><i class="fa fa-dashboard"></i> Dashboard</a>
   <!--hotspot-->
   <div class="dropdown-btn "><i class="fa fa-wifi"></i> Sites
