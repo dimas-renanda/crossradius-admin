@@ -22,6 +22,9 @@ foreach (@$totmoney as $to)
     };
 }
 
+//mengambil host mikrotik
+// $gethosts = $API->comm("/ip/hotspot/host/print");
+// 		$TotalReg = count($gethosts);
 
 echo rupiah($resulttotalmoney);
 ?>
