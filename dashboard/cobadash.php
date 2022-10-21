@@ -95,10 +95,11 @@ header("location: ./");
     <!-- <a href="?generatehotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i> Generate </a>         -->
   </div>
   <!--profile-->
-  <div class="dropdown-btn "><i class=" fa fa-pie-chart"></i>  User Profile    <i class="fa fa-caret-down"></i>
+  <div class="dropdown-btn "><i class=" fa fa-pie-chart"></i>   Profile    <i class="fa fa-caret-down"></i>
   </div>
   <div class="dropdown-container ">
-    <a href="?listprofile=a" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> Profile List </a>
+    <a href="?listprofile=a" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i>User Profile List </a>
+    <a href="?listallprofile=a" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i>Profile List </a>
     <a href="?createprofile=a" class=" "> &nbsp;&nbsp;&nbsp;<i class="fa fa-plus-square "></i> Add Profile </a>
 
   </div>
@@ -191,6 +192,10 @@ elseif(@$_GET["createprofile"])
 elseif(@$_GET["listprofile"])
 {
 require_once 'userprofile.php';
+}
+elseif(@$_GET["listallprofile"])
+{
+require_once 'listallprofile.php';
 }
 elseif(@$_GET["hosts"])
 {

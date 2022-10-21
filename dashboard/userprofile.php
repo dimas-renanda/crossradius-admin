@@ -63,10 +63,12 @@ foreach($profile as $listprofile)
       echo '<tr>';
       echo '<th scope="row">'.$no.'</th>';
       $no++;
+      $lusernya = $profilenya['Username'];
       echo '<th scope="row">'.$profilenya['Username'].'</th>';
-      echo '<td>'.$profilenya['Groupname'].'</td>';
-      echo '<td >      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$profilenya['username'].'"><i class="fa fa-edit"></i></button>
-      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$profilenya['username'].'"><i class="fa fa-trash"></i></button></td>';
+      echo '<td>'.$profilenya['Groupname'].'</td><td> ';
+      //echo '     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$profilenya['username'].'"><i class="fa fa-edit"></i></button>';
+      echo'
+     <a href="executedeleteuser.php?username='.$lusernya.'"> <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$profilenya['username'].'"><i class="fa fa-trash"></i></button></td>';
 
 
       

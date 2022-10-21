@@ -41,38 +41,44 @@ require_once "sys.php";
 </head>
 <div class="bootstrap">
 <?php 
-echo '<table id ="example" class="table table-bordered table-striped text-center">
+  echo "listprofile";
+  echo '<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
-  <th scope="col">User List</th>
-  
-  <th scope="col">Mac Address</th>
-  <th scope="col">IP</th>
+<th scope="col">No</th>
+  <th scope="col">Username</th>
+  <th scope="col">Profile</th>
   <th scope="col">Action</th>
 </tr>
 </thead>
 <tbody>';
+$no=1;
 
-              foreach ($resultac as $data) {
-          //echo $data['user'] . '<br>';
-
-          echo '<tr>';
-          $lusernya = $data['user'];
-          echo '<th scope="row">'.$data['user'].'</th>';
-          echo '<td>'.$data['mac-address'].'</td>
-          <td>'.$data['address'].'</td>
-          <td>&nbsp <a href="executetimeoutanddeleteuser.php?username='.$lusernya.'"><button class ="btn btn-warning">  <i class="fa fa-clock-o"></i> Timeout</button></a>&nbsp<a href="executedeleteuser.php?username='.$lusernya.'"><button class="btn btn-danger "><i class="fa fa-trash"></i> Delete</button></a></td>';
-          
-        echo'</tr>';
-
-        
-
-    //             echo '<tr><th scope="row">',$data['user'],'<th>';
-    //  echo '<td>',$data['mac-address'],'</td>';
-    //  echo '<td>',$data['address'],'</td></tr>';
+$profile = file_get_contents('http://10.10.10.232:38700/GetProfileHotspot');
+$profile = json_decode($profile,true);
+foreach($profile as $listprofile)
+{
+  foreach ($listprofile as $profilenya)
+    {
+      echo '<tr>';
+      echo '<th scope="row">'.$no.'</th>';
+      $no++;
+      $lusernya = $profilenya['ProfileName'];
+      echo '<th scope="row">'.$profilenya['ProfileName'].'</th>';
+      echo '<td>'.$profilenya['Groupname'].'</td><td> ';
+      //echo '     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$profilenya['username'].'"><i class="fa fa-edit"></i></button>';
+      echo'
+     <a href="executedeleteprofile.php?profileName='.$lusernya.'"> <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$profilenya['username'].'"><i class="fa fa-trash"></i></button></td>';
 
 
-      }
+      
+    echo'</tr>';
+
+
+
+    }
+}
+
       echo       '</tbody>
 </table>';
 ?>
