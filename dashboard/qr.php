@@ -89,7 +89,7 @@
             if (!file_exists($penyimpanan))
              mkdir($penyimpanan);
 
-            QRcode::png($isi, $penyimpanan.'hasil_qrcode.png', QR_ECLEVEL_H, 10, 5); 
+            QRcode::png($isi, $penyimpanan.'hasil_qrcode.png', QR_ECLEVEL_Q, 10, 5); 
          
 
             echo '<img src="'.$penyimpanan.'hasil_qrcode.png">';
@@ -99,6 +99,6 @@
     </div>
 
  <i>"Gunakan internet dengan bijak"</i>
- 
+
 </body>
 </html>

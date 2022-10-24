@@ -44,24 +44,30 @@ require_once "sys.php";
 echo '<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
-  <th scope="col">User List</th>
-  
   <th scope="col">Mac Address</th>
+  
   <th scope="col">IP</th>
-  <th scope="col">Action</th>
+  <th scope="col">Connection status</th>
 </tr>
 </thead>
 <tbody>';
 
-              foreach ($resultac as $data) {
+              foreach ($resulthost as $data) {
           //echo $data['user'] . '<br>';
 
           echo '<tr>';
-          $lusernya = $data['user'];
-          echo '<th scope="row">'.$data['user'].'</th>';
-          echo '<td>'.$data['mac-address'].'</td>
-          <td>'.$data['address'].'</td>
-          <td>&nbsp <a href="executetimeoutanddeleteuser.php?username='.$lusernya.'"><button class ="btn btn-warning">  <i class="fa fa-clock-o"></i> Timeout</button></a>&nbsp<a href="executedeleteuser.php?username='.$lusernya.'"><button class="btn btn-danger "><i class="fa fa-trash"></i> Delete</button></a></td>';
+          echo '<th scope="row">'.$data['mac-address'].'</th>';
+          echo '<td>'.$data['address'].'</td>';
+          if ($data['authorized']==="false")
+          {
+            echo '<td>No Internet</td>';
+          }
+          else{
+            echo '<td>Connected</td>';
+          }
+
+          
+          //echo '<td>'.$data['authorized'].'</td>';
           
         echo'</tr>';
 

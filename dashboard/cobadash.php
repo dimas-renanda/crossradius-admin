@@ -79,7 +79,9 @@ header("location: ./");
 </div>
 
 <div id="sidenav" class="sidenav">
-  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3>(KNM) <br> Probolinggo</h3><p><?php echo findbjorka($_SESSION['iprouter'],$key,'base64'); ?></p></div>
+  <div class="menu text-center align-middle card-header" style="border-radius:0;">
+  <img src="../assets/img/probolinggo.png" height="75" alt="Kominfo Logo">
+  <h3>(KNM) <br> Probolinggo</h3><p><?php echo findbjorka($_SESSION['iprouter'],$key,'base64'); ?></p></div>
   <a href="cobadash.php" class="menu"><i class="fa fa-dashboard"></i> Dashboard</a>
   <!--hotspot-->
   <div class="dropdown-btn "><i class="fa fa-wifi"></i> Sites
@@ -211,7 +213,8 @@ require_once 'listallprofile.php';
 }
 elseif(@$_GET["hosts"])
 {
-  echo "hosts";
+  
+  require_once 'huser.php';
 }
 elseif(@$_GET["cookies"])
 {

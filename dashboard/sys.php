@@ -10,6 +10,14 @@ $API->debug = false;
 if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_SESSION["usernamerouter"],$key,"base64"), findbjorka($_SESSION["pwdrouter"],$key,"base64")))
 {
 
+    //get mikrotik host connected router
+    $gethosts = $API->comm("/ip/hotspot/host/print");
+		$TotalReg = count($gethosts);
+
+        $jsonhost = json_encode($gethosts);
+
+        $resulthost = json_decode($jsonhost, true);
+
 // get MikroTik system clock
     // $getclock = $API->comm("/system/clock/print");
     // $clock = $getclock[0];
@@ -36,7 +44,7 @@ if($API->connect( findbjorka($_SESSION["iprouter"],$key,"base64"), findbjorka($_
   $log = array_reverse($getlog);
   $THotspotLog = count($getlog);
       
-
+//var_dump($resulthost);
 }
 
 function rupiah($angka){
