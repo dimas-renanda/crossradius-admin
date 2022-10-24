@@ -91,6 +91,7 @@ header("location: ./");
   </div>
   <div class="dropdown-container ">
     <a href="?listuser=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-list "></i> User List </a>
+    <a href="?createguesthotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus "></i> Create Guest </a>
     <a href="?createuserhotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus "></i> Add User </a>
     <!-- <a href="?generatehotspot=a" class=""> &nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus"></i> Generate </a>         -->
   </div>
@@ -180,6 +181,11 @@ elseif(@$_GET["createuserhotspot"])
 {
 echo "createuserhotspot";
 require_once 'createuser.php';
+}
+elseif(@$_GET["createguesthotspot"])
+{
+echo "createguesthotspot";
+require_once 'createguest.php';
 }
 elseif(@$_GET["generatehotspot"])
 {
