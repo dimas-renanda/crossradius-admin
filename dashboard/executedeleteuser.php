@@ -2,7 +2,7 @@
 require_once "../conf/safety.php";
 
 
-$url = 'http://10.10.10.148:38900/DeleteUser';
+$url = 'http://10.10.10.232:38900/DeleteUser';
 $data = array('username' => $_GET['username'] );
 
 // use key 'http' even if you send the request to https://...

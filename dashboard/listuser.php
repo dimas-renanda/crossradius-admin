@@ -41,7 +41,7 @@ require_once "sys.php";
 </head>
 <div class="bootstrap">
 <?php 
-$jsonuser = file_get_contents('http://10.10.10.148:38900/GetAllUsers');
+$jsonuser = file_get_contents('http://10.10.10.232:38900/GetAllUsers');
 
 $juser= json_decode($jsonuser,true);
 $cjuser = count($juser["Data"]);

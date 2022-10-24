@@ -13,7 +13,7 @@ $_POST["password"];
 
      $hashed = hash("sha512", $passnya);
 
-    $url  = "http://10.10.10.148:38900/AdminLogin?email=$emailnya&password=$hashed";
+    $url  = "http://10.10.10.232:38900/AdminLogin?email=$emailnya&password=$hashed";
 
 
     $homepage = file_get_contents($url);
