@@ -2,7 +2,7 @@
 require_once "../conf/safety.php";
 
 
-$url = "http://10.10.10.232:38900/CreateNewUser";
+$url = "http://10.10.10.148:38900/CreateNewUser";
 $data = array(
     'userCredentials' => $_POST['userCredentials'],
     'profileName' => $_POST['profileName'],
