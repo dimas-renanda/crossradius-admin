@@ -41,44 +41,45 @@ require_once "sys.php";
 </head>
 <div class="bootstrap">
 <?php 
-  echo "listprofile";
-  echo '<table id ="example" class="table table-bordered table-striped text-center">
+$jsonuser = file_get_contents('http://10.10.10.148:38900/GetAllUsersInfo');
+
+$juser= json_decode($jsonuser,true);
+$cjuser = count($juser["Data"]);
+echo '<h3>'.$cjuser.' Users</h3>';
+echo '<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
-<th scope="col">No</th>
-  <th scope="col">Username</th>
-  <th scope="col">Profile</th>
-  <th scope="col">Action</th>
+  <th scope="col">Access User</th>
+  
+  <th scope="col">Name </th>
+
+  <th scope="col">Device </th>
+
+  <th scope="col">Action </th>
 </tr>
 </thead>
 <tbody>';
-$no=1;
 
-$profile = file_get_contents('http://10.10.10.148:38900/GetUserProfile');
-$profile = json_decode($profile,true);
-foreach($profile as $listprofile)
-{
-  foreach ($listprofile as $profilenya)
-    {
-      echo '<tr>';
-      echo '<th scope="row">'.$no.'</th>';
-      $no++;
-      $lusernya = $profilenya['Username'];
-      echo '<th scope="row">'.$profilenya['Username'].'</th>';
-      echo '<td>'.$profilenya['Groupname'].'</td><td> ';
-      //echo '     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$profilenya['username'].'"><i class="fa fa-edit"></i></button>';
-      echo'
-     <a href="executedeleteuser.php?username='.$lusernya.'"> <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$profilenya['username'].'"><i class="fa fa-trash"></i></button></td>';
+              foreach ($juser["Data"] as $data) {
+          //echo $data['user'] . '<br>';
+$lusernya = $data['MAC'];
+          echo '<tr>';
+          echo '<th scope="row">'.$data['MAC'].'</th>';
+          echo '<th scope="row">'.$data['AccountName'].'</th>';
+          echo '<th scope="row">'.$data['DeviceInfo'].'</th>';
+          echo '<th scope="row"><a href="qr.php?v='.$lusernya.'"><button class="btn btn-secondary"><i class="fa fa-qrcode mr-1"></i> QR</button></a>&nbsp</th>';
+          
+         
+        echo'</tr>';
 
+        
 
-      
-    echo'</tr>';
+    //             echo '<tr><th scope="row">',$data['user'],'<th>';
+    //  echo '<td>',$data['mac-address'],'</td>';
+    //  echo '<td>',$data['address'],'</td></tr>';
 
 
-
-    }
-}
-
+      }
       echo       '</tbody>
 </table>';
 ?>

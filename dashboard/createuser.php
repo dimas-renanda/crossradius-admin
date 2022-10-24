@@ -75,7 +75,7 @@ require_once "sys.php";
     <td class="align-middle">Profile</td><td>
 			<select class="form-control" id="profileName" name="profileName" >
 				<?php 
-        $profile = file_get_contents('http://10.10.10.232:38700/GetProfileHotspot');
+        $profile = file_get_contents('http://10.10.10.148:38900/GetProfileHotspot');
         $profile = json_decode($profile,true);
         echo '<option value = ""> Default </option>';
         foreach($profile as $listprofile)
@@ -87,7 +87,7 @@ require_once "sys.php";
     </select>
 		</td>
 	</tr>
-  <tr>
+  <!-- <tr>
     <td class="align-middle">Session Timeout</td><td><input class="form-control" type="number" autocomplete="off" name="sessionTimeout" value=""></td>
   </tr>
   <tr>
@@ -95,7 +95,7 @@ require_once "sys.php";
   </tr>
 	<tr>
     <td class="align-middle">Expirate Date (Days)</td><td><input class="form-control" type="number" autocomplete="off" name="expiredDate" value=""></td>
-  </tr>
+  </tr> -->
 	<tr>
     <td class="align-middle">Nama Pengguna</td><td><input class="form-control" type="text" autocomplete="off" name="deviceOwner" value=""></td>
   </tr>

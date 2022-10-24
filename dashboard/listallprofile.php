@@ -54,7 +54,7 @@ require_once "sys.php";
 <tbody>';
 $no=1;
 
-$profile = file_get_contents('http://10.10.10.232:38700/GetProfileHotspot');
+$profile = file_get_contents('http://10.10.10.148:38900/GetProfileHotspot');
 $profile = json_decode($profile,true);
 foreach($profile as $listprofile)
 {

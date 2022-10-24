@@ -57,7 +57,7 @@
 }
     </style>
  
-    <h2>Akses Tamu</h2>
+    <h2>Akses Internet</h2>
     <div class="centered-content">
         <div class="row"><img src="../assets/img/probolinggo.png" height="75" alt="Kominfo Logo">
         <div class="column"><img src="../assets/img/kominfo.png" height="80"  alt="probolinggoLogo"></div>
@@ -74,8 +74,11 @@
         if(isset($_GET['v'])){
  
      
-            $isi = $_GET['v'];
- 
+            $paramnya = $_GET['v'];
+            $isi = "http://crossradius.net/login?username=";
+            $isi = $isi.$paramnya."&password=".$paramnya;
+            //echo $isi;
+ //$isi = "http://crossradius.net/login?username=djuvan123&password=djuvan123";
        
             include "phpqrcode/qrlib.php"; 
  
@@ -86,7 +89,7 @@
             if (!file_exists($penyimpanan))
              mkdir($penyimpanan);
 
-            QRcode::png($isi, $penyimpanan.'hasil_qrcode.png', QR_ECLEVEL_Q, 10, 5); 
+            QRcode::png($isi, $penyimpanan.'hasil_qrcode.png', QR_ECLEVEL_H, 10, 5); 
          
 
             echo '<img src="'.$penyimpanan.'hasil_qrcode.png">';
@@ -94,6 +97,8 @@
         }
         ?>
     </div>
+
  <i>"Gunakan internet dengan bijak"</i>
+ 
 </body>
 </html>

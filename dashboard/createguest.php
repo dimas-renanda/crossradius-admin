@@ -58,7 +58,7 @@ require_once "sys.php";
 <table class="table">
   <tbody>
   <tr>
-    <td class="align-middle" required="1" autofocus="">Mac Address</td><td>
+    <td class="align-middle" required="1" autofocus="">Mac Address / Guest Access</td><td>
         <div class="input-group">
           <div class="input-group-11 col-box-10">
             <input class="group-item group-item-l" id="userCredentials" type="text" name="userCredentials" autocomplete="new-password" value="" required="0" aria-autocomplete="list">
@@ -75,7 +75,7 @@ require_once "sys.php";
     <td class="align-middle">Profile</td><td>
 			<select class="form-control" id="profileName" name="profileName" >
 				<?php 
-        $profile = file_get_contents('http://10.10.10.232:38700/GetProfileHotspot');
+        $profile = file_get_contents('http://10.10.10.148:38900/GetProfileHotspot');
         $profile = json_decode($profile,true);
         echo '<option value = ""> Default </option>';
         foreach($profile as $listprofile)

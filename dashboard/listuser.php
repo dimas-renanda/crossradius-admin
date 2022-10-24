@@ -41,7 +41,7 @@ require_once "sys.php";
 </head>
 <div class="bootstrap">
 <?php 
-$jsonuser = file_get_contents('http://10.10.10.232:38900/GetAllUsers');
+$jsonuser = file_get_contents('http://10.10.10.148:38900/GetAllUsers');
 
 $juser= json_decode($jsonuser,true);
 $cjuser = count($juser["Data"]);
@@ -61,8 +61,9 @@ echo '<table id ="example" class="table table-bordered table-striped text-center
 $lusernya = $data['Username'];
           echo '<tr>';
           echo '<th scope="row">'.$data['Username'].'</th>';
-          echo '<td><a href="executedeleteuser.php?username='.$lusernya.'"><button class="btn btn-danger"><i class="fa fa-trash mr-1"></i> Delete</button></a></td>';
-          
+          echo '<td><a href="qr.php?v='.$lusernya.'"><button class="btn btn-secondary"><i class="fa fa-qrcode mr-1"></i> QR</button></a>&nbsp<a href="executedeleteuser.php?username='.$lusernya.'"><button class="btn btn-danger"><i class="fa fa-trash mr-1"></i> Delete</button></a></td>';
+          echo '';
+         
         echo'</tr>';
 
         
