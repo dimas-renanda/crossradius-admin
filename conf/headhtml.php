@@ -19,7 +19,7 @@ require_once "./assets/assets.php"
 		<!-- Font Awesome -->
 		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome/css/font-awesome.min.css" />
 		<!-- Mikhmon UI -->
-		<link rel="stylesheet" href="assets/css/mikhmon-ui.light.css">
+		<link rel="stylesheet" href="assets/css/mikhmon-ui.light.min.css">
 		<!-- favicon -->
 		<link rel="icon" href="http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/img/crosstab.png" />
 
