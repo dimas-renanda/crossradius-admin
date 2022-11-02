@@ -22,10 +22,10 @@
                         <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
                       </li> -->
                       <li>
-                      <a class="dropdown-item" href="../dashboard/cobadash.php"> Dashboard<span class="sr-only"></span></a>
+                      <a class="dropdown-item" href="../dashboard/cobadash.php"> <i class="fa fa-desktop" aria-hidden="true"></i> Dashboard<span class="sr-only"></span></a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="../system/">System</a>
+                        <a class="dropdown-item" href="../system/"><i class="fa fa-wrench" aria-hidden="true"></i> System</a>
                       </li>
 
 
@@ -38,7 +38,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       <li>
-                        <a class="dropdown-item" href="../logout/">Logout</a>
+                        <a class="dropdown-item" href="../logout/"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                       </li>
               </ul>
           </li>
