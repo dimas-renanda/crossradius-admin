@@ -69,7 +69,7 @@ if (@$_GET["router"] )
 {
    header("Refresh:5");
 echo "Connection Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
-echo "<a href='../'><button class='btn btn-secondary'>Logout Router</button></a><br>";
+echo "<a href='../'><button class='btn btn-secondary'><i class='fa fa-sign-out'></i> Logout Router</button></a><br>";
 $API = new RouterosAPI();
 
 //'116.68.251.167', 'admin', 'xyz31mei'
