@@ -1,4 +1,4 @@
-<?php require_once'../conf/conn.php';    ob_start();
+<?php require_once '../conf/conn.php';    ob_start();
 error_reporting(0);
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

@@ -45,7 +45,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
       <center>
         <?php //require_once "signin.php"; ?>
       <form autocomplete="off" action="signin.php" method="post">
-      <table class="table" style="width:90%">
+      <table class="table" style="width:60%">
         <tr>
           <td class="align-middle text-center">
             <input style="width: 100%; height: 35px; font-size: 16px;" class="form-control" type="text" name="username" id="_username" placeholder="Username" required="1" autofocus>
