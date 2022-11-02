@@ -32,7 +32,7 @@ if ($jsonArrayResponse["Message"] == "Login Success")
     session_start();
     $_SESSION["loggedin"] = true;
     $_SESSION["email"] = $emailnya;
-    echo '<script type="text/javascript">alert("Login Berhasil !");window.location.href="http://'.$domainnya.'/xradius/crossradius-admin/dashboard";</script>';
+    echo '<script type="text/javascript">window.location.href="http://'.$domainnya.'/xradius/crossradius-admin/dashboard";</script>';
     //header("location: index.php");
 }
 else
