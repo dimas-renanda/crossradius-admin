@@ -3,7 +3,7 @@ require_once "../conf/safety.php";
 require_once "../conf/bjorka.php";
 require_once "../conf/conn.php";
 require_once "../assets/assets.php";
-
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">

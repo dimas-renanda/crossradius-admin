@@ -53,9 +53,9 @@ $row = $hasil->fetch_assoc();
 echo '<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
-<th scope="col">No</th>
-  <th scope="col">Id</th>
-  <th scope="col">Title</th>
+<th scope="col">No</th>';
+ // <th scope="col">Id</th>
+  echo' <th scope="col">Title</th>
   <th scope="col">Description</th>
   <th scope="col">Img</th>
   <th scope="col">Url</th>
@@ -70,7 +70,7 @@ $no=1;
           echo '<tr>';
           echo '<th scope="row">'.$no.'</th>';
           $no++;
-          echo '<th scope="row">'.$data['id'].'</th>';
+         //  echo '<th scope="row">'.$data['id'].'</th>';
           echo '<td>'.$data['title'].'</td>';
           echo '<td>'.$data['description'].'</td>';
           echo '<td>'.$data['img'].'</td>';
