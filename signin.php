@@ -18,7 +18,7 @@ $_POST["password"];
 
 
     $homepage = file_get_contents($url);
-    var_dump($homepage);
+    //var_dump($homepage);
     $jsonArrayResponse = json_decode($homepage,true);
 
 

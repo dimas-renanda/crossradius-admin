@@ -1,158 +1,93 @@
 <?php 
+
 require_once "../conf/safety.php";
 require_once "../conf/bjorka.php";
-require_once "../conf/conn.php";
 require_once "../assets/assets.php";
+require_once '../conf/adminsidebar/assets.php' ;
+require_once "../conf/conn.php";
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>News</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <?php echo '<link href="http://'.$_SERVER['HTTP_HOST'].'/xradius/crossradius-admin/conf/adminsidebar/css/styles.css" rel="stylesheet">'; ?>
+<!-- pacee loading -->
+        <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-flash.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    </head>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light"><a class="navbar-brand" href="">
+  &nbsp;
+      <?php echo '<img class="navbar-brand" src="http://'.$domainnya.'/xradius/crossradius-admin/assets/img/xspin.gif" alt="XNET Logo" height="40">'; ?>
+      CNM </a></div>
+                <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../"><i class="fa fa-server"></i> Router List</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../news"><i class="fa fa-newspaper-o"></i> News</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../CS/"><i class="fa fa-comments-o" aria-hidden="true"></i> Customer Services</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../ticket/"><i class="fa fa-user-times" aria-hidden="true"></i> Ticketing</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="../package/"><i class="fa fa-tachometer" aria-hidden="true"></i> List Package</a>
 
-    <title>News</title>
-
-    <script>
-        $(document).ready(function () {
-    $('#example').DataTable(
-        {
-            responsive: true
-        }
-    );
-});
-    </script>
-</head>
-
-<body>
-
-<div class="col-md" style="padding-left: 20px; padding-top: 20px; padding-bottom: 20px; padding-right: 20px;">
-<h3>Media and News</h3>
-<hr>
-
-
-<button class="btn btn-info pull-right text-white" ><i class="fa fa-plus"></i> Add News</button>
-
-
-<p style="padding-bottom: 30px;"></p>
-
-
-<?php 
-
-$getsql = "SELECT * from news";
-$stmt = $linkadmincnm->prepare($getsql);
-$stmt->execute();
-$hasil = $stmt->get_result();
-$row = $hasil->fetch_assoc();
-echo '<table id ="example" class="table table-bordered table-striped text-center">
-<thead>
-<tr>
-<th scope="col">No</th>';
- // <th scope="col">Id</th>
-  echo' <th scope="col">Title</th>
-  <th scope="col">Description</th>
-  <th scope="col">Img</th>
-  <th scope="col">Url</th>
-  <th scope="col">Action</th>
-</tr>
-</thead>
-<tbody>';
-$no=1;
-              foreach ($hasil as $data) {
-
-
-          echo '<tr>';
-          echo '<th scope="row">'.$no.'</th>';
-          $no++;
-         //  echo '<th scope="row">'.$data['id'].'</th>';
-          echo '<td>'.$data['title'].'</td>';
-          echo '<td>'.$data['description'].'</td>';
-          echo '<td>'.$data['img'].'</td>';
-          echo '<td>'.$data['url'].'</td>';
-          echo '<td >      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$data['id'].'"><i class="fa fa-edit"></i></button>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$data['id'].'"><i class="fa fa-trash"></i></button></td>';
-
-
-          
-        echo'</tr>';
-
-echo '      <!-- Edit News -->
-<div id="myModal'.$data['id'].'" class="modal fade" role="dialog">
-<div class="vertical-alignment-helper">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Edit News</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="editrouter.php" method="POST">
-               <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Title </label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$data['id'].' >
-                  <input type="text" id="inputrname" name="rname" class="form-control validate" value="'.$data['title'].'" >
-               </div>
-               <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrusername"> Description </label>
-                  <input type="text" id="inputrusername" name="rusername"class="form-control validate" value="'.$data['description'].'" required>
-               </div>
-               <div class="md-form mb-4">
-               <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Img </label>
-               <input type="text" id="inputrpwd" name="rwpd" class="form-control validate" value='.$data['img'].' required>
+                </div>
             </div>
-            <div class="md-form mb-4">
-            <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Url </label>
-            <input type="text" id="inputrip" name="rip"class="form-control validate" value='.$data['url'].' required>
-         </div>
-               <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Edit</button>
-               </div>
-            </form>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>';
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom  ">
+                    <div class="container-fluid">
+                    
+                        <button class="btn  bg-transparent " id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <!-- <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li> -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i> <?php echo $_SESSION['email']; ?></a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="../logout/"><i class="fa fa-sign-out"></i> Logout</a>
+                                     
+                                        <!-- <div class="dropdown-divider"></div> -->
 
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </nav>
+                <!-- Page content-->
+                <?php require_once 'news.php' ?>
+                <div class="container-fluid">
+                    <!-- <h1 class="mt-4">Simple Sidebar</h1>
+                    <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+                    <p>
+                        Make sure to keep all page content within the
+                        <code>#page-content-wrapper</code>
+                        . The top navbar is optional, and just for demonstration. Just create an element with the
+                        <code>#sidebarToggle</code>
+                        ID which will toggle the menu when clicked.
+                    </p> -->
 
-echo '      <!-- Delete News -->
-<div id="myModaldelete'.$data['id'].'" class="modal fade" role="dialog">
-<div class="vertical-alignment-helper">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Delete News</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="deleterouter.php" method="POST">
-               <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to delete '.$data['title'].' ?</label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$data['id'].' >
-               </div>
-               <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Delete</button>
-               </div>
-            </form>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>';
-
-      }
-      echo       '</tbody>
-</table>';
-?>
-    
-</div>
-
-</body>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <?php echo '<script src="http://'.$_SERVER['HTTP_HOST'].'/xradius/crossradius-admin/conf/adminsidebar/js/scripts.js">'; ?>
+        <script src="js/scripts.js"></script>
 </html>
-

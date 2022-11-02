@@ -1,10 +1,10 @@
 <?php require_once '../conf/conn.php';    ob_start();
 error_reporting(0);
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 <a class="navbar-brand" href="">
   &nbsp;
-      <?php echo '<img class="navbar-brand" src="http://'.$domainnya.'/xradius/crossradius-admin/assets/img/xnet.png" alt="XNET Logo" height="40">'; ?>
+      <?php echo '<img class="navbar-brand" src="http://'.$domainnya.'/xradius/crossradius-admin/assets/img/xspin.gif" alt="XNET Logo" height="45">'; ?>
       CNM </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,14 +17,15 @@ error_reporting(0);
             <a class="nav-link" href="../dashboard/cobadash.php"> Dashboard<span class="sr-only"></span></a>
           </li> -->
 
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="../news" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-cogs"></i> Admin
               </a>
+
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <!-- <li>
+              <li>
                         <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
-                      </li> -->
+                      </li>
                       <li>
                       <a class="dropdown-item" href="../news"><i class="fa fa-newspaper-o"></i> News<span class="sr-only"></span></a>
                       </li>
@@ -36,7 +37,21 @@ error_reporting(0);
                       </li>
 
               </ul>
-          </li>
+
+          </li> -->
+
+          <li class="nav-item">
+                      <a class="nav-link" href="../news"><i class="fa fa-cogs"></i> Admin<span class="sr-only"></span></a>
+                      </li>
+          <li class="nav-item">
+                      <a class="nav-link" href="../news"><i class="fa fa-newspaper-o"></i> News<span class="sr-only"></span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../CS/"><i class="fa fa-comments-o" aria-hidden="true"></i> Customer Services</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../ticket/"><i class="fa fa-user-times" aria-hidden="true"></i> Ticketing</a>
+                      </li>
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li> -->
@@ -112,7 +127,20 @@ if($_SESSION["isrouter"] == "masuk")
 ?>
 
 
-          <li class="nav-item dropdown">
+
+
+        </ul>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav">
+            <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-user-circle"></i> Account
               </a>
@@ -122,11 +150,12 @@ if($_SESSION["isrouter"] == "masuk")
                       </li>
               </ul>
           </li>
-
-        </ul>
+            </ul>
+        
         <!-- <form class="form-inline my-2 my-md-0">
           <input class="form-control" type="text" placeholder="Search">
         </form> -->
+
       </div>
     </nav>
 

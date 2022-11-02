@@ -203,7 +203,7 @@ echo "<br>  <h3><i class='fa fa-server'></i> Router List</h3>";
 //   </tr>
 // </thead>
 // <tbody>';
-echo'<button class="btn btn-primary  text-white align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#myModalAddRouter"><i class="fa fa-plus"></i> Add Router</button>';
+echo'<button class="btn btn-primary  text-white align-content-end mb-3" data-bs-toggle="modal" data-bs-target="#myModalAddRouter"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Router</button>';
 
 echo '<div class="container ">
 
@@ -357,38 +357,38 @@ echo '
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Add Router</h4>
+            <h4 class="modal-title w-100 font-weight-bold"> Add Router</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="addrouter.php" method="POST">
                <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Router Name </label>
+                  <i class='fa fa-server prefix grey-text'></i> <label for="inputrname">  Router Name </label>
                   
                   <input type="text" id="inputrname" name="rname" class="form-control validate" placeholder='Router Name'].' required>
                </div>
                <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrusername"> User Login </label>
+                  <i class="fa fa-user prefix grey-text ">  </i> <label for="inputrusername"> Router Login </label>
                   <input type="text" id="inputrusername" name="rusername"class="form-control validate" placeholder='UserLogin' required>
                </div>
                <div class="md-form mb-4">
-               <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> User Password </label>
+               <i class="fa fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Password </label>
                <input type="password" id="inputrpwd" name="rpwd" class="form-control validate" placeholder='Password' required>
             </div>
             <div class="md-form mb-4">
-            <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Router IP </label>
+            <i class="fa fa-sitemap" aria-hidden="true"></i> <label for="inputrip"> Router IP </label>
             <input type="text" id="inputrip" name="rip"class="form-control validate" placeholder='IP' required>
          </div>
          <div class="md-form mb-4">
-         <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrports"> Router Port </label>
+         <i class="fa fa-exchange" aria-hidden="true"></i> <label for="inputrports"> Router Port </label>
          <input type="text" id="inputrports" name="rports"class="form-control validate" placeholder='Port' required>
       </div>
       <div class="md-form mb-4">
-      <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrtype"> Router Type (Ex."Mikrotik RB") </label>
+      <i class="fa fa-info-circle" aria-hidden="true"></i> <label for="inputrtype"> Router Type (Ex."Mikrotik RB") </label>
       <input type="text" id="inputrtype" name="rtype"class="form-control validate" placeholder='Router Type' required>
    </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Add</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"><i class="fa fa-plus-square" aria-hidden="true"></i> Add</button>
                </div>
             </form>
               </div>
