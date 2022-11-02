@@ -68,7 +68,7 @@ require_once "../conf/navbar.php";
 if (@$_GET["router"] )
 {
    header("Refresh:5");
-echo "Hotspot Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
+echo "Connection Active On : ",findbjorka(@$_GET["router"],$key,"base64"),"<br>";
 echo "<a href='../'><button class='btn btn-secondary'>Logout Router</button></a><br>";
 $API = new RouterosAPI();
 
