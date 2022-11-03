@@ -41,16 +41,16 @@ error_reporting(0);
           </li> -->
 
           <li class="nav-item">
-                      <a class="nav-link" href="../news"><i class="fa fa-cogs"></i> Admin<span class="sr-only"></span></a>
+                      <a class="nav-link" href="../admin?page=news"><i class="fa fa-cogs"></i> Admin<span class="sr-only"></span></a>
                       </li>
           <li class="nav-item">
-                      <a class="nav-link" href="../news"><i class="fa fa-newspaper-o"></i> News<span class="sr-only"></span></a>
+                      <a class="nav-link" href="../admin?page=news"><i class="fa fa-newspaper-o"></i> News<span class="sr-only"></span></a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="../CS/"><i class="fa fa-comments-o" aria-hidden="true"></i> Customer Services</a>
+                        <a class="nav-link" href="../admin?page=cs"><i class="fa fa-comments-o" aria-hidden="true"></i> Customer Services</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="../ticket/"><i class="fa fa-user-times" aria-hidden="true"></i> Ticketing</a>
+                        <a class="nav-link" href="../admin?page=tickets"><i class="fa fa-user-times" aria-hidden="true"></i> Ticketing</a>
                       </li>
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
