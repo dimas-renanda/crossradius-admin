@@ -30,11 +30,12 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
 	//echo '<div id="loader"></div>';
     $terupload = move_uploaded_file($_FILES["filefoto"]["tmp_name"], $dirUpload . $newfilename);  
   }
+  $stmt = $linkadmincnm->prepare($sql_update);
+  $stmt->execute();
+  echo mysqli_error($linkadmincnm);
   if ($terupload) 
   {
-    $stmt = $linkadmincnm->prepare($sql_update);
-    $stmt->execute();
-    echo mysqli_error($linkadmincnm);
+
     // header('Location: ' . $_SERVER['HTTP_REFERER']);
     //         exit;
 
@@ -45,5 +46,6 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
     //         exit;
     echo $sql_update;
   }
+
 }
 ?>
