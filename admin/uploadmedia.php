@@ -34,7 +34,7 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
   {
     $stmt = $linkadmincnm->prepare($sql_update);
     $stmt->execute();
-    mysqli_error($linkadmincnm);
+    echo mysqli_error($linkadmincnm);
     // header('Location: ' . $_SERVER['HTTP_REFERER']);
     //         exit;
 
