@@ -102,8 +102,9 @@ echo '<td>XNT'.$data['SID'].'</td>';
           echo '<td>'.$data['Topic'].'</td>';
           echo '<td>'.$data['Description'].'</td>';
           echo '<td>'.$data['TicketStatus'].'</td>';
-          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-edit"></i> Message</button>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> End Chat</button></td>';
+          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-check"></i> </button>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-edit"></i> </button>
+         </td>';
         echo'</tr>';
 
         echo '      <!-- Delete News -->
