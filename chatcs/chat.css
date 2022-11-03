@@ -100,7 +100,7 @@ z-index: 99999999999999
 
 .bubble-left,
 .bubble-right {
-    line-height: 100%;
+    line-height: 50%;
     display: block;
     position: relative;
     padding: .5em;
@@ -171,7 +171,7 @@ sup{
 .chat #msg_form input{
     display: block;
 	width: 100%;
-	border-radius: 0;
+	border-radius: 20px;
 	background-color: #fbfbfb;
 	padding: 10px;
 	-webkit-box-sizing: border-box;
@@ -180,6 +180,7 @@ sup{
 	box-sizing: border-box;
 	border: 3px solid rgba(0,0,0,0);
 	position: fixed;
+	
 bottom: 30px;
 
 left: 0px

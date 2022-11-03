@@ -1,4 +1,5 @@
 <?php 
+ error_reporting(0);
 include("config.php");
 $linkcnm = mysqli_connect("localhost","user","xyz13juli","cnm");
 
@@ -14,14 +15,14 @@ $datanya = json_decode($json,true);
 // $sql=$dbh->prepare("SELECT * FROM messages");
 // $sql->execute();
 //var_dump($datanya);
+$getsql = "SELECT first_name from user where id = $uudnya  ";
+$stmt = $linkcnm->prepare($getsql);
+$stmt->execute();
+$hasil = $stmt->get_result();
+$row = $hasil->fetch_assoc();
+//var_dump($row);
 foreach($datanya['Data'] as $r){
-  $uid = $r['UID'];
-  $getsql = "SELECT first_name from user where id = $uid  ";
-  $stmt = $linkcnm->prepare($getsql);
-  $stmt->execute();
-  $hasil = $stmt->get_result();
-  $row = $hasil->fetch_assoc();
-  //var_dump($row);
+
 	if($r['SentBy'] == "CS")
   {
 		$aktip = "bubble-right";
@@ -30,6 +31,7 @@ foreach($datanya['Data'] as $r){
 		$aktip = "bubble-left";
 	}
  echo "<div class='urltag $aktip'>
+ 
  <p>
  <span class='name'>
  {$row['first_name']}</span><span class='msgc'>".urlf($r['Chat'])."

@@ -11,7 +11,7 @@ if(isset($_POST['msg'])){
 //   $sql->execute(array($_SESSION['user'],$msg));
 
 $url = 'http://phoenix.crossnet.co.id:38600/AddChat';
-$data = array('uid' => '10',
+$data = array('uid' => $_SESSION['fromuid'],
               'csid'=> '22',
               'chat'=> $msg,
              'timestamp' => $today = date("Y-m-d H:i:s"),
