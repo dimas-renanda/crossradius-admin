@@ -1,4 +1,4 @@
-<br/><br/>
+<!-- 
 <?php 
 if(isset($_POST['name']) && !isset($display_case)){
  $name=htmlspecialchars($_POST['name']);
@@ -31,4 +31,4 @@ if(isset($_POST['name']) && !isset($display_case)){
  echo '<p align="center">Ini adalah tempat chat room bersama orang-orang yang tidak anda kenal dan orang lain tidak mengetahui siapa anda. ^o^</p>';
 }
 ?>
-<footer>dibuat by <a href="https://subinsb.com/group-chat-in-php-with-ajax-jquery-mysql" target="_BLANK">@SubinSiby</a> dikembangkan by <a href="http://ibacor.com" target="_BLANK">@bachors</a></footer>
+<footer>dibuat by <a href="https://subinsb.com/group-chat-in-php-with-ajax-jquery-mysql" target="_BLANK">@SubinSiby</a> dikembangkan by <a href="http://ibacor.com" target="_BLANK">@bachors</a></footer> -->

@@ -11,8 +11,8 @@ html{
 }
 .tabs{
     display: block;
-	background: #3E8A66;
-	color: #fff;
+	background: #3d06a3;
+	color: #fafdfc;
 	position: fixed;
 	width:100%;
 top: 0px;
@@ -29,7 +29,8 @@ z-index: 99999999999999
 	cursor: pointer
 }
 .tab .aktip,.tab:hover{
-    background:#5DB68D
+	
+    background: rgb(233, 201, 19);
 }
 
 
@@ -94,7 +95,7 @@ z-index: 99999999999999
     white-space: pre-line;
     line-height:0;
 	position:relative;
-	bottom:50px;
+	bottom:60px;
 }
 
 .bubble-left,
@@ -128,7 +129,7 @@ p{
 .chat .msgs .name{
  color: #8FC7FF;
  display: block;
- margin-bottom: 6px
+ margin-bottom: 8px
 }
 
 a.keluar{
@@ -143,7 +144,7 @@ a.keluar{
 .chat .msgs .dat{
  color: #777;
  display: block;
- margin-top: 6px;
+ margin-top: 1px;
  font-size: 10px;
  text-align: right
 }
@@ -179,7 +180,8 @@ sup{
 	box-sizing: border-box;
 	border: 3px solid rgba(0,0,0,0);
 	position: fixed;
-bottom: 0px;
+bottom: 30px;
+
 left: 0px
 }
 
