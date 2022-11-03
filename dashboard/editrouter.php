@@ -14,11 +14,11 @@
 
         // check data login
         // SELECT * FROM user WHERE email = '$username'
-        $sql = "UPDATE router_nas set session_name = '$rname' , username='$rusername',password='$rpwd',ip='$rip',ports='$rports',type='$rtype' WHERE id=? ";
+        $sql = "UPDATE router_nas set session_name = '$rname' , username='$rusername',password='$rpwd',ip='$rip',ports='$rports',type='$rtype' WHERE id=$rid ";
         echo $sql;
         echo json_encode(['notif'=>$sql]);
         $stmt = $linkadmincnm->prepare($sql);
-        $stmt->execute([$rid]);
+        $stmt->execute();
         
         if ($stmt)
         {
