@@ -37,7 +37,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     </div> -->
     <div class="card-body">
       <div class="text-center pd-5">
-        <img src="assets/img/CNM.gif" height="80" alt="XNET Logo">
+        <img src="assets/img/NEWCNM.gif" height="80" alt="XNET Logo">
       </div>
       <div  class="text-center">
       <span style="font-size: 20px; margin: 10px;"> Network Management</span>
