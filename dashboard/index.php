@@ -272,7 +272,7 @@ echo '      <!-- Edit Router -->
                </div>
                <div class="md-form mb-4">
                <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Password </label>
-               <input type="password" id="inputrpwd" name="rwpd" class="form-control validate" value='.$row['password'].' required>
+               <input type="password" id="inputrpwd" name="rpwd" class="form-control validate" value='.$row['password'].' required>
             </div>
             <div class="md-form mb-4">
             <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Router IP </label>
