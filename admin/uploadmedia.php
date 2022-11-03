@@ -16,7 +16,7 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
   // tentukan lokasi file akan dipindahkan
   $dirUpload = "uploads/img/";
   
-  $sql_update = "INSERT INTO news (title, description ,img,url)VALUES('$rt','$rd','".$newfilename."','$ru')";
+  $sql_update = "INSERT INTO news (`title`, `description` ,`img`,`url`)VALUES('$rt','$rd','".$newfilename."','$ru')";
   if(!in_array($extension,$allowed_extensions) || $_FILES["filefoto"]["size"] > 2000000)
   {
     
