@@ -62,17 +62,22 @@ if (sidebarToggle) {
 
 <?php 
 
-$json = file_get_contents('http://phoenix.crossnet.co.id:38600/GetCSRequest');
+$json = file_get_contents('http://phoenix.crossnet.co.id:38600/GetAllTickets');
 $datanya = json_decode($json,true);
 //var_dump($datanya["Data"]);
 echo'<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
 <th scope="col">No</th>
-  <th scope="col">UserId</th>
-  <th scope="col">FirstName</th>
+  <th scope="col">User ID</th>
+  <th scope="col">Ticket ID</th>
+  <th scope="col">SID</th>
   <th scope="col">Email</th>
-  <th scope="col">Respons</th>
+  <th scope="col">Submited Date</th>
+  <th scope="col">Topic</th>
+  <th scope="col">Description</th>
+  <th scope="col">Progress </th>
+  <th scope="col">Action </th>
 
 </tr>
 </thead>
@@ -82,16 +87,21 @@ $no=1;
           echo '<tr>';
           echo '<th scope="row">'.$no.'</th>';
           $no++;
-          $uid = $data['SentBy'];
-          echo '<th scope="row">'.$uid.'</th>';
-          $getsql = "SELECT first_name,email from user where id = $uid  ";
+          $uid = $data['UserID'];
+          echo '<th scope="row">USR'.$uid.'</th>';
+          $getsql = "SELECT email from user where id = $uid  ";
 $stmt = $linkcnm->prepare($getsql);
 $stmt->execute();
 $hasil = $stmt->get_result();
 $row = $hasil->fetch_assoc();
 //$row = mysqli_fetch_array($hasil);
-echo '<td>'.$row['first_name'].'</td>';
+echo '<td>TC'.$data['TicketID'].'</td>';
+echo '<td>TC'.$data['SID'].'</td>';
           echo '<td>'.$row['email'].'</td>';
+          echo '<td>TC'.$data['CreationDate'].'</td>';
+          echo '<td>'.$data['Topic'].'</td>';
+          echo '<td>'.$data['Description'].'</td>';
+          echo '<td>'.$data['TicketStatus'].'</td>';
           echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-edit"></i> Message</button>
           <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> End Chat</button></td>';
         echo'</tr>';
