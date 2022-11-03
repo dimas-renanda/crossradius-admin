@@ -32,7 +32,8 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
   }
   if ($terupload) 
   {
-    $result_update = $linkadmincnm -> query($sql_update); 
+    $stmt = $linkadmincnm->prepare($sql_update);
+    $stmt->execute();
     // header('Location: ' . $_SERVER['HTTP_REFERER']);
     //         exit;
 
