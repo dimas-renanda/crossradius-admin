@@ -1,6 +1,6 @@
 <?php 
 $domainnya = $_SERVER['HTTP_HOST'];
-$linkcnm = mysqli_connect("localhost","user","xyz13juli","cnm");
+$linkcnm = mysqli_connect("phoenix.crossnet.co.id","user","xyz13juli","cnm");
 
 //check connection
 if ($linkcnm === false)
@@ -9,7 +9,7 @@ if ($linkcnm === false)
     
 }
 
-$linkadmincnm = mysqli_connect("localhost","user","xyz13juli","admin_cnm");
+$linkadmincnm = mysqli_connect("phoenix.crossnet.co.id","user","xyz13juli","admin_cnm");
 
 //check connection
 if ($linkadmincnm === false)
