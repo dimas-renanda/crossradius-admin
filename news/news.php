@@ -51,7 +51,7 @@ if (sidebarToggle) {
 <hr>
 
 
-<button class="btn btn-info pull-right text-white" ><i class="fa fa-plus"></i> Add News</button>
+<button class="btn btn-info pull-right text-white" data-bs-toggle="modal" data-bs-target="#myModalAddNews" ><i class="fa fa-plus"></i> Add News</button>
 
 
 <p style="padding-bottom: 30px;"></p>
@@ -87,7 +87,7 @@ $no=1;
          //  echo '<th scope="row">'.$data['id'].'</th>';
           echo '<td>'.$data['title'].'</td>';
           echo '<td>'.$data['description'].'</td>';
-          echo '<td><img src="'.$data['img'].'" alt="" border=3 height=100 width=200></img></td>';
+          echo '<td><img src="../admin/uploads/img/'.$data['img'].'" alt="" border=3 height=100 width=200></img></td>';
           echo '<td>'.$data['url'].'</td>';
           echo '<td >      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$data['id'].'"><i class="fa fa-edit"></i></button>
           <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$data['id'].'"><i class="fa fa-trash"></i></button></td>';
@@ -145,10 +145,10 @@ echo '      <!-- Delete News -->
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="deleterouter.php" method="POST">
+            <form class="form-signin" action ="deletenews.php" method="POST">
                <div class="md-form mb-4">
                   <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to delete '.$data['title'].' ?</label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$data['id'].' >
+                  <input type="hidden" id="inputnid" name="nid" class="form-control validate"  value='.$data['id'].' >
                </div>
                <div class="modal-footer d-flex justify-content-center">
                   <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Delete</button>
@@ -167,6 +167,61 @@ echo '      <!-- Delete News -->
     
 </div>
 
+
+                    <!-- Add Router -->
+<div id="myModalAddNews" class="modal fade" role="dialog">
+<div class="vertical-alignment-helper">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold"> Add News</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body mx-3" method="POST">
+         <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
+						<table align ="text-center">   
+                     
+                  <tr> <td>Title</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="text" name="title" class="form-control " placeholder="Judul Berita">
+						</div></td>
+					</tr>
+
+               <tr> <td>Description</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Deskripsi singkat"></textarea>
+						</div></td>
+					</tr>
+
+					<tr> <td>News IMG (Max 2MB)</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="file" name="filefoto" class="form-control " placeholder="Upload Identitas Anda">
+						</div></td>
+					</tr>
+
+               <tr> <td>News Link</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="text" name="url" class="form-control " placeholder="URL Berita">
+						</div></td>
+					</tr>
+
+					<tr> <td></td>
+                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block" value="OK">Perbarui</button></td>
+							<td></td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 </body>
 </html>
 
