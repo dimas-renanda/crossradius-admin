@@ -6,7 +6,7 @@ $rt = $_POST['title'];
 $rd = $_POST['description'];
 $ru = $_POST['url'];
 
-//echo $rt,$rd,$ru;
+echo $rt,$rd,$ru;
 
 $temp = explode(".", $_FILES["filefoto"]["name"]);
 $newfilename = round(microtime(true)) . '.' . end($temp);
