@@ -8,11 +8,12 @@
         echo $rid;
         // check data login
         // SELECT * FROM user WHERE email = '$username'
-        $sql = "DELETE FROM router_nas WHERE id = ? ";
+        $sql = "DELETE FROM router_nas WHERE id = $rid ";
+        $stmt = $linkadmincnm->prepare($sql);
+        $stmt->execute();
         echo $sql;
         echo json_encode(['notif'=>$sql]);
-        $stmt = $linkadmincnm->prepare($sql);
-        $stmt->execute([$rid]);
+
         
         if ($stmt)
         {
