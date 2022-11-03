@@ -36,14 +36,14 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
   if ($terupload) 
   {
 
-    // header('Location: ' . $_SERVER['HTTP_REFERER']);
-    //         exit;
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
 
     echo $sql_update;
   }
   else{
-    // header('Location: ' . $_SERVER['HTTP_REFERER']);
-    //         exit;
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
     echo $sql_update;
   }
 
