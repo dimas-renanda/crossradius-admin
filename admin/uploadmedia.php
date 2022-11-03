@@ -35,10 +35,13 @@ $extension = substr($newfilename,strlen($newfilename)-4,strlen($newfilename));
     $result_update = $linkadmincnm -> query($sql_update); 
     // header('Location: ' . $_SERVER['HTTP_REFERER']);
     //         exit;
+
+    echo $sql_update;
   }
   else{
     // header('Location: ' . $_SERVER['HTTP_REFERER']);
     //         exit;
+    echo $sql_update;
   }
 }
 ?>
