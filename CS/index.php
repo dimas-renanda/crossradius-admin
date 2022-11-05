@@ -91,8 +91,8 @@ $row = $hasil->fetch_assoc();
 //$row = mysqli_fetch_array($hasil);
 echo '<td>'.$row['first_name'].'</td>';
           echo '<td>'.$row['email'].'</td>';
-          echo '<td > <a class="btn btn-success" href="../chatcs/?uid='.$uid.'"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Reply</a>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> Finish Chat</button></td>';
+          echo '<td > <a class="btn btn-primary" href="../chatcs/?uid='.$uid.'"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Reply</a>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> Finish Chat</button></td>';
         echo'</tr>';
 
         echo '      <!-- Delete Conversation -->
