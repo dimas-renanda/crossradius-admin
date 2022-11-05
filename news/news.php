@@ -1,7 +1,3 @@
-<?php 
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,30 +98,31 @@ echo '      <!-- Edit News -->
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Edit News</h4>
+            <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-newspaper-o"> </i> Edit News</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="editrouter.php" method="POST">
+            <form class="form-signin" action ="editnews.php" method="POST" enctype="multipart/form-data">
                <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Title </label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$data['id'].' >
-                  <input type="text" id="inputrname" name="rname" class="form-control validate" value="'.$data['title'].'" >
+                  <i class="fa fa-newspaper-o prefix grey-text"> </i> <label for="inputrname">  Title </label>
+                  <input type="hidden" name="timg" class="form-control validate"  value='.$data['img'].'>
+                  <input type="hidden" name="id" class="form-control validate"  value='.$data['id'].' >
+                  <input type="text"  name="title" class="form-control validate" value="'.$data['title'].'" required>
                </div>
                <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrusername"> Description </label>
-                  <input type="text" id="inputrusername" name="rusername"class="form-control validate" value="'.$data['description'].'" required>
+                  <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
+                  <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['description'].'</textarea>
                </div>
                <div class="md-form mb-4">
-               <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Img </label>
-               <input type="text" id="inputrpwd" name="rwpd" class="form-control validate" value='.$data['img'].' required>
+               <i class="fa fa-picture-o prefix grey-text">  </i> <label for="inputrpwd"> News Image </label>
+               <input type="file" name="filefoto" class="form-control validate"  >
             </div>
             <div class="md-form mb-4">
-            <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Url </label>
-            <input type="text" id="inputrip" name="rip"class="form-control validate" value='.$data['url'].' required>
+            <i class="fa fa-link prefix grey-text">  </i> <label for="inputrip"> Url </label>
+            <input type="text"  name="url" class="form-control validate" value='.$data['url'].' required>
          </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Edit</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"><i class="fa fa-edit prefix grey-text">  </i> Edit</button>
                </div>
             </form>
               </div>
@@ -141,17 +138,18 @@ echo '      <!-- Delete News -->
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Delete News</h4>
+            <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-newspaper-o"> </i> Delete News</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="deletenews.php" method="POST">
-               <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to delete '.$data['title'].' ?</label>
+               <div class="md-form mb-4 text-center">
+                  <i class="fa fa-exclamation-triangle fa-3x prefix text-warning"> </i> <br><label for="inputrname">  Are you sure want to delete '.$data['title'].' ?</label>
+                  <input type="hidden" name="timg" class="form-control validate"  value='.$data['img'].'>
                   <input type="hidden" id="inputnid" name="nid" class="form-control validate"  value='.$data['id'].' >
                </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Delete</button>
+                  <button id="redit" class="btn btn-default btn-danger btn-block text-uppercase"><i class="fa fa-trash ">  </i> Delete</button>
                </div>
             </form>
               </div>
@@ -174,7 +172,7 @@ echo '      <!-- Delete News -->
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold"> Add News</h4>
+            <h4 class="modal-title w-100 font-weight-bold"> <i class="fa fa-newspaper-o"> </i> Add News</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
@@ -184,33 +182,33 @@ echo '      <!-- Delete News -->
                   <tr> <td>Title</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <input type="text" name="title" class="form-control " placeholder="Judul Berita">
+					 <input type="text" name="title" class="form-control " placeholder="News Title" required>
 						</div></td>
 					</tr>
 
                <tr> <td>Description</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Deskripsi singkat"></textarea>
+					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description" required></textarea>
 						</div></td>
 					</tr>
 
-					<tr> <td>News IMG (Max 2MB)</td>
+					<tr> <td>News Image (Max 2MB)</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <input type="file" name="filefoto" class="form-control " placeholder="Upload Identitas Anda">
+					 <input type="file" name="filefoto" class="form-control " placeholder="News Image" required>
 						</div></td>
 					</tr>
 
                <tr> <td>News Link</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <input type="text" name="url" class="form-control " placeholder="URL Berita">
+					 <input type="text" name="url" class="form-control " placeholder="URL Link" required>
 						</div></td>
 					</tr>
 
 					<tr> <td></td>
-                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block" value="OK">Perbarui</button></td>
+                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block text-white" value="OK"><i class="fa fa-plus-square"></i> Add</button></td>
 							<td></td>
                         </tr>
                         

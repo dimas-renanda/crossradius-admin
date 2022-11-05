@@ -4,6 +4,13 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // declare + assign
         $nid = $_POST['nid'];
+
+        $rgmb = $_POST['timg'];
+
+  // tentukan lokasi file akan dipindahkan
+  $dirfilenya = "uploads/img/$rgmb";
+unlink("$dirfilenya");
+
         //echo $nid;
         // check data login
         // SELECT * FROM user WHERE email = '$username'
