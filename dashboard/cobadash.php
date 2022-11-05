@@ -23,7 +23,6 @@ require_once "sys.php";
 		<meta name="theme-color" content="#3a4149" />
 		<!-- Font Awesome -->
 		<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.min.css" />
-		<!-- Mikhmon UI -->
 		<link rel="stylesheet" href="../assets/css/mikhmon-ui.light.min.css">
 		<!-- favicon -->
     <link rel="icon" href="../assets/img/crosstab.png" />
