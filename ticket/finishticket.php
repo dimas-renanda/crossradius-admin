@@ -16,19 +16,19 @@ $ri = $_POST['tid'];
   $stmt = $linkcnm->prepare($sql_update);
   $stmt->execute();
   //echo mysqli_error($linkadmincnm);
-echo $sql_update;
+//echo $sql_update;
   //echo $dirfilenya;
   if ($stmt) 
   {
-    // echo "<script>Edit News Success');</script>";
-    // header('Location: ' . $_SERVER['HTTP_REFERER']);
-    //         exit;
+    echo "<script>Edit News Success');</script>";
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
 
   }
   else{
-    // echo "<script>Something when wrong...');</script>";
-    // header('Location: ' . $_SERVER['HTTP_REFERER']);
-    //         exit;
+    echo "<script>Something when wrong...');</script>";
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
   }
 
 }
