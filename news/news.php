@@ -179,28 +179,28 @@ echo '      <!-- Delete News -->
          <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
 						<table align ="text-center">   
                      
-                  <tr> <td>Title</td>
+                  <tr> <td><i class="fa fa-newspaper-o prefix grey-text"> </i> Title</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="text" name="title" class="form-control " placeholder="News Title" required>
 						</div></td>
 					</tr>
 
-               <tr> <td>Description</td>
+               <tr> <td><i class="fa fa-file-text prefix grey-text"> Description</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description" required></textarea>
 						</div></td>
 					</tr>
 
-					<tr> <td>News Image (Max 2MB)</td>
+					<tr> <td><i class="fa fa-picture-o prefix grey-text"> News Image &nbsp; (Max 2MB)</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="file" name="filefoto" class="form-control " placeholder="News Image" required>
 						</div></td>
 					</tr>
 
-               <tr> <td>News Link</td>
+               <tr> <td><i class="fa fa-link prefix grey-text"> News Link</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="text" name="url" class="form-control " placeholder="URL Link" required>
