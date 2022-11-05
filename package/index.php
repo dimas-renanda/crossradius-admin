@@ -62,17 +62,22 @@ if (sidebarToggle) {
 
 <?php 
 
-$json = file_get_contents('http://phoenix.crossnet.co.id:38600/GetCSRequest');
+$json = file_get_contents('http://phoenix.crossnet.co.id:38600/packages');
 $datanya = json_decode($json,true);
 //var_dump($datanya["Data"]);
 echo'<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
 <th scope="col">No</th>
-  <th scope="col">UserId</th>
-  <th scope="col">FirstName</th>
-  <th scope="col">Email</th>
-  <th scope="col">Respons</th>
+  <th scope="col">PackageId</th>
+  <th scope="col">Name</th>
+  <th scope="col">Price</th>
+  <th scope="col">Type</th>
+  <th scope="col">Download/Upload</th>
+  <th scope="col">Total Devices</th>
+  <th scope="col">Duration</th>
+  <th scope="col">Description</th>
+  <th scope="col">Action</th>
 
 </tr>
 </thead>
@@ -81,19 +86,20 @@ $no=1;
         foreach ($datanya["Data"] as $data) {
           echo '<tr>';
           echo '<th scope="row">'.$no.'</th>';
+          $uid = $data['Id'];
           $no++;
-          $uid = $data['SentBy'];
-          echo '<th scope="row">'.$uid.'</th>';
-          $getsql = "SELECT first_name,email from user where id = $uid  ";
-$stmt = $linkcnm->prepare($getsql);
-$stmt->execute();
-$hasil = $stmt->get_result();
-$row = $hasil->fetch_assoc();
+          echo '<th scope="row">'.$data['Id'].'</th>';
+
 //$row = mysqli_fetch_array($hasil);
-echo '<td>'.$row['first_name'].'</td>';
-          echo '<td>'.$row['email'].'</td>';
-          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-edit"></i> Message</button>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> End Chat</button></td>';
+echo '<td>'.$data['Name'].'</td>';
+          echo '<td>'.$data['Price'].'</td>';
+          echo '<td>'.$data['Type'].'</td>';
+          echo '<td>'.$data['SDownload'].'/'.$data['SUpload'].'</td>';
+          echo '<td>'.$data['TotalDevices'].'</td>';
+          echo '<td>'.$data['Duration'].'</td>';
+          echo '<td>'.$data['Description'].'</td>';
+          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-edit"></i> Edit</button>
+          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-ban"></i> Disable</button></td>';
         echo'</tr>';
 
         echo '      <!-- Delete News -->

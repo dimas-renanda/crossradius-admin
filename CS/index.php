@@ -92,7 +92,7 @@ $row = $hasil->fetch_assoc();
 echo '<td>'.$row['first_name'].'</td>';
           echo '<td>'.$row['email'].'</td>';
           echo '<td > <a class="btn btn-success" href="../chatcs/?uid='.$uid.'"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Reply</a>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> End Chat</button></td>';
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> Finish Chat</button></td>';
         echo'</tr>';
 
         echo '      <!-- Delete Conversation -->
@@ -111,7 +111,7 @@ echo '<td>'.$row['first_name'].'</td>';
                   <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$uid.' >
                </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">End Chat</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Finish Chat</button>
                </div>
             </form>
               </div>
