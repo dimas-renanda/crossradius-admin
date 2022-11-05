@@ -31,4 +31,4 @@ if(isset($_POST['name']) && !isset($display_case)){
  echo '<p align="center">Ini adalah tempat chat room bersama orang-orang yang tidak anda kenal dan orang lain tidak mengetahui siapa anda. ^o^</p>';
 }
 ?>
-<footer>Leap 2022 XNET <a href="petra.ac.id" target="_BLANK">MikroX</a>  test <a href="http://crossnet.co.id" target="_BLANK">XRADIUS</a></footer> 
+<footer>Customer Services <a href="https://cross.net.id/" target="_BLANK"> Crossnet</a>  by <a href=" http://petra.ac.id" target="_BLANK"> Phoenix</a></footer> 
