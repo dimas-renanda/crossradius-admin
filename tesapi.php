@@ -9,7 +9,6 @@ $jsonmoney = file_get_contents('http://10.10.10.232:38700/GetPayments');
 
 $totmoney = json_decode($jsonmoney,true);
         $alluser = count($totmoney["Data"]);
-// echo($totmoney['Data'][0]['Id']);
 
 $resulttotalmoney = 0;
 foreach (@$totmoney as $to)
