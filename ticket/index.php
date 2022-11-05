@@ -88,6 +88,7 @@ $no=1;
           echo '<th scope="row">'.$no.'</th>';
           $no++;
           $uid = $data['UserID'];
+          $tid = $data['TicketID'];
           echo '<th scope="row">USR'.$uid.'</th>';
           $getsql = "SELECT email from user where id = $uid  ";
 $stmt = $linkcnm->prepare($getsql);
@@ -102,28 +103,64 @@ echo '<td>XNT'.$data['SID'].'</td>';
           echo '<td>'.$data['Topic'].'</td>';
           echo '<td>'.$data['Description'].'</td>';
           echo '<td>'.$data['TicketStatus'].'</td>';
-          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-check"></i> </button>
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-edit"></i> </button>
+          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal'.$tid.'"><i class="fa fa-check"></i> </button>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$tid.'"><i class="fa fa-edit"></i> </button>
          </td>';
         echo'</tr>';
 
-        echo '      <!-- Delete News -->
-<div id="myModaldelete'.$uid.'" class="modal fade" role="dialog">
+        echo '      <!-- Update Ticket -->
+<div id="myModaldelete'.$tid.'" class="modal fade" role="dialog">
 <div class="vertical-alignment-helper">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Delete News</h4>
+            <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa fa-list-alt"></i> Update Ticket</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="deleterouter.php" method="POST">
-               <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to end chat with '.$row['email'].' ?</label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$uid.' >
+                          <div class="md-form mb-4">
+                          <input type="hidden"  name="tid" class="form-control validate"  value='.$tid.' >
+                  <i class="fa fa-newspaper-o prefix grey-text"> </i> <label for="inputrname">  Title </label>
+                  <input type="hidden" name="timg" class="form-control validate"  value='.$data['img'].'>
+                  <input type="hidden" name="id" class="form-control validate"  value='.$data['id'].' >
+                  <input type="text"  name="title" class="form-control validate" value="'.$data['title'].'" required>
                </div>
+               <div class="md-form mb-4">
+                  <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
+                  <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['description'].'</textarea>
+               </div>
+               <div class="md-form mb-4">
+               <i class="fa fa-picture-o prefix grey-text">  </i> <label for="inputrpwd"> News Image </label>
+               <input type="file" name="filefoto" class="form-control validate"  >
+            </div>
+               
                <div class="modal-footer d-flex justify-content-center">
                   <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">End Chat</button>
+               </div>
+            </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>';
+echo '      <!-- Finish Ticket -->
+<div id="myModal'.$tid.'" class="modal fade" role="dialog">
+<div class="vertical-alignment-helper">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa fa-list-alt"></i> Confirm Ticket</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body mx-3" method="POST">
+            <form class="form-signin" action ="../ticket/finishticket.php" method="POST">
+               <div class="md-form mb-4">
+                  <i class="fa fa-info-circle fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to finish this ticket ? <br>  &nbsp; <b> TC'.$tid.'</b></label>
+                  <input type="hidden"  name="tid" class="form-control validate"  value='.$tid.' >
+               </div>
+               <div class="modal-footer d-flex justify-content-center">
+                  <button id="redit" class="btn btn-default btn-primary btn-block text-uppercase"><i class="fa fa-check"></i> Submit</button>
                </div>
             </form>
               </div>

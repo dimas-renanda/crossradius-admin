@@ -95,19 +95,19 @@ echo '<td>'.$row['first_name'].'</td>';
           <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-trash"></i> End Chat</button></td>';
         echo'</tr>';
 
-        echo '      <!-- Delete News -->
+        echo '      <!-- Delete Conversation -->
 <div id="myModaldelete'.$uid.'" class="modal fade" role="dialog">
 <div class="vertical-alignment-helper">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Delete News</h4>
+            <h4 class="modal-title w-100 font-weight-bold">End Conversation</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="deleterouter.php" method="POST">
                <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to end chat with '.$row['email'].' ?</label>
+               <i class="fa fa-comments-o fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to end conversation with <br> &nbsp; <b>'.$row['email'].' </b>?</label>
                   <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$uid.' >
                </div>
                <div class="modal-footer d-flex justify-content-center">

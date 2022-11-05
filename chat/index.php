@@ -119,7 +119,7 @@ echo '<td>XNT'.$data['SID'].'</td>';
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="deleterouter.php" method="POST">
                <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to end chat with '.$row['email'].' ?</label>
+                <label for="inputrname">  <i class="fa fa-comments-o fa-3x prefix text-success"> </i> Are you sure want to end chat with '.$row['email'].' ?</label>
                   <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$uid.' >
                </div>
                <div class="modal-footer d-flex justify-content-center">
