@@ -12,7 +12,7 @@ if(isset($_POST['msg'])){
 
 $url = 'http://phoenix.crossnet.co.id:38600/AddChat';
 $data = array('uid' => $_SESSION['fromuid'],
-              'csid'=> $_SESSION['idnya'],
+              'csid'=> $_SESSION['idnya'], 
               'chat'=> $msg,
              'timestamp' => $today = date("Y-m-d H:i:s"),
             'sent_by' => 'CS'   );
