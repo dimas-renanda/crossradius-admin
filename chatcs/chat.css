@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 html{    
-	background:url(bg.jpg) repeat;
+	/* background:url(bg.jpg) repeat; */
+	background-color: #ccc;
 	font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -11,7 +12,7 @@ html{
 }
 .tabs{
     display: block;
-	background: #3d06a3;
+	background: #ffffff;
 	color: #fafdfc;
 	position: fixed;
 	width:100%;
@@ -141,6 +142,48 @@ a.keluar{
 	text-decoration:none
 }
 
+a.mya{
+	float:right;
+	/* background:#ffffff; */
+	color:#fff;
+	padding:5px;
+	border-radius:2px;
+	text-decoration:none
+}
+
+a.myb{
+	left: 50%; /* left-align your element to center */
+	transform: translateX(-50%); /* offset left by half the width of your element */
+	position: absolute;
+	 /* display: table; margin: 0 auto;   */
+	/* background:#ffffff; */
+ 
+	color:#fff;
+	padding:5px;
+	border-radius:2px;
+	text-decoration:none
+}
+
+a.myc{
+	float:left;
+	/* background:#ffffff; */
+	color:#fff;
+	padding:5px;
+	border-radius:2px;
+	text-decoration:none
+}
+
+button.mybtn{
+	 /* position: absolute;  
+bottom: 0; */
+
+float: right;
+height: 100%;
+display: flex;
+align-items: flex-end;
+shape-outside: inset(calc(100% - 100px) 0 0);
+}
+
 .chat .msgs .dat{
  color: #777;
  display: block;
@@ -181,7 +224,7 @@ sup{
 	border: 3px solid rgba(0,0,0,0);
 	position: fixed;
 	
-bottom: 30px;
+bottom: 6px;
 
 left: 0px
 }
@@ -189,7 +232,7 @@ left: 0px
 footer{
     display: block;
 	width: 100%;
-	padding: 10px;
+	padding: 0px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
