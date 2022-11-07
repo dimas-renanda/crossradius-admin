@@ -1,4 +1,6 @@
 <?php
+require_once 'conf/conn.php';
+//require_once 'conf/safety.php';
 $domainnya = $_SERVER['HTTP_HOST'];
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -19,9 +21,18 @@ $_POST["password"];
 
 if ($jsonArrayResponse["Message"] == "Login Success")
 {
+    $getsql = "SELECT id from user where email = '$emailnya'";
+$stmt = $linkcnm->prepare($getsql);
+$stmt->execute();
+$hasil = $stmt->get_result();
+$row = $hasil->fetch_assoc();
+
     session_start();
     $_SESSION["loggedin"] = true;
     $_SESSION["email"] = $emailnya;
+    $_SESSION["idnya"] =  $row['id'];
+    // var_dump($getsql);
+    // echo "hi" , $_SESSION["idnya"];
     echo '<script type="text/javascript">window.location.href="http://'.$domainnya.'/xradius/crossradius-admin/dashboard";</script>';
 }
 else

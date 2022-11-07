@@ -60,7 +60,7 @@ if (sidebarToggle) {
 
 
 <?php 
-
+$cidnya = $_SESSION['idnya'];
 $json = file_get_contents('http://phoenix.crossnet.co.id:38600/GetCSRequest');
 $datanya = json_decode($json,true);
 //var_dump($datanya["Data"]);
@@ -105,10 +105,10 @@ echo '<td>'.$row['first_name'].'</td>';
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="deleterouter.php" method="POST">
+            <form class="form-signin" action ="../CS/endchat.php" method="POST">
                <div class="md-form mb-4">
                <i class="fa fa-comments-o fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to end conversation with <br> &nbsp; <b>'.$row['email'].' </b>?</label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$uid.' >
+                  <input type="hidden" id="inputrid" name="uid" class="form-control validate"  value='.$uid.' >
                </div>
                <div class="modal-footer d-flex justify-content-center">
                   <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Finish Chat</button>
