@@ -89,9 +89,9 @@ $no=1;
         foreach ($datanya["Data"] as $data) {
           echo '<tr>';
           echo '<th scope="row">'.$no.'</th>';
-          $uid = $data['Id'];
+          $pid = $data['Id'];
           $no++;
-          echo '<th scope="row">'.$data['Id'].'</th>';
+          echo '<th scope="row">PID'.$data['Id'].'</th>';
 
 //$row = mysqli_fetch_array($hasil);
 echo '<td>'.$data['Name'].'</td>';
@@ -101,40 +101,165 @@ echo '<td>'.$data['Name'].'</td>';
           echo '<td>'.$data['TotalDevices'].'</td>';
           echo '<td>'.$data['Duration'].'</td>';
           echo '<td>'.$data['Description'].'</td>';
-          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-edit"></i> Edit</button>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$uid.'"><i class="fa fa-ban"></i> Disable</button></td>';
+          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i> Edit</button>
+          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$pid.'"><i class="fa fa-ban"></i> Disable</button></td>';
         echo'</tr>';
 
-        echo '      <!-- Delete News -->
-<div id="myModaldelete'.$uid.'" class="modal fade" role="dialog">
-<div class="vertical-alignment-helper">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Delete News</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="deleterouter.php" method="POST">
-               <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to end chat with '.$row['email'].' ?</label>
-                  <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$uid.' >
-               </div>
-               <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">End Chat</button>
-               </div>
-            </form>
+        echo '      <!-- Update Ticket -->
+        <div id="myModal'.$pid.'" class="modal fade" role="dialog">
+        <div class="vertical-alignment-helper">
+           <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                 <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa fa-list-alt"></i> Update Ticket</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body mx-3" method="POST">
+                    <form class="form-signin" action ="deleterouter.php" method="POST">
+                                  <div class="md-form mb-4">
+                                  <input type="hidden"  name="tid" class="form-control validate"  value='.$pid.' >
+                          <i class="fa fa-newspaper-o prefix grey-text"> </i> <label for="inputrname">  Title </label>
+                          <input type="hidden" name="timg" class="form-control validate"  value='.$data['img'].'>
+                          <input type="hidden" name="id" class="form-control validate"  value='.$data['id'].' >
+                          <input type="text"  name="title" class="form-control validate" value="'.$data['title'].'" required>
+                       </div>
+                       <div class="md-form mb-4">
+                          <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
+                          <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['description'].'</textarea>
+                       </div>
+                       <div class="md-form mb-4">
+                       <i class="fa fa-picture-o prefix grey-text">  </i> <label for="inputrpwd"> News Image </label>
+                       <input type="file" name="filefoto" class="form-control validate"  >
+                    </div>
+                       
+                       <div class="modal-footer d-flex justify-content-center">
+                          <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">End Chat</button>
+                       </div>
+                    </form>
+                      </div>
+                  </div>
               </div>
           </div>
-      </div>
-  </div>
-</div>';
+        </div>';
+        echo '      <!-- Finish Ticket -->
+        <div id="myModaldelete'.$pid.'" class="modal fade" role="dialog">
+        <div class="vertical-alignment-helper">
+           <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                 <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa fa-list-alt"></i> Confirm Ticket</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body mx-3" method="POST">
+                    <form class="form-signin" action ="../ticket/finishticket.php" method="POST">
+                       <div class="md-form mb-4">
+                          <i class="fa fa-exclamation-triangle fa-3x prefix text-warning fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to disable this Package ? <br>  &nbsp; <b> PID'.$pid.'</b></label>
+                          <input type="hidden"  name="tid" class="form-control validate"  value='.$pid.' >
+                       </div>
+                       <div class="modal-footer d-flex justify-content-center">
+                          <button id="redit" class="btn btn-default btn-primary btn-block text-uppercase"><i class="fa fa-check"></i> Submit</button>
+                       </div>
+                    </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>';
     }
     echo       '</tbody>
 </table>';
 ?>
     
 </div>
+
+
+  <!-- Add Package -->
+  <div id="myModalAddPackage" class="modal fade" role="dialog">
+<div class="vertical-alignment-helper">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold"> <i class="fa fa-newspaper-o"> </i> Add Package</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body mx-3" method="POST">
+         <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
+						<table align ="text-center">   
+                     
+                  <tr> <td><i class="fa fa-newspaper-o prefix grey-text"> </i>Name</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="text" name="name" class="form-control " placeholder="Package Name" required>
+						</div></td>
+					</tr>
+
+               <tr> <td><i class="fa fa-file-text prefix grey-text"> </i>Price</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="price" class="form-control " placeholder="Price" required></input>
+						</div></td>
+					</tr>
+                  
+               <tr> <td><i class="fa fa-link prefix grey-text"></i> Type</td>
+						<td> : </td>
+						<td><div class="form-group">
+                        <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
+                        <option value="home">Home</option>
+                        <option value="office">Office</option>
+                        <option value="sites">Sites</option>
+                        </select>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> download</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="download" class="form-control " placeholder="Download" required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> upload</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="upload" class="form-control " placeholder="Upload" required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> device</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="device" class="form-control " placeholder="Max Devices" required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> duration</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="duration" class="form-control " placeholder="Day Duration " required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> description</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description ..." required></textarea>
+						</div></td>
+					</tr>
+
+					<tr> <td></td>
+                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block text-white" value="OK"><i class="fa fa-plus-square"></i> Add</button></td>
+							<td></td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 
 </body>
 </html>

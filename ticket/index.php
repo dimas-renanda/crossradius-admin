@@ -178,5 +178,92 @@ echo '      <!-- Finish Ticket -->
     
 </div>
 
+<!-- Create Tickets -->
+<div id="myModalAddTicket" class="modal fade" role="dialog">
+<div class="vertical-alignment-helper">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold"> <i class="fa fa-newspaper-o"> </i> Create Ticket</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body mx-3" method="POST">
+         <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
+						<table align ="text-center">   
+                     
+                  <tr> <td><i class="fa fa-newspaper-o prefix grey-text"> </i>Name</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="text" name="name" class="form-control " placeholder="Package Name" required>
+						</div></td>
+					</tr>
+
+               <tr> <td><i class="fa fa-file-text prefix grey-text"> </i>Price</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="price" class="form-control " placeholder="Price" required></input>
+						</div></td>
+					</tr>
+                  
+               <tr> <td><i class="fa fa-link prefix grey-text"></i> Type</td>
+						<td> : </td>
+						<td><div class="form-group">
+                        <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
+                        <option value="home">Home</option>
+                        <option value="office">Office</option>
+                        <option value="sites">Sites</option>
+                        </select>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> download</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="download" class="form-control " placeholder="Download" required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> upload</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="upload" class="form-control " placeholder="Upload" required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> device</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="device" class="form-control " placeholder="Max Devices" required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> duration</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <input type="number" name="duration" class="form-control " placeholder="Day Duration " required></input>
+						</div></td>
+					</tr>
+
+                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> description</td>
+						<td> : </td>
+						<td><div class="form-group">
+					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description ..." required></textarea>
+						</div></td>
+					</tr>
+
+					<tr> <td></td>
+                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block text-white" value="OK"><i class="fa fa-plus-square"></i> Add</button></td>
+							<td></td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -186,21 +186,21 @@ echo '      <!-- Delete News -->
 						</div></td>
 					</tr>
 
-               <tr> <td><i class="fa fa-file-text prefix grey-text"> Description</td>
+               <tr> <td><i class="fa fa-file-text prefix grey-text"></i> Description</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description" required></textarea>
 						</div></td>
 					</tr>
 
-					<tr> <td><i class="fa fa-picture-o prefix grey-text"> News Image &nbsp; (Max 2MB)</td>
+					<tr> <td><i class="fa fa-picture-o prefix grey-text"></i> News Image &nbsp; (Max 2MB)</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="file" name="filefoto" class="form-control " placeholder="News Image" required>
 						</div></td>
 					</tr>
 
-               <tr> <td><i class="fa fa-link prefix grey-text"> News Link</td>
+               <tr> <td><i class="fa fa-link prefix grey-text"></i> News Link</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="text" name="url" class="form-control " placeholder="URL Link" required>
@@ -220,6 +220,7 @@ echo '      <!-- Delete News -->
       </div>
   </div>
 </div>
+
 </body>
 </html>
 
