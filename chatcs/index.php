@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
  <head>
+ <title>CS CNM</title>
+ <link rel="icon" href="http://phoenix.crossnet.co.id/xradius/crossradius-admin/assets/img/crosstab.png">
   <script src="jquery.min.js"></script>
   <script src="chat.js"></script>
   <link href="chat.css" rel="stylesheet"/>
