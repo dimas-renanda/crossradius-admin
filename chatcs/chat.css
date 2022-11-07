@@ -101,7 +101,7 @@ z-index: 99999999999999
 
 .bubble-left,
 .bubble-right {
-    line-height: 50%;
+    line-height: 100%;
     display: block;
     position: relative;
     padding: .5em;
