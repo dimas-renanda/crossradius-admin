@@ -18,11 +18,11 @@
         $stmt = $linkadmincnm->prepare($sql);
         $stmt->execute();
 
-        // if ($stmt)
-        // {
-        //     header('Location: ' . $_SERVER['HTTP_REFERER']);
-        //     exit;
-        // }
+        if ($stmt)
+        {
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
+        }
         
 
     }
