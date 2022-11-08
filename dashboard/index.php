@@ -240,7 +240,7 @@ foreach ($hasil as $row)
       
       </form>
       <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'"><i class="fa fa-edit"></i> Edit</button>
-      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-ban" aria-hidden="true"></i> Disable</button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-ban" aria-hidden="true"></i> Remove</button>
      </div>
       
       </div>
@@ -262,32 +262,32 @@ echo '      <!-- Edit Router -->
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="editrouter.php" method="POST">
                <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Router Name </label>
+               <i class="fa fa-server prefix grey-text"></i> <label for="inputrname">  Router Name </label>
                   <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$row['id'].' >
                   <input type="text" id="inputrname" name="rname" class="form-control validate" value='.$row['session_name'].' required>
                </div>
                <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrusername"> Router Username </label>
+               <i class="fa fa-user prefix grey-text ">  </i> <label for="inputrusername"> Router Username </label>
                   <input type="text" id="inputrusername" name="rusername"class="form-control validate" value='.$row['username'].' required>
                </div>
                <div class="md-form mb-4">
-               <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Password </label>
+               <i class="fa fa-lock prefix grey-text">  </i> <label for="inputrpwd"> Router Password </label>
                <input type="password" id="inputrpwd" name="rpwd" class="form-control validate" value='.$row['password'].' required>
             </div>
             <div class="md-form mb-4">
-            <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrip"> Router IP </label>
+            <i class="fa fa-sitemap" aria-hidden="true"></i> <label for="inputrip"> Router IP </label>
             <input type="text" id="inputrip" name="rip"class="form-control validate" value='.$row['ip'].' required>
          </div>
          <div class="md-form mb-4">
-         <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrports"> Router Ports </label>
+         <i class="fa fa-exchange" aria-hidden="true"></i> <label for="inputrports"> Router Ports </label>
          <input type="text" id="inputrports" name="rports"class="form-control validate" value='.$row['ports'].' required>
       </div>
       <div class="md-form mb-4">
-      <i class="fas fa-lock prefix grey-text">  </i> <label for="inputrtype"> Router Type </label>
+      <i class="fa fa-info-circle" aria-hidden="true"></i> <label for="inputrtype"> Router Type </label>
       <input type="text" id="inputrtype" name="rtype"class="form-control validate" value='.$row['type'].' required>
    </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Edit</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"> <i class="fa fa-edit-square" aria-hidden="true"></i> Edit</button>
                </div>
             </form>
               </div>
@@ -311,12 +311,12 @@ echo '      <!-- Delete Router -->
          </div>
          <div class="modal-body mx-3" method="POST">
             <form class="form-signin" action ="deleterouter.php" method="POST">
-               <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"> </i> <label for="inputrname">  Are you sure want to delete '.$row['session_name'].' ?</label>
+               <div class="md-form mb-4 text-center">
+               <i class="fa fa-exclamation-triangle fa-3x prefix text-warning"> </i> <br> <label for="inputrname">  Are you sure want to delete this '.$row['session_name'].' router ?</label>
                   <input type="hidden" id="inputrid" name="rid" class="form-control validate"  value='.$row['id'].' >
                </div>
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">Delete</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                </div>
             </form>
               </div>
