@@ -98,9 +98,26 @@ $stmt = $linkcnm->prepare($getsql);
 $stmt->execute();
 $hasil = $stmt->get_result();
 $row = $hasil->fetch_assoc();
+
+$getsql = "SELECT time_schedule from ticketing where id = $tid and  id_user = $uid  ";
+$stmt = $linkcnm->prepare($getsql);
+$stmt->execute();
+$hasil = $stmt->get_result();
+$rowtime = $hasil->fetch_assoc();
+
+if (!empty($rowtime['time_schedule']))
+{
+   $tsf = '<i class= "text-success">'.$rowtime['time_schedule'].'</i>';
+}
+elseif(empty($rowtime['time_schedule']))
+{
+   $tsf = '<i class= "text-danger">Not Scheduled yet </i>';
+}
+
+
 //$row = mysqli_fetch_array($hasil);
 echo '<td>TC'.$data['TicketID'].'</td>';
-echo '<td>XNT'.$data['SID'].'</td>';
+echo '<td>'.$data['SID'].'</td>';
           echo '<td>'.$row['email'].'</td>';
           echo '<td>'.$data['CreationDate'].'</td>';
           echo '<td>'.$data['Topic'].'</td>';
@@ -121,25 +138,31 @@ echo '<td>XNT'.$data['SID'].'</td>';
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="deleterouter.php" method="POST">
+            <form class="form-signin" action ="updateticket.php" method="POST">
                           <div class="md-form mb-4">
                           <input type="hidden"  name="tid" class="form-control validate"  value='.$tid.' >
-                  <i class="fa fa-newspaper-o prefix grey-text"> </i> <label for="inputrname">  Title </label>
-                  <input type="hidden" name="timg" class="form-control validate"  value='.$data['img'].'>
-                  <input type="hidden" name="id" class="form-control validate"  value='.$data['id'].' >
-                  <input type="text"  name="title" class="form-control validate" value="'.$data['title'].'" required>
+                  
+                  <label for="inputrusername"> Ticket ID :   </label>
+                  <h4><b>TC'.$tid.'</b></h4>
+                  <input type="hidden" name="uid" class="form-control validate"  value='.$data['id'].' >
                </div>
                <div class="md-form mb-4">
-                  <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
-                  <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['description'].'</textarea>
+               <i class="fa fa-question-circle-o" aria-hidden="true"></i> <label for="inputrusername"> Status :  </label> <i class="text-info">'.$data['TicketStatus'].' </i>
+                  <select id="status" name="status"  class="form-select" aria-label=" select type" placeholder="Status" required>
+                  <option value="'.$data['TicketStatus'].'" disabled selected>Current Status : '.$data['TicketStatus'].'</option>
+                  <option value="waiting">Waiting</option>
+                  <option value="op">OnProcess</option>
+                  <option value="fns">Finished</option>
+                  </select>
                </div>
                <div class="md-form mb-4">
-               <i class="fa fa-picture-o prefix grey-text">  </i> <label for="inputrpwd"> News Image </label>
-               <input type="file" name="filefoto" class="form-control validate"  >
+               <i class="fa fa-calendar-check-o" aria-hidden="true"></i> <label for="inputrusername"> Fixing Time Schedule : </label> '.$tsf.'
+               <input type="date"  name="time" class="form-control validate" value="" required>
             </div>
+
                
                <div class="modal-footer d-flex justify-content-center">
-                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">End Chat</button>
+                  <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"> <i class="fa fa-check" aria-hidden="true"></i> Update Ticket</button>
                </div>
             </form>
               </div>
@@ -184,67 +207,35 @@ echo '      <!-- Finish Ticket -->
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold"> <i class="fa fa-newspaper-o"> </i> Create Ticket</h4>
+            <h4 class="modal-title w-100 font-weight-bold"> <i class=" fa fa-address-card-o"> </i> Create Ticket</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
          <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
 						<table align ="text-center">   
                      
-                  <tr> <td><i class="fa fa-newspaper-o prefix grey-text"> </i>Name</td>
+                  <tr> <td><i class="fa fa-address-card-o prefix grey-text"> </i> <br>  SID</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <input type="text" name="name" class="form-control " placeholder="Package Name" required>
+					 <input type="number" name="sid" class="form-control " placeholder="Client SID" required>
 						</div></td>
 					</tr>
 
-               <tr> <td><i class="fa fa-file-text prefix grey-text"> </i>Price</td>
+               <tr> <td><i class="fa fa-envelope-o prefix grey-text"> </i> Email</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <input type="number" name="price" class="form-control " placeholder="Price" required></input>
+					 <input type="text" name="email" class="form-control " placeholder="Client Email" required></input>
 						</div></td>
 					</tr>
                   
-               <tr> <td><i class="fa fa-link prefix grey-text"></i> Type</td>
+               <tr> <td><i class="fa fa-question-circle-o prefix grey-text"> </i> <br> Topic</td>
 						<td> : </td>
 						<td><div class="form-group">
-                        <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
-                        <option value="home">Home</option>
-                        <option value="office">Office</option>
-                        <option value="sites">Sites</option>
-                        </select>
+					 <input type="text" name="topic" class="form-control " placeholder="Topic" required></input>
 						</div></td>
 					</tr>
 
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> download</td>
-						<td> : </td>
-						<td><div class="form-group">
-					 <input type="number" name="download" class="form-control " placeholder="Download" required></input>
-						</div></td>
-					</tr>
-
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> upload</td>
-						<td> : </td>
-						<td><div class="form-group">
-					 <input type="number" name="upload" class="form-control " placeholder="Upload" required></input>
-						</div></td>
-					</tr>
-
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> device</td>
-						<td> : </td>
-						<td><div class="form-group">
-					 <input type="number" name="device" class="form-control " placeholder="Max Devices" required></input>
-						</div></td>
-					</tr>
-
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> duration</td>
-						<td> : </td>
-						<td><div class="form-group">
-					 <input type="number" name="duration" class="form-control " placeholder="Day Duration " required></input>
-						</div></td>
-					</tr>
-
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> description</td>
+                    <tr> <td><i class="fa fa-file-text-o prefix grey-text"></i> Detail</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description ..." required></textarea>
@@ -252,7 +243,7 @@ echo '      <!-- Finish Ticket -->
 					</tr>
 
 					<tr> <td></td>
-                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block text-white" value="OK"><i class="fa fa-plus-square"></i> Add</button></td>
+                        <td></td><td> <button  type="submit" class="btn btn-warning btn-block text-white" value="OK"><i class="fa fa-plus-square"></i> Create Ticket</button></td>
 							<td></td>
                         </tr>
                         

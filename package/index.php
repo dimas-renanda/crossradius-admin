@@ -111,29 +111,62 @@ echo '<td>'.$data['Name'].'</td>';
            <div class="modal-dialog" role="document">
               <div class="modal-content">
                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa fa-list-alt"></i> Update Ticket</h4>
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox"></i> Update Package</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                  <div class="modal-body mx-3" method="POST">
                     <form class="form-signin" action ="deleterouter.php" method="POST">
                                   <div class="md-form mb-4">
-                                  <input type="hidden"  name="tid" class="form-control validate"  value='.$pid.' >
-                          <i class="fa fa-newspaper-o prefix grey-text"> </i> <label for="inputrname">  Title </label>
-                          <input type="hidden" name="timg" class="form-control validate"  value='.$data['img'].'>
-                          <input type="hidden" name="id" class="form-control validate"  value='.$data['id'].' >
-                          <input type="text"  name="title" class="form-control validate" value="'.$data['title'].'" required>
+                                  <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
+                                  <i class="fa fa-inbox" aria-hidden="true"></i> <label for="inputrname">  name </label>
+                          <input type="text"  name="name" class="form-control validate" value="'.$data['Name'].'" required>
                        </div>
+
+                       <div class="md-form mb-4">
+         
+                       <i class="fa fa-money prefix grey-text"> </i> <label for="inputrname">  Price </label>
+                       <input type="number"  name="price" class="form-control validate" value="'.$data['Price'].'" required>
+                    </div>
+
+                       <div class="md-form mb-4">
+                     
+                       <i class="fa fa-building" aria-hidden="true"></i> <label for="inputrname">  Type </label>
+               <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
+               <option value="'.$data['Type'].'" disabled>Current Type: '.$data['Type'].'</option>
+               <option value="">--- Select option ---</option>
+               <option value="home">Home</option>
+               <option value="office">Office</option>
+               <option value="sites">Sites</option>
+               </select>
+            </div>
+
+            <div class="md-form mb-4">
+         
+    <i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SDownload </label>
+    <input type="number"  name="sdownload" class="form-control validate" value="'.$data['SDownload'].'" required>
+ </div>
+
+ <div class="md-form mb-4">
+<i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SUpload </label>
+<input type="number"  name="supload" class="form-control validate" value="'.$data['SUpload'].'" required>
+</div>
+
+<div class="md-form mb-4">
+<i class="fa fa-laptop" aria-hidden="true"></i> <label for="inputrname">  TotalDevices </label>
+<input type="number"  name="totaldevices" class="form-control validate" value="'.$data['TotalDevices'].'" required>
+</div>
+
+<div class="md-form mb-4">
+<i class="fa fa-clock-o" aria-hidden="true"></i> <label for="inputrname">  Duration </label>
+<input type="number"  name="duration" class="form-control validate" value="'.$data['Duration'].'" required>
+</div>
                        <div class="md-form mb-4">
                           <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
-                          <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['description'].'</textarea>
+                          <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['Description'].'</textarea>
                        </div>
-                       <div class="md-form mb-4">
-                       <i class="fa fa-picture-o prefix grey-text">  </i> <label for="inputrpwd"> News Image </label>
-                       <input type="file" name="filefoto" class="form-control validate"  >
-                    </div>
                        
                        <div class="modal-footer d-flex justify-content-center">
-                          <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase">End Chat</button>
+                          <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"> <i class="fa fa-check"></i> Update Package</button>
                        </div>
                     </form>
                       </div>
@@ -147,7 +180,7 @@ echo '<td>'.$data['Name'].'</td>';
            <div class="modal-dialog" role="document">
               <div class="modal-content">
                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa fa-list-alt"></i> Confirm Ticket</h4>
+                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox" aria-hidden="true"></i> Confirm Disable Package</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                  <div class="modal-body mx-3" method="POST">
@@ -179,28 +212,28 @@ echo '<td>'.$data['Name'].'</td>';
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold"> <i class="fa fa-newspaper-o"> </i> Add Package</h4>
+            <h4 class="modal-title w-100 font-weight-bold"> <i class="fa fa-inbox" aria-hidden="true"></i> Add Package</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
          <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
 						<table align ="text-center">   
                      
-                  <tr> <td><i class="fa fa-newspaper-o prefix grey-text"> </i>Name</td>
+                  <tr> <td><i class="fa fa-inbox" aria-hidden="true"></i> Name</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="text" name="name" class="form-control " placeholder="Package Name" required>
 						</div></td>
 					</tr>
 
-               <tr> <td><i class="fa fa-file-text prefix grey-text"> </i>Price</td>
+               <tr> <td><i class="fa fa-money prefix grey-text"> </i> Price</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="number" name="price" class="form-control " placeholder="Price" required></input>
 						</div></td>
 					</tr>
                   
-               <tr> <td><i class="fa fa-link prefix grey-text"></i> Type</td>
+               <tr> <td><i class="fa fa-building" aria-hidden="true"></i> Type</td>
 						<td> : </td>
 						<td><div class="form-group">
                         <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
@@ -211,28 +244,28 @@ echo '<td>'.$data['Name'].'</td>';
 						</div></td>
 					</tr>
 
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> download</td>
+                    <tr> <td><i class="fa fa-tachometer" aria-hidden="true"></i> download</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="number" name="download" class="form-control " placeholder="Download" required></input>
 						</div></td>
 					</tr>
 
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> upload</td>
+                    <tr> <td><i class="fa fa-tachometer" aria-hidden="true"></i> upload</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="number" name="upload" class="form-control " placeholder="Upload" required></input>
 						</div></td>
 					</tr>
 
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> device</td>
+                    <tr> <td><i class="fa fa-laptop" aria-hidden="true"></i> device</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="number" name="device" class="form-control " placeholder="Max Devices" required></input>
 						</div></td>
 					</tr>
 
-                    <tr> <td><i class="fa fa-file-text prefix grey-text"></i> duration</td>
+                    <tr> <td><i class="fa fa-clock-o" aria-hidden="true"></i> duration</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="number" name="duration" class="form-control " placeholder="Day Duration " required></input>
