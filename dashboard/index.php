@@ -211,7 +211,7 @@ echo '<div class="container ">
 
 
 
-$getsql = "SELECT * from router_nas";
+$getsql = "SELECT * from router_nas where isdeleted != '1' ";
 $stmt = $linkadmincnm->prepare($getsql);
 $stmt->execute();
 $hasil = $stmt->get_result();
@@ -240,7 +240,7 @@ foreach ($hasil as $row)
       
       </form>
       <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal'.$row['id'].'"><i class="fa fa-edit"></i> Edit</button>
-      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-trash"></i> Disable</button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$row['id'].'"><i class="fa fa-ban" aria-hidden="true"></i> Disable</button>
      </div>
       
       </div>

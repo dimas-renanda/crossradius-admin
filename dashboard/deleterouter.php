@@ -8,7 +8,7 @@
         echo $rid;
         // check data login
         // SELECT * FROM user WHERE email = '$username'
-        $sql = "DELETE FROM router_nas WHERE id = $rid ";
+        $sql = "UPDATE router_nas set isdeleted = '1' WHERE id = $rid ";
         $stmt = $linkadmincnm->prepare($sql);
         $stmt->execute();
         echo $sql;
