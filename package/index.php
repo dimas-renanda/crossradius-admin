@@ -133,7 +133,7 @@ echo '<td>'.$data['Name'].'</td>';
                        <i class="fa fa-building" aria-hidden="true"></i> <label for="inputrname">  Type </label>
                <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
                <option value="'.$data['Type'].'" disabled>Current Type: '.$data['Type'].'</option>
-               <option value="">--- Select option ---</option>
+               <option value="'.$data['Type'].'">--- Select option ---</option>
                <option value="home">Home</option>
                <option value="office">Office</option>
                <option value="sites">Sites</option>
