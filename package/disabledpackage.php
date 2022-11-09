@@ -51,13 +51,12 @@ if (sidebarToggle) {
 <body>
 
 <div class="col-md" style="padding-left: 20px; padding-top: 20px; padding-bottom: 20px; padding-right: 20px;">
-<h3>Packages</h3>
+<h3>Disabled Packages</h3>
 <hr>
 
 
 
-<a href="../admin/?page=disabled_package"><button class="btn btn-info pull-left text-white"  ><i class="fa fa-eye"></i> Show Disabled Package</button></a>
-
+<a href="../admin/?page=packages"><button class="btn btn-info pull-left text-white"  ><i class="fa fa-list"></i>  All Package</button></a>
 <button class="btn btn-info pull-right text-white" data-bs-toggle="modal" data-bs-target="#myModalAddPackage" ><i class="fa fa-plus"></i> Add Package</button>
 
 
@@ -67,8 +66,16 @@ if (sidebarToggle) {
 <?php 
 
 $json = file_get_contents('http://phoenix.crossnet.co.id:38600/packages');
-$datanya = json_decode($json,true);
-//var_dump($datanya["Data"]);
+$isinya = json_decode($json,true);
+//var_dump($isinya["Data"]);
+echo "<br>";
+echo "<br>";
+$getsql = "SELECT * from package where isdeleted = 1 ";
+$stmt = $linkcnm->prepare($getsql);
+$stmt->execute();
+$hasil = $stmt->get_result();
+$linkcnm->close();
+// $datanya = $hasil->fetch_assoc();
 echo'<table id ="example" class="table table-bordered table-striped text-center">
 <thead>
 <tr>
@@ -86,119 +93,135 @@ echo'<table id ="example" class="table table-bordered table-striped text-center"
 </tr>
 </thead>
 <tbody>';
-$no=1;
-        foreach ($datanya["Data"] as $data) {
-          echo '<tr>';
-          echo '<th scope="row">'.$no.'</th>';
-          $pid = $data['Id'];
-          $no++;
-          echo '<th scope="row">PID'.$data['Id'].'</th>';
+
+if ($hasil->num_rows > 0) {
+   $no=1;
+   // output data of each row
+   while($row = $hasil->fetch_assoc()) {
+      echo '<tr>';
+      echo '<th scope="row">'.$no.'</th>';
+      $pid = $row['id'];
+      $no++;
+      echo '<th scope="row">PID'.$row['id'].'</th>';
 
 //$row = mysqli_fetch_array($hasil);
-echo '<td>'.$data['Name'].'</td>';
-          echo '<td>'.$data['Price'].'</td>';
-          echo '<td>'.$data['Type'].'</td>';
-          echo '<td>'.$data['SDownload'].'/'.$data['SUpload'].'</td>';
-          echo '<td>'.$data['TotalDevices'].'</td>';
-          echo '<td>'.$data['Duration'].'</td>';
-          echo '<td>'.$data['Description'].'</td>';
-          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i> Edit</button>
-          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$pid.'"><i class="fa fa-ban"></i> Disable</button></td>';
-        echo'</tr>';
+echo '<td>'.$row['name'].'</td>';
+      echo '<td>'.$row['price'].'</td>';
+      echo '<td>'.$row['type'].'</td>';
+      echo '<td>'.$row['s_download'].'/'.$row['s_upload'].'</td>';
+      echo '<td>'.$row['total_devices'].'</td>';
+      echo '<td>'.$row['duration_days'].'</td>';
+      echo '<td>'.$row['description'].'</td>';
+      echo '<td >      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i> Edit</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$pid.'"><i class="fa fa-check"></i> Enable</button></td>';
+    echo'</tr>';
 
-        echo '      <!-- Update Ticket -->
-        <div id="myModal'.$pid.'" class="modal fade" role="dialog">
-        <div class="vertical-alignment-helper">
-           <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox"></i> Update Package</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
-                 <div class="modal-body mx-3" method="POST">
-                    <form class="form-signin" action ="../package/editpackage.php" method="POST">
-                                  <div class="md-form mb-4">
-                                  <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
-                                  <i class="fa fa-inbox" aria-hidden="true"></i> <label for="inputrname">  name </label>
-                          <input type="text"  name="name" class="form-control validate" value="'.$data['Name'].'" required>
-                       </div>
+    echo '      <!-- Update Ticket -->
+    <div id="myModal'.$pid.'" class="modal fade" role="dialog">
+    <div class="vertical-alignment-helper">
+       <div class="modal-dialog" role="document">
+          <div class="modal-content">
+             <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox"></i> Update Package</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body mx-3" method="POST">
+                <form class="form-signin" action ="../package/editpackage.php" method="POST">
+                              <div class="md-form mb-4">
+                              <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
+                              <i class="fa fa-inbox" aria-hidden="true"></i> <label for="inputrname">  name </label>
+                      <input type="text"  name="name" class="form-control validate" value="'.$row['name'].'" required>
+                   </div>
 
-                       <div class="md-form mb-4">
-         
-                       <i class="fa fa-money prefix grey-text"> </i> <label for="inputrname">  Price </label>
-                       <input type="number"  name="price" class="form-control validate" value="'.$data['Price'].'" required>
-                    </div>
+                   <div class="md-form mb-4">
+     
+                   <i class="fa fa-money prefix grey-text"> </i> <label for="inputrname">  Price </label>
+                   <input type="number"  name="price" class="form-control validate" value="'.$row['price'].'" required>
+                </div>
 
-                       <div class="md-form mb-4">
-                     
-                       <i class="fa fa-building" aria-hidden="true"></i> <label for="inputrname">  Type </label>
-               <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
-               <option value="'.$data['Type'].'" disabled>Current Type: '.$data['Type'].'</option>
-               <option value="'.$data['Type'].'">--- Select option ---</option>
-               <option value="home">Home</option>
-               <option value="office">Office</option>
-               <option value="sites">Sites</option>
-               </select>
-            </div>
+                   <div class="md-form mb-4">
+                 
+                   <i class="fa fa-building" aria-hidden="true"></i> <label for="inputrname">  Type </label>
+           <select id="type" name="type"  class="form-select" aria-label=" select type" placeholder="URL Link" required>
+           <option value="'.$row['type'].'" disabled>Current Type: '.$row['type'].'</option>
+           <option value="'.$row['type'].'">--- Select option ---</option>
+           <option value="home">Home</option>
+           <option value="office">Office</option>
+           <option value="sites">Sites</option>
+           </select>
+        </div>
 
-            <div class="md-form mb-4">
-         
-    <i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SDownload </label>
-    <input type="number"  name="download" class="form-control validate" value="'.$data['SDownload'].'" required>
- </div>
+        <div class="md-form mb-4">
+     
+<i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SDownload </label>
+<input type="number"  name="download" class="form-control validate" value="'.$row['s_download'].'" required>
+</div>
 
- <div class="md-form mb-4">
+<div class="md-form mb-4">
 <i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SUpload </label>
-<input type="number"  name="upload" class="form-control validate" value="'.$data['SUpload'].'" required>
+<input type="number"  name="upload" class="form-control validate" value="'.$row['s_upload'].'" required>
 </div>
 
 <div class="md-form mb-4">
 <i class="fa fa-laptop" aria-hidden="true"></i> <label for="inputrname">  TotalDevices </label>
-<input type="number"  name="device" class="form-control validate" value="'.$data['TotalDevices'].'" required>
+<input type="number"  name="device" class="form-control validate" value="'.$row['total_devices'].'" required>
 </div>
 
 <div class="md-form mb-4">
 <i class="fa fa-clock-o" aria-hidden="true"></i> <label for="inputrname">  Duration </label>
-<input type="number"  name="duration" class="form-control validate" value="'.$data['Duration'].'" required>
+<input type="number"  name="duration" class="form-control validate" value="'.$row['duration_days'].'" required>
 </div>
-                       <div class="md-form mb-4">
-                          <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
-                          <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$data['Description'].'</textarea>
-                       </div>
-                       
-                       <div class="modal-footer d-flex justify-content-center">
-                          <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"> <i class="fa fa-check"></i> Update Package</button>
-                       </div>
-                    </form>
-                      </div>
+                   <div class="md-form mb-4">
+                      <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Description </label>
+                      <textarea rows="4" cols="50"  name="description"class="form-control validate"  required>'.$row['description'].'</textarea>
+                   </div>
+                   
+                   <div class="modal-footer d-flex justify-content-center">
+                      <button id="redit" class="btn btn-default btn-dark btn-block text-uppercase"> <i class="fa fa-check"></i> Update Package</button>
+                   </div>
+                </form>
                   </div>
               </div>
           </div>
-        </div>';
-        echo '      <!-- Finish Ticket -->
-        <div id="myModaldelete'.$pid.'" class="modal fade" role="dialog">
-        <div class="vertical-alignment-helper">
-           <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox" aria-hidden="true"></i> Confirm Disable Package</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
-                 <div class="modal-body mx-3" method="POST">
-                    <form class="form-signin" action ="../package/deletepackage.php" method="POST">
-                       <div class="md-form mb-4">
-                          <i class="fa fa-exclamation-triangle fa-3x prefix text-warning fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to disable this Package ? <br>  &nbsp; <b> PID'.$pid.'</b></label>
-                          <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
-                       </div>
-                       <div class="modal-footer d-flex justify-content-center">
-                          <button id="redit" class="btn btn-default btn-primary btn-block text-uppercase"><i class="fa fa-check"></i> Submit</button>
-                       </div>
-                    </form>
-                      </div>
+      </div>
+    </div>';
+    echo '      <!-- Finish Ticket -->
+    <div id="myModaldelete'.$pid.'" class="modal fade" role="dialog">
+    <div class="vertical-alignment-helper">
+       <div class="modal-dialog" role="document">
+          <div class="modal-content">
+             <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox" aria-hidden="true"></i> Confirm Enable Package</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body mx-3" method="POST">
+                <form class="form-signin" action ="../package/enablepackage.php" method="POST">
+                   <div class="md-form mb-4">
+                      <i class="fa fa-info-circle fa-3x prefix text-info fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to enable this Package ? <br>  &nbsp; <b> PID'.$pid.'</b></label>
+                      <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
+                   </div>
+                   <div class="modal-footer d-flex justify-content-center">
+                      <button id="redit" class="btn btn-default btn-primary btn-block text-uppercase"><i class="fa fa-check"></i> Submit</button>
+                   </div>
+                </form>
                   </div>
               </div>
           </div>
-        </div>';
+      </div>
+    </div>';
+   }
+ } 
+ else {
+   echo "0 results";
+ }
+
+
+
+//var_dump($datanya);
+
+
+        foreach ($datanya as $row) {
+
     }
     echo       '</tbody>
 </table>';

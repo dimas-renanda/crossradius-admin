@@ -115,6 +115,10 @@ if (sidebarToggle) {
                                 {
                                     require_once '../package/index.php';
                                 }
+                                elseif($content=='disabled_package')
+                                {
+                                    require_once '../package/disabledpackage.php';
+                                }
                                 else{
 
                                     echo'
