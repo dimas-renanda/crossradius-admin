@@ -138,27 +138,32 @@ echo '<td>'.$data['SID'].'</td>';
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-            <form class="form-signin" action ="updateticket.php" method="POST">
+            <form class="form-signin" action ="../ticket/updateticket.php" method="POST">
                           <div class="md-form mb-4">
                           <input type="hidden"  name="tid" class="form-control validate"  value='.$tid.' >
                   
                   <label for="inputrusername"> Ticket ID :   </label>
                   <h4><b>TC'.$tid.'</b></h4>
-                  <input type="hidden" name="uid" class="form-control validate"  value='.$data['id'].' >
                </div>
                <div class="md-form mb-4">
                <i class="fa fa-question-circle-o" aria-hidden="true"></i> <label for="inputrusername"> Status :  </label> <i class="text-info">'.$data['TicketStatus'].' </i>
                   <select id="status" name="status"  class="form-select" aria-label=" select type" placeholder="Status" required>
                   <option value="'.$data['TicketStatus'].'" disabled selected>Current Status : '.$data['TicketStatus'].'</option>
                   <option value="waiting">Waiting</option>
-                  <option value="op">OnProcess</option>
-                  <option value="fns">Finished</option>
+                  <option value="OnProccess">OnProcess</option>
+                  <option value="Finished">Finished</option>
                   </select>
                </div>
+
                <div class="md-form mb-4">
                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> <label for="inputrusername"> Fixing Time Schedule : </label> '.$tsf.'
-               <input type="date"  name="time" class="form-control validate" value="" required>
+               <input type="date"  name="time" class="form-control validate" value="" >
             </div>
+
+            <div class="md-form mb-4">
+            <i class="fa fa-file-text prefix grey-text">  </i> <label for="inputrusername"> Detail </label>
+            <textarea rows="4" cols="50"  name="detail"class="form-control validate"  required>'.$data['TicketDetail'].'</textarea>
+         </div>
 
                
                <div class="modal-footer d-flex justify-content-center">

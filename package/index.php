@@ -115,7 +115,7 @@ echo '<td>'.$data['Name'].'</td>';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                  <div class="modal-body mx-3" method="POST">
-                    <form class="form-signin" action ="deleterouter.php" method="POST">
+                    <form class="form-signin" action ="../package/editpackage.php" method="POST">
                                   <div class="md-form mb-4">
                                   <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
                                   <i class="fa fa-inbox" aria-hidden="true"></i> <label for="inputrname">  name </label>
@@ -143,17 +143,17 @@ echo '<td>'.$data['Name'].'</td>';
             <div class="md-form mb-4">
          
     <i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SDownload </label>
-    <input type="number"  name="sdownload" class="form-control validate" value="'.$data['SDownload'].'" required>
+    <input type="number"  name="download" class="form-control validate" value="'.$data['SDownload'].'" required>
  </div>
 
  <div class="md-form mb-4">
 <i class="fa fa-tachometer" aria-hidden="true"></i> <label for="inputrname">  SUpload </label>
-<input type="number"  name="supload" class="form-control validate" value="'.$data['SUpload'].'" required>
+<input type="number"  name="upload" class="form-control validate" value="'.$data['SUpload'].'" required>
 </div>
 
 <div class="md-form mb-4">
 <i class="fa fa-laptop" aria-hidden="true"></i> <label for="inputrname">  TotalDevices </label>
-<input type="number"  name="totaldevices" class="form-control validate" value="'.$data['TotalDevices'].'" required>
+<input type="number"  name="device" class="form-control validate" value="'.$data['TotalDevices'].'" required>
 </div>
 
 <div class="md-form mb-4">
@@ -184,10 +184,10 @@ echo '<td>'.$data['Name'].'</td>';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                  <div class="modal-body mx-3" method="POST">
-                    <form class="form-signin" action ="../ticket/finishticket.php" method="POST">
+                    <form class="form-signin" action ="../package/deletepackage.php" method="POST">
                        <div class="md-form mb-4">
                           <i class="fa fa-exclamation-triangle fa-3x prefix text-warning fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to disable this Package ? <br>  &nbsp; <b> PID'.$pid.'</b></label>
-                          <input type="hidden"  name="tid" class="form-control validate"  value='.$pid.' >
+                          <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
                        </div>
                        <div class="modal-footer d-flex justify-content-center">
                           <button id="redit" class="btn btn-default btn-primary btn-block text-uppercase"><i class="fa fa-check"></i> Submit</button>
@@ -216,7 +216,7 @@ echo '<td>'.$data['Name'].'</td>';
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-         <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
+         <form action='../package/addpackage.php' method="POST" enctype="multipart/form-data">
 						<table align ="text-center">   
                      
                   <tr> <td><i class="fa fa-inbox" aria-hidden="true"></i> Name</td>
