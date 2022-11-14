@@ -112,8 +112,10 @@ echo '<td>'.$row['name'].'</td>';
       echo '<td>'.$row['total_devices'].'</td>';
       echo '<td>'.$row['duration_days'].'</td>';
       echo '<td>'.$row['description'].'</td>';
-      echo '<td >      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i> Edit</button>
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$pid.'"><i class="fa fa-check"></i> Enable</button></td>';
+      echo '<td >      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i></button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$pid.'"><i class="fa fa-check"></i></button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModalremove'.$pid.'"><i class="fa fa-trash"></i></button>
+      </td>';
     echo'</tr>';
 
     echo '      <!-- Update Ticket -->
