@@ -211,6 +211,32 @@ echo '<td>'.$row['name'].'</td>';
           </div>
       </div>
     </div>';
+
+    echo '      <!-- Finish Ticket -->
+    <div id="myModalremove'.$pid.'" class="modal fade" role="dialog">
+    <div class="vertical-alignment-helper">
+       <div class="modal-dialog" role="document">
+          <div class="modal-content">
+             <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold"><i class="fa fa-inbox" aria-hidden="true"></i> Confirm Delete Package</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body mx-3" method="POST">
+                <form class="form-signin" action ="../package/deletepackage.php" method="POST">
+                   <div class="md-form mb-4">
+                      <i class="fa fa-exclamation-triangle fa-3x prefix text-warning"> </i> <label for="inputrname"> &nbsp; Are you sure want to delete this Package ? <br>  &nbsp; <b> PID'.$pid.'</b></label>
+                      <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
+                   </div>
+                   <div class="modal-footer d-flex justify-content-center">
+                      <button id="redit" class="btn btn-default btn-danger btn-block text-uppercase"><i class="fa fa-trash"></i> Delete</button>
+                   </div>
+                </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>';
+
    }
  } 
  else {

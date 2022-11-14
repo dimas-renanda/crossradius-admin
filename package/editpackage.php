@@ -12,19 +12,11 @@ $riv = $_POST['device'];
 $rir = $_POST['duration'];
 $ric = $_POST['description'];
 
-//echo $ri,$rt,$rd,$ru;
-
   $sql_update = "UPDATE package set `name`= '$rin',`price`= '$rip',`type`= '$rit',`s_download`= '$rid',`s_upload`= '$riu',`total_devices`= '$riv',`duration_days`= '$rir',`description`= '$ric' where id = '$rpid' ";
-  //echo "kosongg", $_FILES["filefoto"]["name"] , "kosongg <br> Tidak Mengganti Fotoo yang adaa.....";
-
-
-
 
   $stmt = $linkcnm->prepare($sql_update);
   $stmt->execute();
-  //echo mysqli_error($linkadmincnm);
-//echo $sql_update;
-  //echo $dirfilenya;
+
   if ($stmt) 
   {
     echo "<script>Edit News Success');</script>";

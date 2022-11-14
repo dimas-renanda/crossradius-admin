@@ -31,8 +31,6 @@ $row = $hasil->fetch_assoc();
     $_SESSION["loggedin"] = true;
     $_SESSION["email"] = $emailnya;
     $_SESSION["idnya"] =  $row['id'];
-    // var_dump($getsql);
-    // echo "hi" , $_SESSION["idnya"];
     echo '<script type="text/javascript">window.location.href="http://'.$domainnya.'/xradius/crossradius-admin/dashboard";</script>';
 }
 else
