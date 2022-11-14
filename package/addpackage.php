@@ -14,7 +14,7 @@ $ric = $_POST['description'];
 
 //echo $ri,$rt,$rd,$ru;
 
-  $sql_update = "INSERT INTO package (name,price,type,s_download,s_upload,total_devices,duration_days,description) VALUES ('$rin','$rip','$rit','$rid','$riu','$riv','$rir','$ric',0)";
+  $sql_update = "INSERT INTO package (name,price,type,s_download,s_upload,total_devices,duration_days,description,isdeleted) VALUES ('$rin','$rip','$rit','$rid','$riu','$riv','$rir','$ric',0)";
   //echo "kosongg", $_FILES["filefoto"]["name"] , "kosongg <br> Tidak Mengganti Fotoo yang adaa.....";
 
 
