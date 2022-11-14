@@ -185,7 +185,7 @@ echo '<td>'.$data['Name'].'</td>';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                  <div class="modal-body mx-3" method="POST">
-                    <form class="form-signin" action ="../package/disablepackage.php" method="POST">
+                    <form class="form-signin" action ="../package/dispackage.php" method="POST">
                        <div class="md-form mb-4">
                           <i class="fa fa-exclamation-triangle fa-3x prefix text-warning fa-3x prefix text-primary"> </i> <label for="inputrname"> &nbsp; Are you sure want to disable this Package ? <br>  &nbsp; <b> PID'.$pid.'</b></label>
                           <input type="hidden"  name="pid" class="form-control validate"  value='.$pid.' >
