@@ -216,7 +216,7 @@ echo '      <!-- Finish Ticket -->
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body mx-3" method="POST">
-         <form action='uploadmedia.php' method="POST" enctype="multipart/form-data">
+         <form action='../ticket/addticket.php' method="POST" enctype="multipart/form-data">
 						<table align ="text-center">   
                      
                   <tr> <td><i class="fa fa-address-card-o prefix grey-text"> </i> <br>  SID</td>
@@ -226,12 +226,12 @@ echo '      <!-- Finish Ticket -->
 						</div></td>
 					</tr>
 
-               <tr> <td><i class="fa fa-envelope-o prefix grey-text"> </i> Email</td>
+               <!-- <tr> <td><i class="fa fa-envelope-o prefix grey-text"> </i> Email</td>
 						<td> : </td>
 						<td><div class="form-group">
 					 <input type="text" name="email" class="form-control " placeholder="Client Email" required></input>
 						</div></td>
-					</tr>
+					</tr> -->
                   
                <tr> <td><i class="fa fa-question-circle-o prefix grey-text"> </i> <br> Topic</td>
 						<td> : </td>
@@ -243,7 +243,7 @@ echo '      <!-- Finish Ticket -->
                     <tr> <td><i class="fa fa-file-text-o prefix grey-text"></i> Detail</td>
 						<td> : </td>
 						<td><div class="form-group">
-					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Description ..." required></textarea>
+					 <textarea rows="4" cols="50" name="description" class="form-control " placeholder="Progress Description ..." required></textarea>
 						</div></td>
 					</tr>
 
