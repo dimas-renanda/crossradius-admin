@@ -20,7 +20,7 @@ $row = $hasil->fetch_assoc();
 
 $count = $row['COUNT(*)'];
 
-echo "Accessed from : ",$ip,'<br>';
+echo "Accessed from : xxx",substr($ip,3),'<br>';
 
 echo "Attempts : ",$count,'<br>';
 
