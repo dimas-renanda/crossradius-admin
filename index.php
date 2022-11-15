@@ -2,6 +2,40 @@
 require_once "conf/headhtml.php";
 require_once "conf/conn.php";
 session_start();
+
+
+
+
+$ip = $_SERVER["REMOTE_ADDR"];
+
+$getsql = "SELECT COUNT(*) FROM `ip` WHERE `address` LIKE '$ip' AND `timestamp` > (now() - interval 10 minute)";
+
+$stmt = $linkadmincnm->prepare($getsql);
+$stmt->execute();
+$hasil = $stmt->get_result();
+$row = $hasil->fetch_assoc();
+
+
+
+
+$count = $row['COUNT(*)'];
+
+echo "Accessed from : ",$ip,'<br>';
+
+echo "Attempts : ",$count,'<br>';
+
+
+if($count > 3){
+  echo "Max Limit Attempts in 10 minutes";
+}
+elseif($count < 3)
+{
+$getsql = "DELETE FROM `ip` WHERE `address` LIKE '$ip' AND `timestamp`  < (NOW() - INTERVAL 10 MINUTE)";
+$stmt = $linkadmincnm->prepare($getsql);
+$stmt->execute();
+}
+
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   header("location: ./dashboard");
   exit;
@@ -34,7 +68,16 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
         </tr>
         <tr>
           <td class="align-middle text-center">
-            <input style="width: 100%; margin-top:20px; height: 35px; font-weight: bold; font-size: 17px;" class="btn-login bg-primary pointer" type="submit" name="login" value="Login">
+            <?php 
+            if($count >= 3){
+              echo "<i class='text-danger'> Try again in 10 minutes !</i>";
+              echo '<button style="width: 100%; margin-top:20px; height: 35px; font-weight: bold; font-size: 17px;" class="btn-login bg-danger" type="button" disabled ><i class="fa fa-warning"></i> Limit Attemp</button>  ';
+            }
+            elseif ($count < 3)
+            {
+              echo ' <input style="width: 100%; margin-top:20px; height: 35px; font-weight: bold; font-size: 17px;" class="btn-login bg-primary pointer" type="submit" name="login" value="Login">';
+            }
+            ?>
           </td>
         </tr>
         <tr>

