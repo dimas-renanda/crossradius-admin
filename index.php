@@ -20,7 +20,7 @@ echo "Attempts : ",$count,'<br>';
 
 
 if($count > 3){
-  echo "Max Limit Attempts in 10 minutes";
+  echo "LIMIT ATTEMPT";
 }
 elseif($count == 2)
 {
