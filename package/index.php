@@ -102,7 +102,7 @@ echo '<td>'.$data['Name'].'</td>';
           echo '<td>'.$data['TotalDevices'].'</td>';
           echo '<td>'.$data['Duration'].'</td>';
           echo '<td>'.$data['Description'].'</td>';
-          echo '<td >      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i></button>
+          echo '<td >      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal'.$pid.'"><i class="fa fa-edit"></i></button>
           <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModaldelete'.$pid.'"><i class="fa fa-ban"></i></button></td>';
         echo'</tr>';
 
