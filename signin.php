@@ -26,7 +26,12 @@ $stmt->execute();
 
 if ($jsonArrayResponse["Message"] == "Login Success")
 {
-    $getsql = "SELECT id from user where email = '$emailnya'";
+
+    $getsql = "DELETE FROM `ip` WHERE `address` LIKE '$ip'";
+    $stmt = $linkadmincnm->prepare($getsql);
+    $stmt->execute();
+
+$getsql = "SELECT id from user where email = '$emailnya'";
 $stmt = $linkcnm->prepare($getsql);
 $stmt->execute();
 $hasil = $stmt->get_result();
