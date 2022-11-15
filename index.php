@@ -3,9 +3,6 @@ require_once "conf/headhtml.php";
 require_once "conf/conn.php";
 session_start();
 
-
-
-
 $ip = $_SERVER["REMOTE_ADDR"];
 
 $getsql = "SELECT COUNT(*) FROM `ip` WHERE `address` LIKE '$ip' AND `timestamp` > (now() - interval 10 minute)";
@@ -14,9 +11,6 @@ $stmt = $linkadmincnm->prepare($getsql);
 $stmt->execute();
 $hasil = $stmt->get_result();
 $row = $hasil->fetch_assoc();
-
-
-
 
 $count = $row['COUNT(*)'];
 
