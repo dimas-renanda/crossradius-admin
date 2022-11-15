@@ -28,6 +28,10 @@ echo "Attempts : ",$count,'<br>';
 if($count > 3){
   echo "Max Limit Attempts in 10 minutes";
 }
+elseif($count == 2)
+{
+  echo "Warning Last Attempt Before Limit";
+}
 elseif($count < 3)
 {
 $getsql = "DELETE FROM `ip` WHERE `address` LIKE '$ip' AND `timestamp`  < (NOW() - INTERVAL 10 MINUTE)";
