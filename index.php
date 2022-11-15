@@ -75,7 +75,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             <?php 
             if($count >= 3){
               echo "<i class='text-danger'> Try again in 10 minutes !</i>";
-              echo '<button style="width: 100%; margin-top:20px; height: 35px; font-weight: bold; font-size: 17px;" class="btn-login bg-danger" type="button" disabled ><i class="fa fa-warning"></i> Limit Attemp</button>  ';
+              echo '<button style="width: 100%; margin-top:20px; height: 35px; font-weight: bold; font-size: 17px;" class="btn-login bg-danger" type="button" disabled ><i class="fa fa-warning"></i> Max Limit</button>  ';
             }
             elseif ($count < 3)
             {
