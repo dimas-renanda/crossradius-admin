@@ -1,17 +1,17 @@
 <?php
 require_once "method.php";
-$mhs = new News();
+$berita = new News();
 $request_method=$_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
 	case 'GET':
 			if(!empty($_GET["id"]))
 			{
 				$id=intval($_GET["id"]);
-				$mhs->get_newsid($id);
+				$berita->get_newsid($id);
 			}
 			else
 			{
-				$mhs->get_news();
+				$berita->get_news();
 			}
 			break;
 	default:
